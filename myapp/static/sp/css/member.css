@@ -1,0 +1,498 @@
+/* ------------------------------------------
+  Member detail
+------------------------------------------ */
+#memberDetail {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+}
+
+#memberDetail a {
+  display: inline-block;
+}
+
+#memberDetail .detailMenu {
+  position: relative;
+  padding: 9px 5px;
+  background: #ffffff;
+  text-align: center;
+  font-size: 12px;
+}
+
+#memberDetail .detailMenu #menuTab {
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #999999;
+  background: #999999;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#memberDetail .detailMenu #menuTab li {
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  -ms-border-radius: 3px 0 0 3px;
+  -o-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+  display: table-cell;
+  width: 90px;
+  height: 28px;
+  vertical-align: middle;
+  background: #f2f2f2;
+  color: #333333;
+  text-align: center;
+}
+#memberDetail .detailMenu #menuTab li:last-child {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  -ms-border-radius: 0 3px 3px 0;
+  -o-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+
+#memberDetail .detailMenu #menuTab .open {
+  background: #999999;
+  color: #ffffff;
+}
+
+#memberDetail .detailMenu .close {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: table-cell;
+  position: absolute;
+  right: 6px;
+  top: 9px;
+  width: 56px;
+  height: 30px;
+  line-height: 30px;
+  color: #ffffff;
+  background: #bf0000;
+  text-align: center;
+}
+
+/* ------------------------------------------
+  Status info
+------------------------------------------ */
+#statusInfo {
+  display: block;
+  background: #ffffff;
+  font-size: 14px;
+  border-top: 3px solid #cccccc;
+}
+#statusInfo.diamond {
+  border-top: 3px solid #674f73;
+}
+#statusInfo.diamond .rankBox .rankInner::before {
+  background-image: url(../img/sprite_rank.png);
+  background-position: 0px 0px;
+  width: 45px;
+  height: 60px;
+  background-size: 145px 125px;
+}
+#statusInfo.diamond .rankBox .rank a {
+  color: #674f73;
+}
+#statusInfo.platinum {
+  border-top: 3px solid #8ccae7;
+}
+#statusInfo.platinum .rankBox .rankInner::before {
+  background-image: url(../img/sprite_rank.png);
+  background-position: -100px 0px;
+  width: 45px;
+  height: 60px;
+  background-size: 145px 125px;
+}
+#statusInfo.platinum .rankBox .rank a {
+  color: #8ccae7;
+}
+#statusInfo.gold {
+  border-top: 3px solid #ce9600;
+}
+#statusInfo.gold .rankBox .rankInner::before {
+  background-image: url(../img/sprite_rank.png);
+  background-position: -50px 0px;
+  width: 45px;
+  height: 60px;
+  background-size: 145px 125px;
+}
+#statusInfo.gold .rankBox .rank a {
+  color: #ce9600;
+}
+#statusInfo.silver {
+  border-top: 3px solid #b4b4b4;
+}
+#statusInfo.silver .rankBox .rankInner::before {
+  background-image: url(../img/sprite_rank.png);
+  background-position: 0px -65px;
+  width: 45px;
+  height: 60px;
+  background-size: 145px 125px;
+}
+#statusInfo.silver .rankBox .rank a {
+  color: #b4b4b4;
+}
+#statusInfo.normal .personalInfo .rankBox .rankInner {
+  padding-left: 0;
+}
+#statusInfo.normal .personalInfo .rankBox .rankInner::before {
+  display: none;
+}
+#statusInfo .personalInfo a {
+  text-decoration: none;
+}
+#statusInfo .personalInfo .rankBox {
+  padding: 17px 15px 10px;
+  border-bottom: 1px solid #cccccc;
+}
+#statusInfo .personalInfo .rankBox .rankInner {
+  position: relative;
+  padding-left: 70px;
+}
+#statusInfo .personalInfo .rankBox .rankInner::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+}
+#statusInfo .personalInfo .rankBox .rankInner > * {
+  line-height: 1em;
+  margin-bottom: 10px;
+}
+#statusInfo .personalInfo .rankBox .rankInner > *:last-child {
+  margin-bottom: 0;
+}
+#statusInfo .personalInfo .rankBox .rankInner a {
+  font-size: 16px;
+}
+#statusInfo .personalInfo .rankBox .name {
+  margin-bottom: 8px;
+}
+#statusInfo .personalInfo .rankBox .name a {
+  display: inline;
+  color: #bf0000;
+  font-weight: bold;
+  line-height: 1.2;
+}
+#statusInfo .personalInfo .rankBox .rank a {
+  margin-left: 1px;
+  font-weight: bold;
+}
+#statusInfo .personalInfo .rankBox .mypage a {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: table-cell;
+  width: 122px;
+  height: 32px;
+  vertical-align: middle;
+  margin: 0 auto;
+  border: 1px solid #b3b3b3;
+  background: #f2f2f2;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+#statusInfo .personalInfo .pointBox {
+  padding: 17px 15px 12px;
+  border-bottom: 1px solid #cccccc;
+}
+#statusInfo .personalInfo .pointBox dl {
+  position: relative;
+  display: table;
+  width: 100%;
+  line-height: 1.7em;
+  margin-bottom: 3px;
+}
+#statusInfo .personalInfo .pointBox dl.first::before {
+  height: 15px;
+  top: -5px;
+}
+#statusInfo .personalInfo .pointBox dl::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 7px;
+  display: block;
+  width: 7.5px;
+  height: 25px;
+  border-left: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+#statusInfo .personalInfo .pointBox dl > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+#statusInfo .personalInfo .pointBox dl dt {
+  padding-left: 20px;
+}
+#statusInfo .personalInfo .pointBox dl dd {
+  text-align: right;
+  font-size: 20px;
+  color: #bf0000;
+}
+#statusInfo .personalInfo .pointBox dl dd.limited {
+  color: #0f218b;
+}
+#statusInfo .personalInfo .pointBox .total {
+  margin-bottom: 5px;
+}
+#statusInfo .personalInfo .pointBox .total::before {
+  display: none;
+}
+#statusInfo .personalInfo .pointBox .total dt {
+  float: left;
+  padding: 2px 0 0 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+#statusInfo .personalInfo .pointBox .total dd {
+  float: right;
+  font-size: 26px;
+}
+#statusInfo .extraInfo {
+  padding: 10px 15px;
+  border-bottom: 1px solid #b3b3b3;
+}
+#statusInfo .extraInfo a {
+  position: relative;
+  display: block;
+  margin-bottom: 5px;
+  padding: 10px 10px 10px 45px;
+  border: 1px solid #b3b3b3;
+  background: #f2f2f2;
+  font-weight: bold;
+  color: #333333;
+  text-decoration: none;
+  line-height: 1.6;
+}
+#statusInfo .extraInfo a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 10px;
+  top: 12px;
+}
+#statusInfo .extraInfo a:last-child {
+  margin-bottom: 0;
+}
+#statusInfo .extraInfo .mail::before {
+  background-image: url(../img/sprite.png);
+  background-position: -32px 0px;
+  width: 27px;
+  height: 18px;
+  background-size: 59px 36px;
+}
+#statusInfo .extraInfo .coupon::before {
+  background-image: url(../img/sprite.png);
+  background-position: 0px 0px;
+  width: 27px;
+  height: 18px;
+  background-size: 59px 36px;
+}
+#statusInfo .linkList a {
+  position: relative;
+  display: block;
+  padding: 12px 15px;
+  border-bottom: 1px solid #b3b3b3;
+  color: #333333;
+  text-decoration: none;
+  font-weight: bold;
+}
+#statusInfo .linkList a::after {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -23px;
+  width: 8px;
+  height: 13px;
+  background-size: 59px 36px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -7px;
+}
+#statusInfo .logoutBtn {
+  width: 144px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+#statusInfo .logoutBtn a {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: table-cell;
+  width: 142px;
+  height: 32px;
+  vertical-align: middle;
+  margin: 0 auto;
+  border: 1px solid #b3b3b3;
+  background: #f2f2f2;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* ------------------------------------------
+  Service own
+------------------------------------------ */
+#serviceOwn {
+  width: 98%;
+  height: 200px;
+  border: 3px solid #0099cc;
+  background: #ffffcc;
+}
+
+/* ------------------------------------------
+  Private sales
+------------------------------------------ */
+div#spFrame {
+  line-height: 1;
+  margin-top: 10px;
+  border: 1px solid #999999;
+  background: #ffffee;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div#spFrame a {
+  display: block;
+  padding: 9px;
+  color: #333333;
+}
+
+div#spFrame.private a {
+  padding-left: 25px;
+  background: #ffffee url(../img/icon_private.gif) no-repeat 8px 12px;
+  background-size: 16px 10px;
+  -webkit-background-size: 16px 10px;
+  content: "";
+}
+
+/* ------------------------------------------
+  Service info
+------------------------------------------ */
+#serviceInfo {
+  display: none;
+  overflow: hidden;
+  padding-bottom: 20px;
+  border-top: 3px solid #cccccc;
+  background: #f7f7f7;
+  line-height: 1;
+}
+#serviceInfo.diamond {
+  border-top: 3px solid #674f73;
+}
+#serviceInfo.platinum {
+  border-top: 3px solid #8ccae7;
+}
+#serviceInfo.gold {
+  border-top: 3px solid #ce9600;
+}
+#serviceInfo.silver {
+  border-top: 3px solid #b4b4b4;
+}
+#serviceInfo .serviceListTitle {
+  padding: 16px 8px 8px;
+  color: #bf0000;
+  font-weight: bold;
+}
+#serviceInfo .serviceList {
+  border-top: 1px solid #b3b3b3;
+}
+#serviceInfo .serviceList li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+  border-bottom: 1px solid #b3b3b3;
+  background: #ffffff;
+  font-size: 14px;
+}
+#serviceInfo .serviceList li:nth-child(odd) {
+  border-right: 1px solid #b3b3b3;
+}
+#serviceInfo .serviceList li a {
+  position: relative;
+  display: block;
+  padding: 16px 20px 16px 8px;
+  text-decoration: none;
+  color: #333333;
+}
+#serviceInfo .serviceList li a::after {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -23px;
+  width: 8px;
+  height: 13px;
+  background-size: 59px 36px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  margin-top: -7px;
+}
+#serviceInfo .serviceListLong li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  border-bottom: 1px solid #b3b3b3;
+  background: #ffffff;
+  font-size: 14px;
+}
+#serviceInfo .serviceListLong li a {
+  position: relative;
+  display: block;
+  padding: 16px 8px;
+  text-decoration: none;
+  color: #333333;
+}
+#serviceInfo .serviceListLong li a::after {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -23px;
+  width: 8px;
+  height: 13px;
+  background-size: 59px 36px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  margin-top: -7px;
+}
+
+/* ------------------------------------------
+  Button box
+------------------------------------------ */
+.authButtonArea {
+  padding: 20px 0;
+  border-top: 1px solid #cccccc;
+}
+.authButtonArea a {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #b3b3b3;
+  background: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  color: #333333;
+  font-size: 14px;
+}

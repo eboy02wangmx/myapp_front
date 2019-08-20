@@ -1,0 +1,1046 @@
+@charset "utf-8";
+#statusInfo .personalInfo .pointBox .total, #statusInfo .personalInfo .pointBox .estimate, #serviceInfo .serviceList {
+  overflow: hidden;
+}
+#statusInfo .personalInfo .pointBox .total:before, #statusInfo .personalInfo .pointBox .estimate:before, #serviceInfo .serviceList:before, #statusInfo .personalInfo .pointBox .total:after, #serviceInfo .serviceList:after {
+  display: table;
+  content: "";
+}
+#statusInfo .personalInfo .pointBox .total:after, #statusInfo .personalInfo .pointBox .estimate:after, #serviceInfo .serviceList:after {
+  clear: both;
+}
+
+/**
+ * CSS for common parts.
+ *
+ * Rakuten group common.
+ * @author   CWD
+ * @version  2012.08.31
+ */
+/* ------------------------------------------
+  Reset
+------------------------------------------ */
+body, div, pre, p, ul, li, h1, h2, h3, h4, h5, h6, dl, dt, dd, blockquote, form, fieldset, table, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-text-size-adjust: none;
+  font-family: helvetica,arial,sans-serif;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+table, th, td {
+  text-align: left;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none outside;
+}
+
+input, select, textarea {
+  font-size: 16px;
+}
+
+/* ------------------------------------------
+  Lay out
+------------------------------------------ */
+/* wrapper */
+div#container {
+  background: #ffffff;
+}
+
+/* contents */
+div#contents {
+  margin-bottom: 5px;
+}
+
+/* ------------------------------------------
+  JavaScript Off
+------------------------------------------ */
+p.noJavascript {
+  margin-bottom: 5px;
+  padding: 3px;
+  border: 2px solid #bf0000;
+  background: #ffefef;
+}
+
+/* ------------------------------------------
+  Header
+------------------------------------------ */
+#header {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 58px;
+  padding: 0 12px 0 10px;
+  border-bottom: 2px solid #bf0000;
+  /* サービスカラーを入れてください */
+  font-size: 12px;
+}
+#header > * {
+  display: table-cell;
+}
+
+#serviceID {
+  vertical-align: middle;
+}
+#serviceID > * {
+  display: inline-block;
+}
+#serviceID img {
+  vertical-align: bottom;
+}
+
+#memberInfo {
+  vertical-align: middle;
+  text-align: right;
+}
+#memberInfo > * {
+  display: inline-block;
+}
+
+#membership {
+  margin-right: 6px;
+}
+#membership .memberName {
+  display: inline-block;
+  max-width: 105px;
+  overflow: hidden;
+  padding: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #bf0000;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  text-align: left;
+}
+#membership .memberPoint {
+  color: #bf0000;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+#memberAction {
+  text-align: right;
+}
+#memberAction > * {
+  position: relative;
+  display: inline-block;
+  margin-left: 22px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+#memberAction > *::before {
+  content: "";
+  display: block;
+  margin: 0 auto 4px;
+}
+#memberAction > *:first-child {
+  margin-left: 0;
+}
+#memberAction > * span {
+  position: absolute;
+  left: 50%;
+  width: 50px;
+  margin-left: -25px;
+  text-decoration: none;
+  color: #333333;
+  font-size: 10px;
+}
+#memberAction .guide::before {
+  background-image: url(../img/sprite_header.png);
+  background-position: 0px 0px;
+  width: 26px;
+  height: 26px;
+  background-size: 57px 57px;
+}
+#memberAction .signup::before {
+  background-image: url(../img/sprite_header.png);
+  background-position: -31px -31px;
+  width: 26px;
+  height: 26px;
+  background-size: 57px 57px;
+}
+#memberAction .signin::before {
+  background-image: url(../img/sprite_header.png);
+  background-position: -31px 0px;
+  width: 26px;
+  height: 26px;
+  background-size: 57px 57px;
+}
+#memberAction .member::before {
+  background-image: url(../img/sprite_header.png);
+  background-position: 0px -31px;
+  width: 26px;
+  height: 26px;
+  background-size: 57px 57px;
+}
+
+/* ------------------------------------------
+  Header - long logo
+------------------------------------------ */
+div#longHeader {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 0;
+  /* ツールボックス・サーチボックスがないときは5px入れる */
+  padding: 10px;
+  border-bottom: 2px solid #bf0000;
+  /* サービスカラーを入れてください */
+  font-size: 12px;
+}
+
+div#longHeader a {
+  padding: 0;
+  color: #bf0000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+div#longHeader dl#membership {
+  vertical-align: middle;
+  overflow: hidden;
+  margin-right: 0;
+}
+
+div#longHeader dl#membership dt {
+  float: left;
+}
+
+div#longHeader dl#membership dd {
+  float: right;
+}
+
+div#longHeader dl#membership a {
+  color: #bf0000;
+  /* サービスカラーを入れてください */
+}
+
+div#longHeader dl#membership span {
+  color: #bf0000;
+  /* サービスカラーを入れてください */
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+div#longHeader div#loginBtn {
+  float: left;
+  line-height: 1;
+}
+
+div#longHeader div#newRegistration {
+  float: right;
+  line-height: 1;
+}
+
+div#longHeader div#loginBtn:before,
+div#longHeader div#newRegistration:before {
+  display: block;
+  float: left;
+  width: 17px;
+  height: 17px;
+  margin: -1px 5px 0 0;
+  background: url(../img/icon_member_menu.png) no-repeat 0 -51px;
+  background-size: 17px 85px;
+  -webkit-background-size: 17px 85px;
+  content: "";
+}
+
+div#longHeader div#loginBtn:before {
+  background-position: 0 -68px;
+}
+
+/* ------------------------------------------
+  Search area
+------------------------------------------ */
+div#search {
+  margin-bottom: 0;
+  /* ツールボックスがないときは5px入れる */
+  padding: 4px 5px 5px;
+  background: #bf0000;
+  background: -webkit-gradient(linear, left top, left bottom, from(#d86363), to(#bf0000));
+  font-size: 16px;
+}
+
+div#search form {
+  display: block;
+  overflow: hidden;
+}
+
+div#search form div#searchInput {
+  float: left;
+  width: 71%;
+}
+
+div#search form div#searchInput input {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: inline;
+  width: 100%;
+  height: 30px;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0 5px;
+  border: 1px solid #666666;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  font-size: 14px;
+  -webkit-box-shadow: 1px 1px 3px 1px #999999 inset;
+  box-shadow: 1px 1px 3px 1px #999999 inset;
+}
+
+div#search div#nowordLine {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+div#search div#searchBtn {
+  float: right;
+  width: 28%;
+  text-align: right;
+}
+
+div#search div#searchBtn input {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  line-height: 2em;
+  width: 100%;
+  height: 29px;
+  border: 1px solid #726b6b;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  color: #333333;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(0.49, white), color-stop(0.5, #ecebf2), to(#efeef3));
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div#search div#searchSelect {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+div#search div#searchSelect div select {
+  width: 100%;
+  font-size: 16px;
+}
+
+/*suggest*/
+div#search div#suggest {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  overflow: hidden;
+  border: none;
+  border-left: 1px solid #999999;
+  border-right: 1px solid #999999;
+}
+
+div#search div#suggest .sggstKeyword {
+  border: none;
+  border-bottom: 1px solid #999999;
+}
+
+/* ------------------------------------------
+  Tool box
+------------------------------------------ */
+ul.toolBox {
+  display: table;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+ul.toolBox a {
+  display: inline-block;
+  padding: 2px;
+}
+
+#headerArea ul.toolBox {
+  border-bottom: 2px solid #bf0000;
+  /* サービスカラーを入れてください */
+}
+
+ul.toolBox.footerArea {
+  display: table;
+  position: relative;
+  border-top: 2px solid #bf0000;
+  /* サービスカラーを入れてください */
+  -webkit-box-shadow: 0 1px 2px 1px #cdcdcd;
+  box-shadow: 0 1px 2px 1px #cdcdcd;
+}
+
+ul.toolBox li {
+  display: table-cell;
+  width: 20%;
+  /* 5アイテム20 - 4アイテム25 - 3アイテム33 - 2アイテム50 */
+  border-right: 1px solid #dedede;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f2f2f2));
+  font-size: 10px;
+  text-align: center;
+}
+
+ul.toolBox li:last-child {
+  border: none;
+}
+
+ul.toolBox li a {
+  padding: 5px 0;
+  display: block;
+  color: #666666;
+  text-decoration: none;
+}
+
+ul.toolBox li a:before {
+  display: block;
+  width: 32px;
+  height: 29px;
+  margin: 0 auto 2px;
+  background: url(../img/icon_tools.png) no-repeat 0 0;
+  background-size: 32px 145px;
+  /* height - 5アイテム145 - 4アイテム116 - 3アイテム87 - 2アイテム58 */
+  -webkit-background-size: 32px 145px;
+  /* height - 5アイテム145 - 4アイテム116 - 3アイテム87 - 2アイテム58 */
+  content: "";
+}
+
+ul.toolBox li.tool2 a:before {
+  background-position: 0 -29px;
+}
+
+ul.toolBox li.tool3 a:before {
+  background-position: 0 -58px;
+}
+
+ul.toolBox li.tool4 a:before {
+  background-position: 0 -87px;
+}
+
+ul.toolBox li.tool5 a:before {
+  background-position: 0 -116px;
+}
+
+/* ------------------------------------------
+  Member detail
+------------------------------------------ */
+#memberDetail {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+}
+
+#memberDetail a {
+  display: inline-block;
+}
+
+#memberDetail .detailMenu {
+  position: relative;
+  padding: 9px 5px;
+  background: #ffffff;
+  text-align: center;
+  font-size: 12px;
+}
+
+#memberDetail .detailMenu #menuTab {
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #999999;
+  background: #999999;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#memberDetail .detailMenu #menuTab li {
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  -ms-border-radius: 3px 0 0 3px;
+  -o-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+  display: table-cell;
+  width: 90px;
+  height: 28px;
+  vertical-align: middle;
+  background: #f2f2f2;
+  color: #333333;
+  text-align: center;
+}
+#memberDetail .detailMenu #menuTab li:last-child {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  -ms-border-radius: 0 3px 3px 0;
+  -o-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+
+#memberDetail .detailMenu #menuTab .open {
+  background: #999999;
+  color: #ffffff;
+}
+
+#memberDetail .detailMenu .close {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: table-cell;
+  position: absolute;
+  right: 6px;
+  top: 9px;
+  width: 56px;
+  height: 30px;
+  line-height: 30px;
+  color: #ffffff;
+  background: #bf0000;
+  text-align: center;
+}
+
+/* ------------------------------------------
+  Status info
+------------------------------------------ */
+#statusInfo {
+  display: block;
+  background: #ffffff;
+  font-size: 14px;
+  border-top: 3px solid #cccccc;
+}
+#statusInfo.diamond {
+  border-top: 3px solid #674f73;
+}
+#statusInfo.diamond .rankBox .rankInner::before {
+  background-image: url(../img/sprite_rank.png);
+  background-position: 0px 0px;
+  width: 45px;
+  height: 60px;
+  background-size: 145px 125px;
+}
+#statusInfo.diamond .rankBox .rank a {
+  color: #674f73;
+}
+#statusInfo.platinum {
+  border-top: 3px solid #8ccae7;
+}
+#statusInfo.platinum .rankBox .rankInner::before {
+  background-image: url(../img/sprite_rank.png);
+  background-position: -100px 0px;
+  width: 45px;
+  height: 60px;
+  background-size: 145px 125px;
+}
+#statusInfo.platinum .rankBox .rank a {
+  color: #8ccae7;
+}
+#statusInfo.gold {
+  border-top: 3px solid #ce9600;
+}
+#statusInfo.gold .rankBox .rankInner::before {
+  background-image: url(../img/sprite_rank.png);
+  background-position: -50px 0px;
+  width: 45px;
+  height: 60px;
+  background-size: 145px 125px;
+}
+#statusInfo.gold .rankBox .rank a {
+  color: #ce9600;
+}
+#statusInfo.silver {
+  border-top: 3px solid #b4b4b4;
+}
+#statusInfo.silver .rankBox .rankInner::before {
+  background-image: url(../img/sprite_rank.png);
+  background-position: 0px -65px;
+  width: 45px;
+  height: 60px;
+  background-size: 145px 125px;
+}
+#statusInfo.silver .rankBox .rank a {
+  color: #b4b4b4;
+}
+#statusInfo.normal .personalInfo .rankBox .rankInner {
+  padding-left: 0;
+}
+#statusInfo.normal .personalInfo .rankBox .rankInner::before {
+  display: none;
+}
+#statusInfo .personalInfo a {
+  text-decoration: none;
+}
+#statusInfo .personalInfo .rankBox {
+  padding: 17px 15px 10px;
+  border-bottom: 1px solid #cccccc;
+}
+#statusInfo .personalInfo .rankBox .rankInner {
+  position: relative;
+  padding-left: 70px;
+}
+#statusInfo .personalInfo .rankBox .rankInner::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+}
+#statusInfo .personalInfo .rankBox .rankInner > * {
+  line-height: 1em;
+  margin-bottom: 10px;
+}
+#statusInfo .personalInfo .rankBox .rankInner > *:last-child {
+  margin-bottom: 0;
+}
+#statusInfo .personalInfo .rankBox .rankInner a {
+  font-size: 16px;
+}
+#statusInfo .personalInfo .rankBox .name {
+  margin-bottom: 8px;
+}
+#statusInfo .personalInfo .rankBox .name a {
+  display: inline;
+  color: #bf0000;
+  font-weight: bold;
+  line-height: 1.2;
+}
+#statusInfo .personalInfo .rankBox .rank a {
+  margin-left: 1px;
+  font-weight: bold;
+}
+#statusInfo .personalInfo .rankBox .mypage a {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: table-cell;
+  width: 122px;
+  height: 32px;
+  vertical-align: middle;
+  margin: 0 auto;
+  border: 1px solid #b3b3b3;
+  background: #f2f2f2;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+#statusInfo .personalInfo .pointBox {
+  padding: 17px 15px 12px;
+  border-bottom: 1px solid #cccccc;
+}
+#statusInfo .personalInfo .pointBox dl {
+  position: relative;
+  display: table;
+  width: 100%;
+  line-height: 1.7em;
+  margin-bottom: 3px;
+}
+#statusInfo .personalInfo .pointBox dl.first::before {
+  height: 15px;
+  top: -5px;
+}
+#statusInfo .personalInfo .pointBox dl::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 7px;
+  display: block;
+  width: 7.5px;
+  height: 25px;
+  border-left: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+#statusInfo .personalInfo .pointBox dl > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+#statusInfo .personalInfo .pointBox dl dt {
+  padding-left: 20px;
+}
+#statusInfo .personalInfo .pointBox dl dd {
+  text-align: right;
+  font-size: 20px;
+  color: #bf0000;
+}
+#statusInfo .personalInfo .pointBox dl dd.limited {
+  color: #0f218b;
+}
+#statusInfo .personalInfo .pointBox .total {
+  margin-bottom: 5px;
+}
+#statusInfo .personalInfo .pointBox .total::before {
+  display: none;
+}
+#statusInfo .personalInfo .pointBox .total dt {
+  float: left;
+  padding: 2px 0 0 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+#statusInfo .personalInfo .pointBox .total dd {
+  float: right;
+  font-size: 26px;
+}
+#statusInfo .personalInfo .pointBox .estimate {
+  margin-bottom: 5px;
+}
+#statusInfo .personalInfo .pointBox .estimate::before {
+  display: none;
+}
+#statusInfo .personalInfo .pointBox .estimate dt {
+  float: left;
+  padding: 2px 0 0 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+#statusInfo .personalInfo .pointBox .estimate dd {
+  float: right;
+  font-size: 26px;
+}
+#statusInfo .extraInfo {
+  padding: 10px 15px;
+  border-bottom: 1px solid #b3b3b3;
+}
+#statusInfo .personalInfo .extraInfo {
+  padding: 0;
+  border-bottom: none;
+}
+#statusInfo .extraInfo a {
+  position: relative;
+  display: block;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 1px solid #b3b3b3;
+  background: #f2f2f2;
+  font-weight: bold;
+  color: #333333;
+  text-decoration: none;
+  line-height: 1.6;
+}
+#statusInfo .extraInfo a.mail,
+#statusInfo .extraInfo a.coupon {
+  padding-left: 45px;
+}
+#statusInfo .extraInfo a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 10px;
+  top: 12px;
+}
+#statusInfo .extraInfo a:last-child {
+  margin-bottom: 0;
+}
+#statusInfo .extraInfo .mail::before {
+  background-image: url(../img/sprite.png);
+  background-position: -32px 0px;
+  width: 27px;
+  height: 18px;
+  background-size: 59px 36px;
+}
+#statusInfo .extraInfo .coupon::before {
+  background-image: url(../img/sprite.png);
+  background-position: 0px 0px;
+  width: 27px;
+  height: 18px;
+  background-size: 59px 36px;
+}
+#statusInfo .linkList a {
+  position: relative;
+  display: block;
+  padding: 12px 15px;
+  border-bottom: 1px solid #b3b3b3;
+  color: #333333;
+  text-decoration: none;
+  font-weight: bold;
+}
+#statusInfo .linkList a::after {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -23px;
+  width: 8px;
+  height: 13px;
+  background-size: 59px 36px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -7px;
+}
+#statusInfo .logoutBtn {
+  width: 144px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+#statusInfo .logoutBtn a {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: table-cell;
+  width: 142px;
+  height: 32px;
+  vertical-align: middle;
+  margin: 0 auto;
+  border: 1px solid #b3b3b3;
+  background: #f2f2f2;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  text-decoration: none;
+}
+
+#header .login,
+div#longHeader .login,
+#memberDetail .login,
+#header .logout,
+div#longHeader .logout,
+#memberDetail .logout {
+  visibility: hidden;
+}
+
+/* ------------------------------------------
+  Service own
+------------------------------------------ */
+#serviceOwn {
+  width: 98%;
+  height: 200px;
+  border: 3px solid #0099cc;
+  background: #ffffcc;
+}
+
+/* ------------------------------------------
+  Private sales
+------------------------------------------ */
+div#spFrame {
+  line-height: 1;
+  margin-top: 10px;
+  border: 1px solid #999999;
+  background: #ffffee;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div#spFrame a {
+  display: block;
+  padding: 9px;
+  color: #333333;
+}
+
+div#spFrame.private a {
+  padding-left: 25px;
+  background: #ffffee url(../img/icon_private.gif) no-repeat 8px 12px;
+  background-size: 16px 10px;
+  -webkit-background-size: 16px 10px;
+  content: "";
+}
+
+/* ------------------------------------------
+  Service info
+------------------------------------------ */
+#serviceInfo {
+  display: none;
+  overflow: hidden;
+  padding-bottom: 20px;
+  border-top: 3px solid #cccccc;
+  background: #f7f7f7;
+  line-height: 1;
+}
+#serviceInfo.diamond {
+  border-top: 3px solid #674f73;
+}
+#serviceInfo.platinum {
+  border-top: 3px solid #8ccae7;
+}
+#serviceInfo.gold {
+  border-top: 3px solid #ce9600;
+}
+#serviceInfo.silver {
+  border-top: 3px solid #b4b4b4;
+}
+#serviceInfo .serviceListTitle {
+  padding: 16px 8px 8px;
+  color: #bf0000;
+  font-weight: bold;
+}
+#serviceInfo .serviceList {
+  border-top: 1px solid #b3b3b3;
+}
+#serviceInfo .serviceList li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+  border-bottom: 1px solid #b3b3b3;
+  background: #ffffff;
+  font-size: 14px;
+}
+#serviceInfo .serviceList li:nth-child(odd) {
+  border-right: 1px solid #b3b3b3;
+}
+#serviceInfo .serviceList li a {
+  position: relative;
+  display: block;
+  padding: 16px 20px 16px 8px;
+  text-decoration: none;
+  color: #333333;
+}
+#serviceInfo .serviceList li a::after {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -23px;
+  width: 8px;
+  height: 13px;
+  background-size: 59px 36px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  margin-top: -7px;
+}
+#serviceInfo .serviceListLong li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  border-bottom: 1px solid #b3b3b3;
+  background: #ffffff;
+  font-size: 14px;
+}
+#serviceInfo .serviceListLong li a {
+  position: relative;
+  display: block;
+  padding: 16px 8px;
+  text-decoration: none;
+  color: #333333;
+}
+#serviceInfo .serviceListLong li a::after {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -23px;
+  width: 8px;
+  height: 13px;
+  background-size: 59px 36px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  margin-top: -7px;
+}
+
+/* ------------------------------------------
+  Button box
+------------------------------------------ */
+.authButtonArea {
+  padding: 20px 0;
+  border-top: 1px solid #cccccc;
+}
+.authButtonArea a {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #b3b3b3;
+  background: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  color: #333333;
+  font-size: 14px;
+}
+
+/* ------------------------------------------
+  Footer
+------------------------------------------ */
+div#footer {
+  /*border-top: 2px solid #808080;*/
+  /* toolBox不使用時に使用する */
+}
+
+div#footer div.logoutBtn {
+  display: none;
+  width: 100%;
+  margin: 15px 0;
+  text-align: center;
+}
+
+div#footer div.logoutBtn a {
+  display: inline-block;
+  padding: 6px 40px;
+  border: 1px solid #9C9C9C;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  color: #333333;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#e0e0e0));
+  box-shadow: 0 1px 3px 0 #d8ddde;
+  -webkit-box-shadow: 0 1px 3px 0 #d8ddde;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+div#footer ul {
+  text-align: center;
+}
+
+div#footer ul li {
+  display: inline-block;
+}
+
+div#footer ul li a {
+  display: inline-block;
+  padding: 5px;
+}
+
+div#footer div#device {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+div#footer div#device dt {
+  display: inline;
+}
+
+div#footer div#device dt:after {
+  content: " ：";
+}
+
+div#footer div#device dd {
+  display: inline;
+  padding-right: 6px;
+  border-right: 1px solid #333333;
+}
+
+div#footer div#device dd:last-child {
+  border: none;
+}
+
+div#footer div#device dd a {
+  padding: 6px;
+  font-weight: bold;
+}
+
+div#footer div#copyright {
+  margin-bottom: 5px;
+  color: #666666;
+  text-align: center;
+  font-size: 14px;
+}

@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+/**
+ * CSS for tool box styles.
+ * 
+ * Rakuten group common.
+ * @author   CWD
+ * @version  2012.08.31
+ */
+
+/* ------------------------------------------
+	Tool box
+------------------------------------------ */
+
+ul.toolBox {
+	display: table;
+	width: 100%;
+	margin-bottom: 5px;
+}
+ul.toolBox a {
+	display: inline-block;
+	padding: 2px;
+}
+div#headerArea ul.toolBox {
+	border-bottom: 2px solid #bf0000;	/* サービスカラーを入れてください */
+}
+ul.toolBox.footerArea {
+	display: table;
+	position: relative;
+	border-top: 2px solid #bf0000;	/* サービスカラーを入れてください */
+	-webkit-box-shadow: 0 1px 2px 1px #cdcdcd;
+	box-shadow: 0 1px 2px 1px #cdcdcd;
+}
+ul.toolBox li{
+	display: table-cell;
+	width: 20%;	/* 5アイテム20 - 4アイテム25 - 3アイテム33 - 2アイテム50 */
+	border-right: 1px solid #dedede;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f2f2f2));
+	font-size: 10px;
+	text-align: center;
+}
+ul.toolBox li:last-child {
+	border: none;
+}
+ul.toolBox li a {
+	padding: 5px 0;
+	display: block;
+	color: #666666;
+	text-decoration: none;
+}
+ul.toolBox li a:before {
+	display: block;
+	width: 32px;
+	height: 29px;
+	margin: 0 auto 2px;
+	background: url(../img/icon_tools.png) no-repeat 0 0;
+	background-size: 32px 145px;	/* height - 5アイテム145 - 4アイテム116 - 3アイテム87 - 2アイテム58 */
+	-webkit-background-size: 32px 145px;	/* height - 5アイテム145 - 4アイテム116 - 3アイテム87 - 2アイテム58 */
+	content: "";
+}
+ul.toolBox li.tool2 a:before {
+	background-position: 0 -29px;
+}
+ul.toolBox li.tool3 a:before {
+	background-position: 0 -58px;
+}
+ul.toolBox li.tool4 a:before {
+	background-position: 0 -87px;
+}
+ul.toolBox li.tool5 a:before {
+	background-position: 0 -116px;
+}

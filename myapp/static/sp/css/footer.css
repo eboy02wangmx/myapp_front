@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+/**
+ * CSS for footer styles.
+ * 
+ * Rakuten group common.
+ * @author   CWD
+ * @version  2012.08.31
+ */
+
+/* ------------------------------------------
+	Footer
+------------------------------------------ */
+
+div#footer {
+	/*border-top: 2px solid #808080;*/	/* toolBox不使用時に使用する */
+}
+div#footer div.logoutBtn {
+	display: inline-block;
+	width: 100%;
+	margin: 15px 0;
+	text-align: center;
+}
+div#footer div.logoutBtn a {
+	display: inline-block;
+	padding: 6px 40px;
+	border: 1px solid #9C9C9C;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	color: #333333;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#e0e0e0));
+	box-shadow: 0 1px 3px 0 #d8ddde;
+	-webkit-box-shadow: 0 1px 3px 0 #d8ddde;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+}
+div#footer ul {
+	text-align: center;
+}
+div#footer ul li {
+	display: inline-block;
+}
+div#footer ul li:last-child {
+}
+div#footer ul li a {
+	display: inline-block;
+	padding: 5px;
+}
+div#footer div#device {
+	margin-bottom: 5px;
+	text-align: center;
+}
+div#footer div#device dt {
+	display: inline;
+}
+div#footer div#device dt:after {
+	content: " ：";
+}
+div#footer div#device dd {
+	display: inline;
+	padding-right: 6px;
+	border-right: 1px solid #333333;
+}
+div#footer div#device dd:last-child {
+	border: none;
+}
+div#footer div#device dd a {
+	padding: 6px;
+	font-weight: bold;
+}
+
+div#footer div#copyright {
+	margin-bottom: 5px;
+	color: #666666;
+	text-align: center;
+	font-size: 14px;
+}

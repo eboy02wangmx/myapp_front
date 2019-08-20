@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+/**
+ * CSS for reset styles.
+ *
+ * Rakuten group common.
+ * @author   CWD
+ * @version  2012.08.31
+ */
+
+/* ------------------------------------------
+	Reset
+------------------------------------------ */
+
+body,div,pre,p,ul,li,h1,h2,h3,h4,h5,h6,dl,dt,dd,blockquote,form,fieldset,table,th,td {
+	margin: 0;
+	padding: 0;
+}
+body {
+	-webkit-text-size-adjust:none;
+	font-family: helvetica,arial,sans-serif;
+}
+img {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+table,th,td {
+	text-align: left;
+}
+ul,ol {
+	margin: 0;
+	padding: 0;
+	list-style: none outside;
+}
+input, select, textarea {
+	font-size: 16px;
+}

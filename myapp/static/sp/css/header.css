@@ -1,0 +1,201 @@
+@charset "utf-8";
+
+/**
+ * CSS for header styles.
+ *
+ * Rakuten group common.
+ * @author   CWD
+ * @version  2012.08.31
+ */
+
+/* ------------------------------------------
+  Header
+------------------------------------------ */
+#header {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 58px;
+  padding: 0 12px 0 10px;
+  border-bottom: 2px solid #bf0000;
+  /* サービスカラーを入れてください */
+  font-size: 12px;
+}
+#header > * {
+  display: table-cell;
+}
+
+#serviceID {
+  vertical-align: middle;
+}
+#serviceID > * {
+  display: inline-block;
+}
+#serviceID img {
+  vertical-align: bottom;
+}
+
+#memberInfo {
+  vertical-align: middle;
+  text-align: right;
+}
+#memberInfo > * {
+  display: inline-block;
+}
+
+#membership {
+  margin-right: 6px;
+}
+#membership .memberName {
+  display: inline-block;
+  max-width: 105px;
+  overflow: hidden;
+  padding: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #bf0000;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  text-align: left;
+}
+#membership .memberPoint {
+  color: #bf0000;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+#memberAction {
+  text-align: right;
+}
+#memberAction > * {
+  position: relative;
+  display: inline-block;
+  margin-left: 22px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+#memberAction > *::before {
+  content: "";
+  display: block;
+  margin: 0 auto 4px;
+}
+#memberAction > *:first-child {
+  margin-left: 0;
+}
+#memberAction > * a {
+  position: absolute;
+  left: 50%;
+  width: 50px;
+  margin-left: -25px;
+  text-decoration: none;
+  color: #333333;
+  font-size: 10px;
+}
+#memberAction .guide::before {
+  background-image: url(../img/sprite_header.png);
+  background-position: 0px 0px;
+  width: 26px;
+  height: 26px;
+  background-size: 57px 57px;
+}
+#memberAction .signup::before {
+  background-image: url(../img/sprite_header.png);
+  background-position: -31px -31px;
+  width: 26px;
+  height: 26px;
+  background-size: 57px 57px;
+}
+#memberAction .signin::before {
+  background-image: url(../img/sprite_header.png);
+  background-position: -31px 0px;
+  width: 26px;
+  height: 26px;
+  background-size: 57px 57px;
+}
+#memberAction .member::before {
+  background-image: url(../img/sprite_header.png);
+  background-position: 0px -31px;
+  width: 26px;
+  height: 26px;
+  background-size: 57px 57px;
+}
+
+/* ------------------------------------------
+  Header - long logo
+------------------------------------------ */
+div#longHeader {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 0;
+  /* ツールボックス・サーチボックスがないときは5px入れる */
+  padding: 10px;
+  border-bottom: 2px solid #bf0000;
+  /* サービスカラーを入れてください */
+  font-size: 12px;
+}
+
+div#longHeader a {
+  padding: 0;
+  color: #bf0000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+div#longHeader dl#membership {
+  vertical-align: middle;
+  overflow: hidden;
+  margin-right: 0;
+}
+
+div#longHeader dl#membership dt {
+  float: left;
+}
+
+div#longHeader dl#membership dd {
+  float: right;
+}
+
+div#longHeader dl#membership a {
+  color: #bf0000;
+  /* サービスカラーを入れてください */
+}
+
+div#longHeader dl#membership span {
+  color: #bf0000;
+  /* サービスカラーを入れてください */
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+div#longHeader div#loginBtn {
+  float: left;
+  line-height: 1;
+}
+
+div#longHeader div#newRegistration {
+  float: right;
+  line-height: 1;
+}
+
+div#longHeader div#loginBtn:before,
+div#longHeader div#newRegistration:before {
+  display: block;
+  float: left;
+  width: 17px;
+  height: 17px;
+  margin: -1px 5px 0 0;
+  background: url(../img/icon_member_menu.png) no-repeat 0 -51px;
+  background-size: 17px 85px;
+  -webkit-background-size: 17px 85px;
+  content: "";
+}
+
+div#longHeader div#loginBtn:before {
+  background-position: 0 -68px;
+}

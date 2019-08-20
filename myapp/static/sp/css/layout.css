@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+/**
+ * CSS for layout styles.
+ *
+ * Rakuten group common.
+ * @author   CWD
+ * @version  2012.08.31
+ */
+
+/* ------------------------------------------
+	Layout
+------------------------------------------ */
+
+/* wrapper */
+div#container {
+	background: #ffffff;
+}
+
+/* contents */
+div#contents {
+	margin-bottom: 5px;
+}
+
+
+/* ------------------------------------------
+	JavaScript Off
+------------------------------------------ */
+
+p.noJavascript {
+	margin-bottom: 5px;
+	padding: 3px;
+	border: 2px solid #bf0000;
+	background: #ffefef;
+}
+
+#header .login,
+div#longHeader .login,
+#memberDetail .login,
+#header .logout,
+div#longHeader .logout,
+#memberDetail .logout {
+  visibility: hidden;
+}
