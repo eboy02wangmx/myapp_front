@@ -77,6 +77,9 @@ export const imagesViewModel = {
         .catch()
         .finally()
       // this.$store.dispatch(ACTIONS.FILE_UPLOAD, {file: this.uploadFile})
+    },
+    editVR () {
+      window.open('../views/Vtour.html')
     }
   }
 }
