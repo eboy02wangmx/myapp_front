@@ -16,9 +16,9 @@
       <a class="brand" href="https://mieru360.com/">Panolib</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="active"><a href="https://mieru360.com/album">物件一覧</a></li>
-          <li><a href="https://mieru360.com/user">ユーザー管理</a></li>
-          <li><a href="">利用状況一覧</a></li>
+          <li class="active"><a href="/#/Album">物件一覧</a></li>
+          <li><a href="/#/User">ユーザー管理</a></li>
+          <li><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
         <p class="navbar-text pull-right"><a href="https://mieru360.com/auth/logout">ログアウト</a></p>
       </div><!--/.nav-collapse -->
@@ -45,7 +45,7 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>アルバム名&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-primary" href="https://mieru360.com/album/create">新規作成</a></th>
+      <th>アルバム名&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-primary" href="/#/AlbumCreate">新規作成</a></th>
             <th width="120">所有者</th>
             <th width="120">作成日時</th>
       <th width="120">更新日時</th>
@@ -72,9 +72,9 @@
       <td>3枚</td>
       <td style="min-width:135px;">
         <div class="btn-group" >
-            <!--li><a href="https://mieru360.com/album/edit/154"><i class="icon-pencil"></i> 編集</a></li--><div>
-            <a class="btn img-fancy" href="https://mieru360.com/album/images/154"><i class="icon-list"></i> &nbsp;&nbsp;編集</a></div><div style="position: relative; left:5px;">
-            <a class="btn album-delete-btn" href="#album-modal" data-toggle="modal" rel="https://mieru360.com/album/remove/154"><i class="icon-trash"></i> &nbsp;&nbsp;削除</a></div>
+            <div>
+            <a class="btn img-fancy" href="/#/Images"><i class="icon-list"></i> &nbsp;&nbsp;編集</a></div><div style="position: relative; left:5px;">
+            <a class="btn album-delete-btn" href="#album-modal" data-toggle="modal" rel="/#/Images"><i class="icon-trash"></i> &nbsp;&nbsp;削除</a></div>
         </div>
       </td>
     </tr>

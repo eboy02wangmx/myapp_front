@@ -7,6 +7,9 @@ import Top from '@/views/Top'
 import Album from '@/views/Album'
 import Images from '@/views/Images'
 import User from '@/views/User'
+import UserEdit from '@/views/UserEdit'
+import Riyo from '@/views/Riyo'
+import AlbumCreate from '@/views/AlbumCreate'
 
 import TopSp from '@/views-sp/Top'
 import Error from '@/views/Error'
@@ -71,6 +74,30 @@ const router = new Router({
       path: '/User',
       name: 'User',
       component: User,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/UserEdit',
+      name: 'UserEdit',
+      component: UserEdit,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/Riyo',
+      name: 'Riyo',
+      component: Riyo,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/AlbumCreate',
+      name: 'AlbumCreate',
+      component: AlbumCreate,
       meta: { existsStoreData: false,
         page_type: 'page1'
       }
