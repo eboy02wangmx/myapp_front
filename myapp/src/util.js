@@ -337,7 +337,7 @@ export default {
       this.setSync(action, newSync)
 
       // エラークリア
-      store.commit(MUTATIONS.API_CLEAR_ERROR)
+      // store.commit(MUTATIONS.API_CLEAR_ERROR)
 
       return true
     },

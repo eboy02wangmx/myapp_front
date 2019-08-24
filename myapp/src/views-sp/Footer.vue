@@ -1,28 +1,12 @@
 <template>
   <div>
     <div class="r-footer">
-      <!-- <div class="r-clearfix r-footer-content" v-if="!isPaperless">
-        <p class="r-contact">お問い合わせ窓口</p>
-        <h2><img src="../assets/sp/images/r-rakutenlogo.png" alt="楽天損害保険株式会社" width="230"><span>代理店</span></h2>
-        <p class="r-agency-small">楽天インシュアランスプランニング株式会社</p>
-        <p class="r-tel"><a href="tel:0120560650">0120-560-650</a></p>
-        <div class="r-businessHourLines">
-          <p class="r-businesshours">受付時間：平日&nbsp;&nbsp;&nbsp;&nbsp;9:00〜20:00</p>
-          <p class="r-businesshours"><span class="blind">受付時間：</span>土日祝&nbsp;9:00〜18:00</p>
-          <p class="r-businesshours"><span class="blind">受付時間：</span>（年末年始は除く）</p>
-        </div>
-        <div class="r-footer-content">
-          <p class="r-contact">取扱代理店</p>
-          <h2><img src="../assets/sp/images/r-rakutenlogo.png" width="230" alt="楽天損害保険株式会社"><span>代理店</span></h2>
-          <p class="r-agency">{{agentName}}</p>
-          <p class="r-agency_disbungen">{{dismessage}}</p>
-        </div>
-      </div> -->
+
       <!-- <div class="r-clearfix r-footer-content" v-if="isPaperless"> -->
       <div class="r-clearfix r-footer-content">
         <div>
           <p class="r-contact">お問い合わせ窓口</p>
-          <h2><img src="../assets/images/r-rakutenlogo.png" width="260" alt="楽天損害保険株式会社"></h2>
+          <h2><img src="../assets/images/r-rakutenlogo.png" width="260" alt="MYPIC360"></h2>
           <p class="r-agency">楽天損保代理店サポートセンター</p>
           <p class="r-tel">0570-666-042（ナビダイヤル）</p>
           <p class="r-tel">0422-24-1021（固定電話番号）</p>

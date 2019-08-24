@@ -1,28 +1,19 @@
 <template>
 <header role="banner">
-  <div id="grpheader" class="rc-h-standard">
-    <noscript>
-    <div class="rc-h-noscript-bar">
-      <div class="rc-h-inner">
-        <p>JavaScriptが無効の為、一部のコンテンツをご利用いただけません。JavaScriptの設定を有効にしてからご利用いただきますようお願いいたします。（<a href="http://ichiba.faq.rakuten.co.jp/app/answers/detail/a_id/154">設定方法</a>）</p>
-      </div>
-    </div>
-    </noscript>
-    <div class="rc-h-service-bar">
-      <div class="rc-h-inner">
-        <div class="rc-h-site-id">
-          <h1><span class="rc-h-logo jsFixedParts"><img src="static/global/images/common/header/logo.png" alt="楽天損害保険株式会社"></span></h1>
-        </div>
-      </div>
-    </div>
-    <!-- /#r-nav -->
-    <!-- /#grpheader --></div>
+  <title>MYPIC360</title>
+  <link rel="stylesheet" href="./MIERU360_files/bootstrap.min.css">
+  <link rel="stylesheet" href="./MIERU360_files/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="./MIERU360_files/main.css">
+  <link rel="shortcut icon" href="https://mieru360.com/images/favicon.ico">
 
 </header>
 
 </template>
 <script>
+import Vue from 'vue'
+import SubNavi from './SubNavi.vue'
 import {headerViewModel} from '@/view-model/Header'
+Vue.component('sub-navi', SubNavi)
 
 export default {
   name: 'MainHeader',

@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import store from '@/store'
-import {ACTIONS} from '@/store/action-types'
-import {MUTATIONS} from '@/store/mutation-types'
-import util from '@/util'
 
 import Index from '@/views/Index'
 import Top from '@/views/Top'
+import Album from '@/views/Album'
+import Images from '@/views/Images'
+import User from '@/views/User'
+import UserEdit from '@/views/UserEdit'
+import Riyo from '@/views/Riyo'
+import AlbumCreate from '@/views/AlbumCreate'
 
 import TopSp from '@/views-sp/Top'
 import Error from '@/views/Error'
@@ -52,6 +55,54 @@ const router = new Router({
       }
     },
     {
+      path: '/Album',
+      name: 'Album',
+      component: Album,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/Images',
+      name: 'Images',
+      component: Images,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/User',
+      name: 'User',
+      component: User,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/UserEdit',
+      name: 'UserEdit',
+      component: UserEdit,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/Riyo',
+      name: 'Riyo',
+      component: Riyo,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/AlbumCreate',
+      name: 'AlbumCreate',
+      component: AlbumCreate,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
       path: '/sp/Top',
       name: 'TopSp',
       component: TopSp,
@@ -68,9 +119,6 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const isMobile = store.state.configs.isMobile
 
-  store.commit(MUTATIONS.API_CLEAR_ERROR)
-  store.dispatch(ACTIONS.POPUP_CLOSE)
-  store.dispatch(ACTIONS.HELP_CLOSE)
   if ((to.path === '/Top') || (to.path === '/Error') || (to.path === '/sp/Top') || (to.path === '/sp/Error')) {
     if (isMobile.any === true && to.path.indexOf('/sp') !== 0) {
       next({path: '/sp' + to.path, query: to.query})
@@ -80,27 +128,12 @@ router.beforeEach((to, from, next) => {
     }
     return
   }
-  // agentNameが無い ＆ 認証が必要な画面 の場合は、Indexにforward
-  if (store.state.configs.agentName === null && !to.matched.some(record => record.meta.requiresAuth === false)) {
-    console.log('return /')
-    next({path: '/', query: {}})
-    return
-  }
-
-  // 認証が必要な画面 の場合は、storeをチェック（ブラウザバックなどでデータ不足の対策）
-  if (!to.matched.some(record => record.meta.requiresAuth === false) && !to.matched.some(record => record.meta.existsStoreData === false)) {
-    if (util.isEmptyOrUndef(store.state.myapp.data.withOldContract)) {
-      console.log('return2 /')
-      next({path: '/', query: {}})
-    }
-
-    if (to.path.indexOf('/Building') !== 0 && to.path.indexOf('/sp/Building') !== 0) {
-      if (util.isEmptyOrUndef(store.state.myapp.data.entryNo)) {
-        console.log('return3 /')
-        next({path: '/', query: {}})
-      }
-    }
-  }
+  // // agentNameが無い ＆ 認証が必要な画面 の場合は、Indexにforward
+  // if (store.state.configs.agentName === null && !to.matched.some(record => record.meta.requiresAuth === false)) {
+  //   console.log('return /')
+  //   next({path: '/', query: {}})
+  //   return
+  // }
 
   // Index以外は、Pathを検証
   if (to.path !== '/') {

@@ -1,14 +1,8 @@
 <template>
 
   <div id="app">
-    <link v-if="$root.isMobile.any===false" rel="stylesheet" type="text/css" href="https://www.rakuten-sonpo.co.jp/Portals/0/css/mypage/import.css" media="all">
-    <link v-if="$root.isMobile.any===true" rel="stylesheet" type="text/css" href="https://www.rakuten-sonpo.co.jp/Portals/0/css/mypage/sp/import.css" media="all">
-
-    <link v-if="$root.isMobile.any===false" rel="stylesheet" type="text/css" :href="'@/../static/css/app.css'">
-    <link v-if="$root.isMobile.any===false" rel="stylesheet" type="text/css" :href="'@/../static/css/rui.css'">
-    <link v-if="$root.isMobile.any===true" rel="stylesheet" type="text/css" :href="'@/../static/sp/css/rui.css'">
-    <link v-if="$root.isMobile.any===true" rel="stylesheet" type="text/css" :href="'@/../static/sp/css/app.css'">
-
+    <link rel="stylesheet" type="text/css" :href="'@/../static/css/main.css'">
+    <link rel="stylesheet" type="text/css" :href="'@/../static/css/page.css'">
     <main-header v-if="$root.isMobile.any===false"></main-header>
     <sp-header v-if="$root.isMobile.any===true"></sp-header>
 
@@ -140,6 +134,7 @@ import Vue from 'vue'
 
 import MainFooter from '@/views/Footer.vue'
 import MainHeader from '@/views/Header.vue'
+import Album from '@/views/Album.vue'
 
 import SpHeader from '@/views-sp/Header.vue'
 import SpFooter from '@/views-sp/Footer.vue'
@@ -147,6 +142,7 @@ import {ACTIONS} from '@/store/action-types'
 
 Vue.component('main-footer', MainFooter)
 Vue.component('main-header', MainHeader)
+Vue.component('album', Album)
 Vue.component('sp-header', SpHeader)
 Vue.component('sp-footer', SpFooter)
 
@@ -252,31 +248,6 @@ export default {
       el.scrollTop = 0
       el.scrollLeft = 0
       el.focus()
-    },
-    closePopup (option) {
-      console.log(this.$store.state.myapp.specificationArticleDataChangeFlag)
-      if ((this.$store.state.ui.confirmInPopupClose === true ||
-        this.$store.state.ui.popup.name === 'SpecificationArticleInput') &&
-        this.$store.state.myapp.specificationArticleDataChangeFlag) {
-        this.closeConfirmPopup()
-        this.$store.dispatch(ACTIONS.ERROR_OPEN_CONFIRM, '未登録の入力があります、画面を閉じますか？')
-        return
-      }
-      if (this.$store.state.ui.popup.name === 'SendEstimated') {
-        this.closeConfirmPopup()
-        this.$store.dispatch(ACTIONS.ERROR_OPEN_CONFIRM, '未送信の状態で画面を閉じますか？')
-        return
-      }
-      if (this.$store.state.ui.popup.name === 'AgentShareInput') {
-        // this.closeConfirmPopup()
-        // this.$store.dispatch(ACTIONS.ERROR_OPEN_CONFIRM, '未登録の入力があります、画面を閉じますか？')
-        this.$store.dispatch(ACTIONS.POPUP_CLOSE)
-        return
-      }
-      if (this.$store.state.ui.popup.name === 'AcceptLimitCodeInput' && option === 1) {
-        return
-      }
-      this.$store.dispatch(ACTIONS.POPUP_CLOSE)
     },
     closeConfirmPopup () {
       const unwatch = this.$store.watch(() => this.$store.state.errors.confirmReturn, (newValue, oldValue) => {
