@@ -7,7 +7,7 @@
         <div>
           <p class="r-contact">お問い合わせ窓口</p>
           <h2><img src="../assets/images/r-rakutenlogo.png" width="260" alt="MYPIC360"></h2>
-          <p class="r-agency">楽天損保代理店サポートセンター</p>
+          <p class="r-agency">損保代理店サポートセンター</p>
           <p class="r-tel">0570-666-042（ナビダイヤル）</p>
           <p class="r-tel">0422-24-1021（固定電話番号）</p>
           <div class="r-businessHourLines2">

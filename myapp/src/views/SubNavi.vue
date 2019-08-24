@@ -4,7 +4,6 @@
     <li class="r-subNav02"><router-link to="ContractDocuments" target="_blank">ご契約時に必要な書類</router-link></li>
     <li class="r-subNav03"><a target="_blank" href="https://www.rakuten-sonpo.co.jp/faq/tabid/266/Default.aspx">用語解説</a></li>
     <li class="r-subNav04"><a target="_blank" href="https://www.rakuten-sonpo.co.jp/tabid/251/Default.aspx#road20141130">ハウスアシスタンスサービス</a></li>
-    <li class="r-subNav05"><a target="_blank" href="https://www.rakuten-sonpo.co.jp/company/tabid/227/Default.aspx">楽天損保って？</a></li>
     <li class="r-subNav06"><a target="_blank" href="/mypage/static/pdf/homeassist/policy/policy_20190101.pdf" download="ご契約のしおり_20190101.pdf">普通保険約款および特約</a></li>
   </ul>
 </template>

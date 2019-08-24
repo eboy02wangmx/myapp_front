@@ -18,7 +18,6 @@
           <div class="leftArrow menuH1"><router-link class="r-subNav02" to="ContractDocuments" target="_blank">ご契約時に必要な書類</router-link></div>
           <div class="leftArrow menuH1"><a class="r-subNav02" target="_blank" href="https://www.rakuten-sonpo.co.jp/faq/tabid/266/Default.aspx">用語解説</a></div>
           <div class="leftArrow menuH1"><a class="r-subNav03" target="_blank" href="https://www.rakuten-sonpo.co.jp/tabid/251/Default.aspx#road20141130">ハウスアシスタンスサービス</a></div>
-          <div class="leftArrow menuH1"><a class="r-subNav04" target="_blank" href="https://www.rakuten-sonpo.co.jp/company/tabid/227/Default.aspx">楽天損保って？</a></div>
           <div class="leftArrow menuH1"><a class="r-subNav05" target="_blank" href="https://www.rakuten-sonpo.co.jp/provision/tabid/70/Default.aspx#homeassist">普通保険約款および特約</a></div>
           <div class="leftArrow menuH1"><a class="r-subNav05" target="_blank" href="#" @click.stop.prevent="toDisclosureStatement()">重要事項説明書</a></div>
           </div>

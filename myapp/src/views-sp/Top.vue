@@ -7,7 +7,7 @@
   <div>
     <div class="r-block r-block_top01" v-if="$store.state.configs.notice !== null">
       <dl class="r-top_info">
-        <dt>&lt;&lt; 楽天損保からのお知らせ &gt;&gt;</dt>
+        <dt>&lt;&lt; MYからのお知らせ &gt;&gt;</dt>
         <dd v-html="$store.state.configs.notice"></dd>
       </dl>
     </div>

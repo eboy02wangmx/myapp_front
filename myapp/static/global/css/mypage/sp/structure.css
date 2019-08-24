@@ -1903,56 +1903,56 @@ margin-bottom: 30px;
 #prCarouseContainer {
   max-width: 790px;
 }
-#prCarouseContainer .bnr_pr_01 dt {  /* 楽天銀行 */
+#prCarouseContainer .bnr_pr_01 dt {  /* MY銀行 */
   background: url(../../../images/common/group/logo_pr_bank_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_02 dt {  /* 楽天カード */
+#prCarouseContainer .bnr_pr_02 dt {  /* MYカード */
   background: url(../../../images/common/group/logo_pr_card_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_03 dt {  /* 楽天証券 */
+#prCarouseContainer .bnr_pr_03 dt {  /* MY証券 */
   background: url(../../../images/common/group/logo_pr_brokerage_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_04 dt {  /* 楽天スーパーナイター */
+#prCarouseContainer .bnr_pr_04 dt {  /* MYスーパーナイター */
   background: url(/shared/img/group/logo_pr_supernighter_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_05 dt {  /* 楽天kobo */
+#prCarouseContainer .bnr_pr_05 dt {  /* MYkobo */
   background: url(/shared/img/group/logo_pr_kobo_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_06 dt {  /* 楽天TV */
+#prCarouseContainer .bnr_pr_06 dt {  /* MYTV */
   background: url(../../../images/common/group/logo_pr_tv_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_07 dt {  /* 楽天ふるさと納税 */
+#prCarouseContainer .bnr_pr_07 dt {  /* MYふるさと納税 */
   background: url(../../../images/common/group/logo_pr_life_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_08 dt {  /* 楽天エナジー */
+#prCarouseContainer .bnr_pr_08 dt {  /* MYエナジー */
   background: url(../../../images/common/group/logo_pr_energy_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
@@ -1966,35 +1966,35 @@ margin-bottom: 30px;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_10 dt {  /* 楽天損保 */
+#prCarouseContainer .bnr_pr_10 dt {  /* MY損保 */
   background: url(../../../images/common/group/logo_pr_generalinsurance_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_11 dt {  /* 楽天少額短期保険 */
+#prCarouseContainer .bnr_pr_11 dt {  /* MY少額短期保険 */
   background: url(../../../images/common/group/logo_pr_pet_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_12 dt {  /* 楽天GORA */
+#prCarouseContainer .bnr_pr_12 dt {  /* MYGORA */
   background: url(../../../images/common/group/logo_pr_gora_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_13 dt {  /* 楽天買取 */
+#prCarouseContainer .bnr_pr_13 dt {  /* MY買取 */
   background: url(../../../images/common/group/logo_pr_buyback_pc.jpg) top center no-repeat;
   height: 30px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
 }
-#prCarouseContainer .bnr_pr_14 dt {  /* 楽天 */
+#prCarouseContainer .bnr_pr_14 dt {  /* MY */
   background: url(/shared/img/group/logo_r_rakuten_pc.png) top center no-repeat;
   height: 30px;
   overflow: hidden;
@@ -2120,42 +2120,42 @@ margin-bottom: 30px;
 #prCarouselBox {
   margin: 0 auto;
 }
-#prCarouseContainer .bnr_pr_01 dt {  /* 楽天銀行 */
+#prCarouseContainer .bnr_pr_01 dt {  /* MY銀行 */
   background: url(../../../images/common/group/logo_pr_bank_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_02 dt {  /* 楽天カード */
+#prCarouseContainer .bnr_pr_02 dt {  /* MYカード */
   background: url(../../../images/common/group/logo_pr_card_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_03 dt {  /* 楽天証券 */
+#prCarouseContainer .bnr_pr_03 dt {  /* MY証券 */
   background: url(../../../images/common/group/logo_pr_brokerage_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_04 dt {  /* 楽天スーパーナイター */
+#prCarouseContainer .bnr_pr_04 dt {  /* MYスーパーナイター */
   background: url(/shared/img/group/logo_pr_supernighter_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_05 dt {  /* 楽天kobo */
+#prCarouseContainer .bnr_pr_05 dt {  /* MYkobo */
   background: url(/shared/img/group/logo_pr_kobo_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_06 dt {  /* 楽天TV */
+#prCarouseContainer .bnr_pr_06 dt {  /* MYTV */
   background: url(../../../images/common/group/logo_pr_tv_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_07 dt {  /* 楽天ふるさと納税 */
+#prCarouseContainer .bnr_pr_07 dt {  /* MYふるさと納税 */
   background: url(../../../images/common/group/logo_pr_life_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_08 dt {  /* 楽天エナジー */
+#prCarouseContainer .bnr_pr_08 dt {  /* MYエナジー */
   background: url(../../../images/common/group/logo_pr_energy_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;
@@ -2165,27 +2165,27 @@ margin-bottom: 30px;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_10 dt {  /* 楽天損保 */
+#prCarouseContainer .bnr_pr_10 dt {  /* MY損保 */
   background: url(../../../images/common/group/logo_pr_generalinsurance_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_11 dt {  /* 楽天少額短期保険 */
+#prCarouseContainer .bnr_pr_11 dt {  /* MY少額短期保険 */
   background: url(../../../images/common/group/logo_pr_pet_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_12 dt {  /* 楽天GORA */
+#prCarouseContainer .bnr_pr_12 dt {  /* MYGORA */
   background: url(../../../images/common/group/logo_pr_gora_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_13 dt {  /* 楽天買取 */
+#prCarouseContainer .bnr_pr_13 dt {  /* MY買取 */
   background: url(../../../images/common/group/logo_pr_buyback_sp.jpg) top center no-repeat;
   background-size: 100% auto;
   height: auto;
 }
-#prCarouseContainer .bnr_pr_14 dt {  /* 楽天 */
+#prCarouseContainer .bnr_pr_14 dt {  /* MY */
   background: url(/shared/img/group/logo_r_rakuten_sp.png) top center no-repeat;
   background-size: 100% auto;
   height: auto;

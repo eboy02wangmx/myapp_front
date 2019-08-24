@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     isPaperless () {
-      return this.$store.state.homeassist.entryType === '2'
+      return true
     }
   },
   watch: {

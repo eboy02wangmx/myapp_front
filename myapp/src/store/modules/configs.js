@@ -67,7 +67,7 @@ export default {
     birthdayMaxYear: 3000,
     agentCode: null,
     agentName: null,
-    // 直接画面遷移（楽天IDログイン後、マイページからの遷移）
+    // 直接画面遷移（MYIDログイン後、マイページからの遷移）
     direct: false,
     action: null,
     // SMBC決済アクセス情報 TODO テスト環境
@@ -115,7 +115,7 @@ export default {
         return
       }
       // 読込画面 開始
-      commit(MUTATIONS.UI_SET_LOADING_ON)
+      // commit(MUTATIONS.UI_SET_LOADING_ON)
 
       await NHA_O_0015_API.getConfig(payload)
         .then(response => {
@@ -164,7 +164,7 @@ export default {
         .finally(() => util.api.end(myAction, state.sync))
 
       // 読込画面 終了
-      commit(MUTATIONS.UI_SET_LOADING_OFF)
+      // commit(MUTATIONS.UI_SET_LOADING_OFF)
     },
     /**
      * Cookieの初期化

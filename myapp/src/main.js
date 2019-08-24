@@ -34,7 +34,7 @@ if (store.state.configs.isMobile.any !== true) {
   })
 }
 
-// 楽天用 カスタムElementsの登録
+// カスタムElementsの登録
 Vue.use(RUi)
 
 // Google Analytics

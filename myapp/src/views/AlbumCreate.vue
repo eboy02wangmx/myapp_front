@@ -45,7 +45,7 @@
 <div class="well">
 <form action="https://mieru360.com/album/add" method="post" accept-charset="utf-8"><fieldset>
 <legend>アルバム作成</legend>
-<label for="album_name">アルバム名</label><input type="text" name="album_name" value="" maxlength="30"  /><br/><br/><br/></fieldset><button name="submit" type="submit" id="submit" style="margin-bottom: 3px" value="Add" class="btn btn-primary" >&nbsp;&nbsp;&nbsp;作　成&nbsp;&nbsp;&nbsp;</button> <span>　</span>
+<label for="album_name">アルバム名</label><input type="text" name="album_name" value="" maxlength="30"  /><br/><br/><br/></fieldset><button name="submit" type="submit" id="submit" style="margin-bottom: 3px" value="Add" class="btn btn-primary" >&nbsp;&nbsp;&nbsp;作&nbsp;成&nbsp;&nbsp;&nbsp;</button><span></span>
  <a href="/#/Album" class="btn">キャンセル</a>
 </form></div>
 </div>

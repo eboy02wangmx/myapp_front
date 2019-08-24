@@ -25,7 +25,7 @@ export const topViewModel = {
     }
   },
   created () {
-    this.$store.dispatch(ACTIONS.MYAPP_CLEAR)
+    // this.$store.dispatch(ACTIONS.MYAPP_CLEAR)
     if (this.$route.query.entryType !== undefined && this.$route.query.entryType !== '') {
       this.$store.commit(MUTATIONS.MYAPP_SET_ENTRY_TYPE, this.$route.query.entryType)
     }

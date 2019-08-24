@@ -259,7 +259,7 @@ export default () => {
     // PH2追加
     // 他契約有無(keiyaku_other)
     withOtherContract: null,
-    // 楽天損保1(rakuten_sonpo1)
+    // MY損保1(rakuten_sonpo1)
     rakutenSonpoFirst: null,
     // 保険種類（カナ）1
     insuranceTypeKanaFirst: null,
@@ -273,7 +273,7 @@ export default () => {
     earthquakeInsuranceAmountFirst: null,
     // 満期日1(manki_date1)
     dueDateFirst: null,
-    // 楽天損保2(rakuten_sonpo2)
+    // MY損保2(rakuten_sonpo2)
     rakutenSonpoSecond: null,
     // 保険種類（カナ）2
     insuranceTypeKanaSecond: null,

@@ -307,7 +307,7 @@ export const
             objectAddressKana: 'オオサカフオオサカシ☆☆ク◇◇ ２', // 保険対象住所カナ
             objectAddressFree: '－２２', // 保険対象住所
             objectAddressKanaFree: '－２２', // 保険対象住所カナ
-            contractorName: '楽天太郎', // 契約者氏名
+            contractorName: 'MY太郎', // 契約者氏名
             contractorNameKana: 'ﾗｸﾃﾝﾀﾛｳ', // 契約者氏名カナ
             contractorPost: '1300013', // 契約者郵便番号
             contractorAddressCode: '0', // 住所コード
@@ -325,11 +325,11 @@ export const
             contractorSex: '1', // 契約者性別
             contractorBirthday: '19880901', // 契約者生年月日
             contractorIdentical: '2', // 被保険者同異
-            insuredName: '楽天太郎', // 被保険者氏名
+            insuredName: 'MY太郎', // 被保険者氏名
             insuredNameKaNa: 'ﾗｸﾃﾝﾀﾛｳ', // 被保険者氏名カナ
-            personalLiabilityName: '楽天次郎', // 個人賠償補償対象者氏名
+            personalLiabilityName: 'MY次郎', // 個人賠償補償対象者氏名
             personalLiabilityNameKana: 'ﾗｸﾃﾝｼﾞﾛｳ', // 個人賠償補償対象者氏名カナ
-            tenantCompensationName: '楽天三郎', // 借家賠償補償対象者氏名
+            tenantCompensationName: 'MY三郎', // 借家賠償補償対象者氏名
             tenantCompensationNameKana: 'ﾗｸﾃﾝｻﾝﾛｳ', // 借家賠償補償対象者氏名カナ
             confirmContractor: '1', // 契約者・被保険者・保険対象所在地確認
             confirmBuilding: '1', // 保険の対象となる建物情報確認
@@ -453,7 +453,7 @@ export const
             // 募集人名
             recruitmentID: 9000001,
             // 募集人名
-            recruitmentName: '楽天　太郎',
+            recruitmentName: 'MY　太郎',
             // 2次開発終了
             jyulonRiyo: '1'
           },
@@ -1288,17 +1288,17 @@ export const
         data: {
           totalSize: 32,
           list: [
-            {printNo: 9000001, contractorName: '楽天　太郎', addDate: '20181111'},
-            {printNo: 9000002, contractorName: '楽天　二郎', addDate: '20181112'},
-            {printNo: 9000002, contractorName: '楽天　二郎', addDate: '20181112'},
-            {printNo: 9000002, contractorName: '楽天　二郎', addDate: '20181112'},
-            {printNo: 9000002, contractorName: '楽天　二郎', addDate: '20181112'},
-            {printNo: 9000002, contractorName: '楽天　二郎', addDate: '20181112'},
-            {printNo: 9000002, contractorName: '楽天　二郎', addDate: '20181112'},
-            {printNo: 9000002, contractorName: '楽天　二郎', addDate: '20181112'},
-            {printNo: 9000002, contractorName: '楽天　二郎', addDate: '20181112'},
-            {printNo: 9000002, contractorName: '楽天　二郎', addDate: '20181112'},
-            {printNo: 9000003, contractorName: '楽天　三郎', addDate: '20181113'}
+            {printNo: 9000001, contractorName: 'MY　太郎', addDate: '20181111'},
+            {printNo: 9000002, contractorName: 'MY　二郎', addDate: '20181112'},
+            {printNo: 9000002, contractorName: 'MY　二郎', addDate: '20181112'},
+            {printNo: 9000002, contractorName: 'MY　二郎', addDate: '20181112'},
+            {printNo: 9000002, contractorName: 'MY　二郎', addDate: '20181112'},
+            {printNo: 9000002, contractorName: 'MY　二郎', addDate: '20181112'},
+            {printNo: 9000002, contractorName: 'MY　二郎', addDate: '20181112'},
+            {printNo: 9000002, contractorName: 'MY　二郎', addDate: '20181112'},
+            {printNo: 9000002, contractorName: 'MY　二郎', addDate: '20181112'},
+            {printNo: 9000002, contractorName: 'MY　二郎', addDate: '20181112'},
+            {printNo: 9000003, contractorName: 'MY　三郎', addDate: '20181113'}
           ]
         }
       }
@@ -1314,8 +1314,8 @@ export const
           checkResult: 2,
           errorMessage: '募集人ID検索のエラー',
           list: [
-            {recruitmentID: 9000002, recruitmentName: '楽天　二郎', recruitmentNameKana: 'カナ'},
-            {recruitmentID: 9000003, recruitmentName: '楽天　三郎', recruitmentNameKana: 'カナ'}
+            {recruitmentID: 9000002, recruitmentName: 'MY　二郎', recruitmentNameKana: 'カナ'},
+            {recruitmentID: 9000003, recruitmentName: 'MY　三郎', recruitmentNameKana: 'カナ'}
           ]
         }
       }
