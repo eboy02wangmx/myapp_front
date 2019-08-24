@@ -54,7 +54,7 @@
         <th>所有画像数</th>
       <th>端末IPアドレス</th>
       <th>
-                <a class="btn btn-primary" href="https://mieru360.com/user/create">ユーザー作成</a>
+                <a class="btn btn-primary" href="/#/UserEdit">ユーザー作成</a>
               </th>
     </tr>
   </thead>
@@ -70,7 +70,7 @@
       <td>60.135.120.91</td>
       <td>
         <div class="btn-group">
-          <a class="btn" href="https://mieru360.com/user/edit/37">編&nbsp;&nbsp;&nbsp;集</a>
+          <a class="btn" href="/#/UserEdit">編&nbsp;&nbsp;&nbsp;集</a>
           </div>
           </td>
     </tr>
