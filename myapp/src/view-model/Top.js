@@ -19,6 +19,9 @@ export const topViewModel = {
   computed: {
     isError: function () {
       return this.$store.state.configs.parameterError
+    },
+    agentName: function () {
+      return this.$store.state.myapp.agentName
     }
   },
   methods: {
@@ -40,6 +43,7 @@ export const topViewModel = {
       if (this.$store.state.myapp.sync[ACTIONS.MYAPP_USER_LOGIN].status !== 200) {
         this.$store.dispatch(ACTIONS.ERROR_OPEN_API_ERRORS)
       }
+      console.log('this.$store.state.myapp.agentName is ' + this.agentName)
     }
   }
 }
