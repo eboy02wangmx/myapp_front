@@ -1,39 +1,5 @@
 <template>
   <div :class="!isPaperless ? 'r-footer': 'r-footer2'">
-    <div class="r-clearfix r-footer-content"  v-if="!isPaperless">
-      <div :class="screen?'r-footer-center':'r-footer-left'">
-        <p class="r-contact">お問い合わせ窓口</p>
-        <h2><img src="../assets/images/r-rakutenlogo.png" width="260" alt="楽天損害保険株式会社">代理店</h2>
-        <p class="r-agency-small">楽天インシュアランスプランニング株式会社</p>
-        <p class="r-tel">0120-560-650</p>
-        <div class="r-businessHourLines">
-          <p class="r-businesshours">受付時間：平日&nbsp;&nbsp;&nbsp;&nbsp;9:00〜20:00</p>
-          <p class="r-businesshours"><span class="blind">受付時間：</span>土日祝&nbsp;9:00〜18:00</p>
-          <p class="r-businesshours"><span class="blind">受付時間：</span>（年末年始は除く）</p>
-        </div>
-
-      </div>
-      <div class="r-footer-right">
-        <p class="r-contact">取扱代理店</p>
-        <h2><img src="../assets/images/r-rakutenlogo.png" width="260" alt="楽天損害保険株式会社">代理店</h2>
-        <p class="r-agency">{{agentName}}</p>
-        <p class="r-agency_disbungen">{{dismessage}}</p>
-      </div>
-    </div>
-    <div class="r-clearfix r-footer-content"  v-if="isPaperless">
-      <div>
-        <p class="r-contact">お問い合わせ窓口</p>
-        <h2><img src="../assets/images/r-rakutenlogo.png" width="260" alt="楽天損害保険株式会社"></h2>
-        <p class="r-agency">楽天損保代理店サポートセンター</p>
-        <p class="r-tel">0570-666-042（ナビダイヤル）</p>
-        <p class="r-tel">0422-24-1021（固定電話番号）</p>
-        <div class="r-businessHourLines2">
-          <p class="r-businesshours">受付時間：平日&nbsp;&nbsp;&nbsp;&nbsp;9:00〜18:00</p>
-          <p class="r-businesshours"><span class="blind">受付時間：</span>土日祝&nbsp;10:00〜18:00</p>
-          <p class="r-businesshours"><span class="blind">受付時間：</span>（年末年始は除く）</p>
-        </div>
-      </div>
-    </div>
     <div class="r-footer-bottom">
       <div class="r-device" v-if="showMobileMode">
         <dl>
@@ -69,7 +35,7 @@ export default {
   },
   computed: {
     isPaperless () {
-      return true
+      return this.$store.state.homeassist.entryType === '2'
     }
   },
   watch: {

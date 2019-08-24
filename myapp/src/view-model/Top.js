@@ -6,7 +6,6 @@
 import {ACTIONS} from '@/store/action-types'
 import {MUTATIONS} from '@/store/mutation-types'
 import locationURL from '@/locationURL'
-import {NHA_O_0044_API} from '@/api/NHA_O_0044_API'
 
 export const topViewModel = {
   name: 'Top',
@@ -256,20 +255,6 @@ export const topViewModel = {
     },
     async createPdf (data) {
       console.log('start createpdf')
-      let self = this
-      return new Promise(function (resolve, reject) {
-        NHA_O_0044_API.createPdf(data)
-          .then(function (response) {
-            self.startDownload(response, data.pdfType)
-            resolve()
-          })
-          .catch(error => {
-            self.downloading = false
-            console.log('error is ' + error)
-          })
-          .finally({
-          })
-      })
     },
     doPrint3 () {
       this.$store.dispatch(ACTIONS.MYAPP_SVR_FILE_DELETE, {fileNo: '1333'})
@@ -282,18 +267,6 @@ export const topViewModel = {
       this.downloading = true
       console.log('print 依頼書')
       let dependencyData = {}
-      // 証券番号を採番実行
-      await NHA_O_0044_API.genPolicyNo()
-        .then(function (response) {
-          dependencyData.policy = response.policyNo
-          dependencyData.insatuNo = response.entryNo
-          // 申し込み番号を採番実行
-        })
-        .catch(error => {
-          console.log('error is ' + error)
-        })
-        .finally({
-        })
       // 実行 1
       let self = this
       dependencyData.hShumoku = '' // 火災

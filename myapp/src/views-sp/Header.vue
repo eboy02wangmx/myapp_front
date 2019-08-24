@@ -29,7 +29,7 @@
     <div class="rc-h-service-bar">
       <div class="rc-h-inner">
         <div class="rc-h-site-id">
-          <h1><span class="rc-h-logo jsFixedParts"><img src="static/global/images/common/header/logo_sp.png" alt="楽天損害保険株式会社"></span></h1>
+          <h1><span class="rc-h-logo jsFixedParts"><img src="" alt="MYPIC360"></span></h1>
         </div>
 
       </div>
@@ -40,7 +40,10 @@
 </header>
 </template>
 <script>
+import Vue from 'vue'
+import SubNavi from './SubNavi.vue'
 import {headerViewModel} from '@/view-model/Header'
+Vue.component('sub-navi', SubNavi)
 
 export default {
   name: 'MainHeader',
