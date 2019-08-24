@@ -16,11 +16,11 @@
       <a class="brand" href="">Panolib</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="active"><a href="">物件一覧</a></li>
-          <li><a href="/#/User">ユーザー管理</a></li>
-          <li><a href="">利用状況一覧</a></li>
+          <li><a href="/#/Album">物件一覧</a></li>
+          <li class="active"><a href="/#/User">ユーザー管理</a></li>
+          <li><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
-        <p class="navbar-text pull-right"><a href="">ログアウト</a></p>
+        <p class="navbar-text pull-right"><a href="/#/Top">ログアウト</a></p>
       </div><!--/.nav-collapse -->
     </div>
   </div>
@@ -51,7 +51,7 @@
 <legend>ユーザー情報</legend>
 <table class='table table-bordered'><tr><td style='width:150px'><label for="email_address">メールアドレス</label></td><td><input type="text" name="email_address" value="xjklongbbb@yahoo.co.jp" readonly="readonly" id="email_address" maxlength="30"  /></td></tr>
 <tr><td><label for="password">パスワード</label><td><input type="password" name="password" value="" minlength="4" maxlength="30"/></td></tr><tr><td><label for="password_conf">パスワード再入力</label></td><td><input type="password" name="password_conf" value="" minlength="4" maxlength="30"  /></td></tr></table></fieldset><button name="submit" type="submit" id="submit" style="margin-bottom: 3px" value="Update" class="btn btn-primary" >&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;</button><span></span>
-    <a href="" class="btn">キャンセル</a>
+    <a href="/#/User" class="btn">キャンセル</a>
 </form></div>
 </div>
 </template>

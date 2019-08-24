@@ -16,9 +16,9 @@
       <a class="brand" href="https://mieru360.com/">Panolib</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="active"><a href="https://mieru360.com/album">物件一覧</a></li>
-          <li><a href="https://mieru360.com/user">ユーザー管理</a></li>
-          <li><a href="">利用状況一覧</a></li>
+          <li class="active"><a href="/#/Album">物件一覧</a></li>
+          <li><a href="/#/User">ユーザー管理</a></li>
+          <li><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
         <p class="navbar-text pull-right"><a href="https://mieru360.com/auth/logout">ログアウト</a></p>
       </div><!--/.nav-collapse -->
