@@ -429,10 +429,6 @@ export default {
     setSync (action, sync) {
       if (action.indexOf('MYAPP_') === 0) {
         store.commit(MUTATIONS.MYAPP_SET_SYNC, {[action]: sync})
-      } else if (action.indexOf('EARTHQUAKE_') === 0) {
-        store.commit(MUTATIONS.EARTHQUAKE_SET_SYNC, {[action]: sync})
-      } else if (action.indexOf('MYPAGE_') === 0) {
-        store.commit(MUTATIONS.MYPAGE_SET_SYNC, {[action]: sync})
       }
     }
   },

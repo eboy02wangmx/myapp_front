@@ -143,7 +143,8 @@ export default {
       [ACTIONS.MYAPP_BANK_SEARCH]: { doing: false },
       [ACTIONS.MYAPP_GEN_PDF]: { doing: false },
       [ACTIONS.MYAPP_READ_ENTRY_NO_LIST]: { doing: false },
-      [ACTIONS.MYAPP_GEN_POLICY_NO]: { doing: false }
+      [ACTIONS.MYAPP_GEN_POLICY_NO]: { doing: false },
+      [ACTIONS.MYAPP_USER_LOGIN]: { doing: false }
     },
     // 銀行検索結果
     bankitems: [],
@@ -2521,6 +2522,24 @@ export default {
         .finally(() => util.api.end(myAction, state.sync))
     },
     /**
+     * Bank検索
+     */
+    async [ACTIONS.MYAPP_USER_LOGIN] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_USER_LOGIN
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0001_API.userLogin(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_USER_LOGIN_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    /**
      * 証券番号採番
      */
     async [ACTIONS.MYAPP_GEN_POLICY_NO] ({ state, commit }, request) {
@@ -2588,6 +2607,10 @@ export default {
         state.subbankitems = cloneDeep(data.list)
         console.log('sub search OK')
       }
+    },
+    [MUTATIONS.MYAPP_USER_LOGIN_OK] (state, data) {
+      state.agentName = cloneDeep(data.agentName)
+      console.log('state.agentName:' + state.agentName)
     },
     [MUTATIONS.MYAPP_BANK_SET] (state, data) {
       state.selecteditem = cloneDeep(data)

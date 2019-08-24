@@ -15,6 +15,7 @@ export const READ_NOTICE_LIST = 'READ_NOTICE_LIST'
 export const READ_ENTRY_NO_LIST = 'READ_ENTRY_NO_LIST'
 
 export const FILE_UPLOAD = 'FILE_UPLOAD'
+export const MYAPP_USER_LOGIN = 'MYAPP_USER_LOGIN'
 export const ACTIONS = {
   // config
   CONFIGS_INIT,
@@ -28,5 +29,7 @@ export const ACTIONS = {
   TOP_MITUMORI_CLOSE,
   FILE_UPLOAD,
   // ERROR
-  ERROR_OPEN_API_ERRORS
+  ERROR_OPEN_API_ERRORS,
+  // APP
+  MYAPP_USER_LOGIN
 }

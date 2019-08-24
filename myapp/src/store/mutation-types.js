@@ -12,6 +12,9 @@ export const CLEAR_ENTRY_NO_LIST = 'CLEAR_ENTRY_NO_LIST'
 // TOP画面の見積連番一覧POP
 export const UI_SET_TOP_MITUMORI = 'UI_SET_TOP_MITUMORI'
 export const FILE_UPLOAD = 'FILE_UPLOAD'
+// APP
+export const MYAPP_SET_SYNC = 'MYAPP_SET_SYNC'
+export const MYAPP_USER_LOGIN_OK = 'MYAPP_USER_LOGIN_OK'
 
 export const MUTATIONS = {
   // config
@@ -25,5 +28,8 @@ export const MUTATIONS = {
   CLEAR_ENTRY_NO_LIST,
   // TOP画面の見積連番一覧POP
   UI_SET_TOP_MITUMORI,
-  FILE_UPLOAD
+  FILE_UPLOAD,
+  // APP
+  MYAPP_SET_SYNC,
+  MYAPP_USER_LOGIN_OK
 }

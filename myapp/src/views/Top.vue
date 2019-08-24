@@ -11,7 +11,7 @@
     <h1>Panolib</h1>
   </div>
   <form action="https://mieru360.com/auth/authenticate" method="post" accept-charset="utf-8"><label for="email_address">メールアドレス</label><input type="text" name="email_address" value="" class="text-input" maxlength="45"><label for="password">パスワード</label><input type="password" name="password" value="" class="text-input" maxlength="30">
-  <p><button name="submit" type="submit" id="submit" value="Login" class="btn btn-primary btn-large">ログイン</button></p>
+  <p><r-button class="btn btn-primary btn-large" @click="userLogin">ログイン</r-button></p>
   </form>
   <!-- <p><a href="https://mieru360.com/auth/forgotpassword">パスワードを忘れた場合</a></p>
   <p><a href="https://mieru360.com/auth/trial">ユーザー登録</a></p>-->
