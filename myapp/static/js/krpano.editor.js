@@ -11,25 +11,12 @@ var krpano = document.getElementById("krpanoSWFObject"),
 	canRightMove = !1,
 	canShowLeft = !0;
 $(function() {
+	$(".triangle-down").mouseup(function() {
+		canDownMove = !1
+	}).mouseout(function() {
+		canDownMove = !1
+	});
 
-	 
-		$(".triangle-down").mouseup(function() {
-			canDownMove = !1
-		}).mouseout(function() {
-			canDownMove = !1
-		});
-	/*
-		$(".triangle-up-left").mouseup(function() {
-			canLeftMove = !1
-		}).mouseout(function() {
-			canLeftMove = !1
-		});
-		$(".triangle-up-right").mouseup(function() {
-			canRightMove = !1
-		}).mouseout(function() {
-			canRightMove = !1
-		});
-	*/
 	$(".hot-style").click(function() {
 		toAddHotSpot.style = $(this).attr("name");
 		$(".hot-style").removeClass("hot-style-on");
@@ -358,13 +345,15 @@ function save() {
 	if ("保 存 済" != $("#isEdited").text()) {
 		var a = JSON.stringify(sceneList);
 		//var host=location.pathname.split('/');
-		var host = location.origin;
+		var host = location.origin + ":8080/myapp-backend/api/editor";
 		$.ajax({
 			type: "POST",
 			contentType: "application/json; charset=utf-8",
-			url: host + '/index.php/api/editor',
+			url: host,
 			data: a,
 			async: false,
+			dataType: "jsonp",
+            crossDomain: true,
 			success: function(a) {
 				// alert(a);
 				console.log(a);
@@ -373,7 +362,10 @@ function save() {
                 $("#isEdited").css('background-color','#2185D0');
 				//"成功しました" == a && $("#isEdited").text("保存")
 			},
-			error: function() {
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+			    console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+				console.log("textStatus     : " + textStatus);
+                console.log("errorThrown    : " + errorThrown.message);
 				alert("エラー")
 			}
 		})
