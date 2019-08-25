@@ -57,7 +57,7 @@
 </div>
 </div>
     <input @change="selectedFile" type="file" name="file" multiple>
-    <button @click="upload" type="submit">アップロード</button>
+    <button @click="imageUpload" type="submit">アップロード</button>
 </div>
 </template>
 <script>

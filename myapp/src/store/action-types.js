@@ -16,6 +16,7 @@ export const READ_ENTRY_NO_LIST = 'READ_ENTRY_NO_LIST'
 
 export const FILE_UPLOAD = 'FILE_UPLOAD'
 export const MYAPP_USER_LOGIN = 'MYAPP_USER_LOGIN'
+export const MYAPP_IMAGE_UPLOAD = 'MYAPP_IMAGE_UPLOAD'
 export const ACTIONS = {
   // config
   CONFIGS_INIT,
@@ -31,5 +32,6 @@ export const ACTIONS = {
   // ERROR
   ERROR_OPEN_API_ERRORS,
   // APP
-  MYAPP_USER_LOGIN
+  MYAPP_USER_LOGIN,
+  MYAPP_IMAGE_UPLOAD
 }

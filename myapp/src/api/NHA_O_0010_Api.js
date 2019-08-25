@@ -2,16 +2,16 @@ import Api from '@/api/api'
 
 // NHA_O_0010_ファイルアップロード
 export const NHA_O_0010_API = {
-  // FileUpload
-  getFileUpload (request) {
-    return Api.instance().post('/fileupload', request, {headers: {'Content-Type': 'multipart/form-data', 'Accept': 'multipart/form-data'}})
+  // imageUpload
+  imageUpload (request) {
+    return Api.instance().post('/imageUpload', request, {headers: {'Content-Type': 'multipart/form-data', 'Accept': 'multipart/form-data'}})
   },
-  // FileDelete
-  getFileDelete (request) {
-    return Api.instance().post('/fileDelete', request)
+  // imageDelete
+  fileDelete (request) {
+    return Api.instance().post('/imageDelete', request)
   },
-  // FileDeleteArray
-  getFileDeleteArray (request) {
-    return Api.instance().post('/fileDeleteArray', request)
+  // imageDeleteArray
+  fileDeleteArray (request) {
+    return Api.instance().post('/imageDeleteArray', request)
   }
 }

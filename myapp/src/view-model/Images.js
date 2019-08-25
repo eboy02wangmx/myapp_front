@@ -3,9 +3,9 @@
  *
  * see: 画面定義書_G-NHA-002_ALBUM画面_v1.1.xlsx
  */
-// import {ACTIONS} from '@/store/action-types'
+import {ACTIONS} from '@/store/action-types'
 import {MUTATIONS} from '@/store/mutation-types'
-import axios from 'axios'
+// import axios from 'axios'
 export const imagesViewModel = {
   name: 'Images',
   data () {
@@ -61,22 +61,29 @@ export const imagesViewModel = {
       let files = e.target.files
       this.uploadFile = files[0]
     },
-    upload () {
+    async imageUpload () {
       // FormData を利用して File を POST する
-      let formData = new FormData()
-      formData.append('yourFileKey', this.uploadFile)
-      let config = {
-        headers: {
-          'content-type': 'multipart/form-data'
-        }
+      // let formData = new FormData()
+      // formData.append('yourFileKey', this.uploadFile)
+      // let config = {
+      //   headers: {
+      //     'content-type': 'multipart/form-data'
+      //   }
+      // }
+      // axios.post('/fileupload', formData, config)
+      //   .then(response => {
+      //     // response 処理
+      //   })
+      //   .catch()
+      //   .finally()
+      // // this.$store.dispatch(ACTIONS.FILE_UPLOAD, {file: this.uploadFile})
+      const request = {
+        fileType: this.fileType,
+        fileName: this.fileName,
+        file: this.uploadFile
       }
-      axios.post('/fileupload', formData, config)
-        .then(response => {
-          // response 処理
-        })
-        .catch()
-        .finally()
-      // this.$store.dispatch(ACTIONS.FILE_UPLOAD, {file: this.uploadFile})
+      console.log('uploadstart')
+      await this.$store.dispatch(ACTIONS.MYAPP_IMAGE_UPLOAD, request)
     },
     editVR () {
       window.open('../views/Vtour.html')

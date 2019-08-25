@@ -144,7 +144,8 @@ export default {
       [ACTIONS.MYAPP_GEN_PDF]: { doing: false },
       [ACTIONS.MYAPP_READ_ENTRY_NO_LIST]: { doing: false },
       [ACTIONS.MYAPP_GEN_POLICY_NO]: { doing: false },
-      [ACTIONS.MYAPP_USER_LOGIN]: { doing: false }
+      [ACTIONS.MYAPP_USER_LOGIN]: { doing: false },
+      [ACTIONS.MYAPP_IMAGE_UPLOAD]: { doing: false }
     },
     // 銀行検索結果
     bankitems: [],
@@ -2533,6 +2534,30 @@ export default {
       }
       // 実行
       await NHA_O_0001_API.userLogin(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_USER_LOGIN_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    /**
+     * imageUpload
+     */
+    async [ACTIONS.MYAPP_IMAGE_UPLOAD] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_IMAGE_UPLOAD
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      console.log('z01')
+      console.log(request)
+      const multipartRequest = new FormData()
+      for (const key in request) {
+        multipartRequest.append(key, request[key])
+      }
+      // 実行
+      await NHA_O_0010_API.imageUpload(multipartRequest)
         .then(function (response) {
           commit(MUTATIONS.MYAPP_USER_LOGIN_OK, response.data)
         })
