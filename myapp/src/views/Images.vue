@@ -48,10 +48,10 @@
       <a href="#/Album" style="margin-right: 130px;">&larr; アルバムに戻る</a>
     </li>
     <li class="previous">
-      <a target="_blank" onclick="return vrDisplay(this)" href="https://mieru360.com/play/index/391aefa7-b9b1-11e9-bdc9-9ca3ba01d8b9" style="margin-right: 10px;"><i class="icon-picture"></i>&nbsp;&nbsp;VR表示&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a target="_blank" onclick="return vrDisplay(this)" href="../static/tour.html" style="margin-right: 10px;"><i class="icon-picture"></i>&nbsp;&nbsp;VR表示&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </li>
     <li class="previous">
-      <a href="../static/Vtour.html">VR編集</a>
+      <a target="_blank" href="../static/tour_editor.html">VR編集</a>
     </li>
   </ul>
 </div>
