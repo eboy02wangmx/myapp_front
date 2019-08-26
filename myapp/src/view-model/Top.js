@@ -36,18 +36,23 @@ export const topViewModel = {
         console.error(this.$store.state.myapp.sync[ACTIONS.MYAPP_SVR_ACCEPT_LIMIT_CONFIRM_CODE_SAVE].status, 'error!')
       }
     },
-    async userLogin () {
+    userLogin () {
       console.log('user login.ha ha ha')
       let params = {userName: this.userName, password: this.password}
-      await this.$store.dispatch(ACTIONS.MYAPP_USER_LOGIN, params)
-      // await this.$store.dispatch(ACTIONS.CONFIGS_INIT)
-      if (this.$store.state.myapp.sync[ACTIONS.MYAPP_USER_LOGIN].status !== 200) {
-        this.$store.dispatch(ACTIONS.ERROR_OPEN_API_ERRORS)
-      }
-      console.log('this.$store.state.myapp.userName is ' + this.loginUserName)
-      if (this.loginUserName !== undefined) {
-        this.routerPush('/images')
-      }
+      const unwatch = this.$store.watch(() => this.$store.state.myapp.sync[ACTIONS.MYAPP_USER_LOGIN].doing, (newValue, oldValue) => {
+        if (oldValue === true && newValue === false) {
+          if (this.$store.state.myapp.sync[ACTIONS.MYAPP_USER_LOGIN].status === 200) {
+            console.log('this.$store.state.myapp.userName is ' + this.loginUserName)
+            if (this.$store.state.myapp.userName !== undefined) {
+              this.routerPush('/images')
+            }
+          } else {
+            this.$store.dispatch(ACTIONS.ERROR_OPEN_API_ERRORS)
+          }
+          unwatch()
+        }
+      })
+      this.$store.dispatch(ACTIONS.MYAPP_USER_LOGIN, params)
     }
   }
 }
