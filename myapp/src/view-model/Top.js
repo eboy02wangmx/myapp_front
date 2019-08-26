@@ -9,8 +9,8 @@ export const topViewModel = {
   name: 'Top',
   data () {
     return {
-      entryNo: null,
-      setEntryNo: null
+      userName: null,
+      password: null
     }
   },
   created () {
@@ -20,8 +20,8 @@ export const topViewModel = {
     isError: function () {
       return this.$store.state.configs.parameterError
     },
-    agentName: function () {
-      return this.$store.state.myapp.agentName
+    loginUserName: function () {
+      return this.$store.state.myapp.userName
     }
   },
   methods: {
@@ -38,12 +38,16 @@ export const topViewModel = {
     },
     async userLogin () {
       console.log('user login.ha ha ha')
-      await this.$store.dispatch(ACTIONS.MYAPP_USER_LOGIN)
+      let params = {userName: this.userName, password: this.password}
+      await this.$store.dispatch(ACTIONS.MYAPP_USER_LOGIN, params)
       // await this.$store.dispatch(ACTIONS.CONFIGS_INIT)
       if (this.$store.state.myapp.sync[ACTIONS.MYAPP_USER_LOGIN].status !== 200) {
         this.$store.dispatch(ACTIONS.ERROR_OPEN_API_ERRORS)
       }
-      console.log('this.$store.state.myapp.agentName is ' + this.agentName)
+      console.log('this.$store.state.myapp.userName is ' + this.loginUserName)
+      if (this.loginUserName !== undefined) {
+        this.routerPush('/images')
+      }
     }
   }
 }

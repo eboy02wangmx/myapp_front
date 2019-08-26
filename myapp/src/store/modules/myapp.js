@@ -2523,7 +2523,7 @@ export default {
         .finally(() => util.api.end(myAction, state.sync))
     },
     /**
-     * Bank検索
+     * ログイン
      */
     async [ACTIONS.MYAPP_USER_LOGIN] ({ state, commit }, request) {
       const myAction = ACTIONS.MYAPP_USER_LOGIN
@@ -2634,8 +2634,8 @@ export default {
       }
     },
     [MUTATIONS.MYAPP_USER_LOGIN_OK] (state, data) {
-      state.agentName = cloneDeep(data.agentName)
-      console.log('state.agentName:' + state.agentName)
+      state.userName = cloneDeep(data.userName)
+      console.log('state.userName:' + state.userName)
     },
     [MUTATIONS.MYAPP_BANK_SET] (state, data) {
       state.selecteditem = cloneDeep(data)
