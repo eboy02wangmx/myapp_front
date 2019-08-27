@@ -45,14 +45,12 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>メールアドレス</th>
+      <th>アカウントID</th>
       <th>権限</th>
       <th>状態</th>
       <th>システム登録日付</th>
-      <th>最終ログイン日時</th>
       <th>所有アルバム数</th>
         <th>所有画像数</th>
-      <th>端末IPアドレス</th>
       <th>
                 <a class="btn btn-primary" href="/#/UserEdit">ユーザー作成</a>
               </th>
@@ -64,10 +62,8 @@
       <td>管理者</td>
       <td>有効</td>
       <td>2019/08/08</td>
-      <td>2019/08/21 13:41:01</td>
       <td>3</td>
         <td>3</td>
-      <td>60.135.120.91</td>
       <td>
         <div class="btn-group">
           <a class="btn" href="/#/UserEdit">編&nbsp;&nbsp;&nbsp;集</a>
@@ -79,17 +75,15 @@
       <td>作業者</td>
       <td>有効</td>
       <td>2019/08/08</td>
-      <td>2019/08/20 10:28:33</td>
       <td>1</td>
-        <td>1</td>
-      <td>60.135.120.91</td>
+      <td>1</td>
       <td>
         <div class="btn-group">
           <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">操作<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="https://mieru360.com/user/edit/38"><i class="icon-pencil"></i>編集</a></li>
-        <li><a href="https://mieru360.com/user/deactivate/38"><i class="icon-ban-circle"></i>無効化</a></li>
-        <li><a class="user-delete-btn" href="#user-modal" data-toggle="modal" rel="https://mieru360.com/user/remove/38">
+            <li><a href=""><i class="icon-pencil"></i>編集</a></li>
+        <li><a href=""><i class="icon-ban-circle"></i>無効化</a></li>
+        <li><a class="user-delete-btn" href="#user-modal" data-toggle="modal" rel="">
         <i class="icon-trash"></i>削除</a></li>
         </ul>
         </div>
