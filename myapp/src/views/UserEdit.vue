@@ -1,7 +1,7 @@
 <!--
-  - ALBUM画面
+  - 編集画面
   -
-  - see: 画面定義書_G-NHA-002_user画面_v1.1.xlsx
+  - see: 画面定義書_G-NHA-004_ユーザー管理画面->ユーザー編集画面_v1.1.xlsx
   -->
 <template>
 <div>
@@ -52,27 +52,27 @@
 <table class='table table-bordered'><tr><td style='width:150px'><label for="email_address">アカウントID</label></td><td><input type="text" name="email_address" value="xjklongbbb@yahoo.co.jp" readonly="readonly" id="email_address" maxlength="30"  /></td></tr>
 <tr>
   <td><label for="name">氏名</label></td>
-  <td>フリガナ&nbsp;<input type="text" name="phonetic1" value="0" style="width:150px" maxlength="30"/><input type="text" name="phonetic2" value="0" style="width:150px" maxlength="30"/>
-  <br>漢&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字&nbsp;<input type="text" name="fullname1" value="0" style="width:150px" maxlength="30"/><input type="text" name="fullname2" value="0" style="width:150px" maxlength="30"/></td>
+  <td>フリガナ&nbsp;<input type="text" v-model = "furiganase" name="phonetic1" value="0" style="width:150px" maxlength="30"/><input type="text" v-model = "furiganame" name="phonetic2" value="0" style="width:150px" maxlength="30"/>
+  <br>漢&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字&nbsp;<input type="text" v-model = "kanjise" name="fullname1" value="0" style="width:150px" maxlength="30"/><input type="text" v-model = "kanjime" name="fullname2" value="0" style="width:150px" maxlength="30"/></td>
   </tr>
 <tr>
   <td><label for="password">パスワード</label>
-  <td><input type="password" name="password" value="" minlength="4" maxlength="30"/></td>
+  <td><input type="password" v-model = "psd" name="password" value="" minlength="4" maxlength="30"/></td>
   </tr>
   <tr>
     <td><label for="password_conf">パスワード再入力</label></td>
-    <td><input type="password" name="password_conf" value="" minlength="4" maxlength="30"/></td></tr></table></fieldset>
-    <button name="submit" type="submit" id="submit" style="margin-bottom: 3px" value="Update" class="btn btn-primary">&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;</button><span></span>
+    <td><input type="password" v-model = "repsd" name="password_conf" value="" minlength="4" maxlength="30"/></td></tr></table></fieldset>
+    <button name="submit" type="submit" id="submit" @click="koushin" style="margin-bottom: 3px" value="Update" class="btn btn-primary">&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;</button><span></span>
     <a href="/#/UserKanri" class="btn">キャンセル</a>
 </form></div>
 </div>
 </template>
 <script>
-import {albumViewModel} from '@/view-model/Album'
+import {userEditViewModel} from '@/view-model/UserEdit'
 import {ACTIONS} from '@/store/action-types'
 
 export default {
-  mixins: [albumViewModel],
+  mixins: [userEditViewModel],
   methods: {
   // エラーがある場合、ポップアップ画面を表示する。
     toDisclosureStatement () {

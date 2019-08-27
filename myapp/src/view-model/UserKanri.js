@@ -1,6 +1,4 @@
 /**
- * 
- *
  * see: 画面定義書_G-NHA-003_ユーザー管理画面_v1.1.xlsx
  */
 import {MUTATIONS} from '@/store/mutation-types'

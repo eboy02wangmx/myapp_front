@@ -145,7 +145,8 @@ export default {
       [ACTIONS.MYAPP_READ_ENTRY_NO_LIST]: { doing: false },
       [ACTIONS.MYAPP_GEN_POLICY_NO]: { doing: false },
       [ACTIONS.MYAPP_USER_LOGIN]: { doing: false },
-      [ACTIONS.MYAPP_IMAGE_UPLOAD]: { doing: false }
+      [ACTIONS.MYAPP_IMAGE_UPLOAD]: { doing: false },
+      [ACTIONS.MYAPP_USER_CREATE]: { doing: false }
     },
     // 銀行検索結果
     bankitems: [],
@@ -2560,42 +2561,6 @@ export default {
       await NHA_O_0010_API.imageUpload(multipartRequest)
         .then(function (response) {
           commit(MUTATIONS.MYAPP_USER_LOGIN_OK, response.data)
-        })
-        .catch(error => util.api.error(myAction, state.sync, error))
-        .finally(() => util.api.end(myAction, state.sync))
-    },
-    /**
-     * 証券番号採番
-     */
-    async [ACTIONS.MYAPP_GEN_POLICY_NO] ({ state, commit }, request) {
-      const myAction = ACTIONS.MYAPP_GEN_POLICY_NO
-
-      // 開始
-      if (!util.api.start(myAction, state.sync)) {
-        return
-      }
-      // 実行
-      console.log('get policyno start')
-      await NHA_O_0044_API.genPolicyNo()
-        .then(function (response) {
-          commit(MUTATIONS.MYAPP_SET_POLICY_NO, response.policyNo)
-        })
-        .catch(error => util.api.error(myAction, state.sync, error))
-        .finally(() => util.api.end(myAction, state.sync))
-    },
-    /**
-     * PDF作成
-     */
-    async [ACTIONS.MYAPP_GEN_PDF] ({ state, commit }, request) {
-      const myAction = ACTIONS.MYAPP_GEN_PDF
-      // 開始
-      if (!util.api.start(myAction, state.sync)) {
-        return
-      }
-      // 実行
-      await NHA_O_0044_API.createPdf(request)
-        .then(function (response) {
-          console.log('PDF completed')
         })
         .catch(error => util.api.error(myAction, state.sync, error))
         .finally(() => util.api.end(myAction, state.sync))
