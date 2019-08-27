@@ -50,7 +50,19 @@
 <form action="" method="post" accept-charset="utf-8"><fieldset>
 <legend>ユーザー情報</legend>
 <table class='table table-bordered'><tr><td style='width:150px'><label for="email_address">メールアドレス</label></td><td><input type="text" name="email_address" value="xjklongbbb@yahoo.co.jp" readonly="readonly" id="email_address" maxlength="30"  /></td></tr>
-<tr><td><label for="password">パスワード</label><td><input type="password" name="password" value="" minlength="4" maxlength="30"/></td></tr><tr><td><label for="password_conf">パスワード再入力</label></td><td><input type="password" name="password_conf" value="" minlength="4" maxlength="30"  /></td></tr></table></fieldset><button name="submit" type="submit" id="submit" style="margin-bottom: 3px" value="Update" class="btn btn-primary" >&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;</button><span></span>
+<tr>
+  <td><label for="name">氏名</label></td>
+  <td>フリガナ&nbsp;<input type="text" name="phonetic1" value="0" style="width:150px" maxlength="30"/><input type="text" name="phonetic2" value="0" style="width:150px" maxlength="30"/>
+  <br>漢&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字&nbsp;<input type="text" name="fullname1" value="0" style="width:150px" maxlength="30"/><input type="text" name="fullname2" value="0" style="width:150px" maxlength="30"/></td>
+  </tr>
+<tr>
+  <td><label for="password">パスワード</label>
+  <td><input type="password" name="password" value="" minlength="4" maxlength="30"/></td>
+  </tr>
+  <tr>
+    <td><label for="password_conf">パスワード再入力</label></td>
+    <td><input type="password" name="password_conf" value="" minlength="4" maxlength="30"/></td></tr></table></fieldset>
+    <button name="submit" type="submit" id="submit" style="margin-bottom: 3px" value="Update" class="btn btn-primary">&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;</button><span></span>
     <a href="/#/User" class="btn">キャンセル</a>
 </form></div>
 </div>
