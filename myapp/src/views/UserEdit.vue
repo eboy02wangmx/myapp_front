@@ -17,7 +17,7 @@
       <div class="nav-collapse">
         <ul class="nav">
           <li><a href="/#/Album">物件一覧</a></li>
-          <li class="active"><a href="/#/User">ユーザー管理</a></li>
+          <li class="active"><a href="/#/UserKanri">ユーザー管理</a></li>
           <li><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
         <p class="navbar-text pull-right"><a href="/#/Top">ログアウト</a></p>
@@ -49,7 +49,7 @@
 <div class="well">
 <form action="" method="post" accept-charset="utf-8"><fieldset>
 <legend>ユーザー情報</legend>
-<table class='table table-bordered'><tr><td style='width:150px'><label for="email_address">メールアドレス</label></td><td><input type="text" name="email_address" value="xjklongbbb@yahoo.co.jp" readonly="readonly" id="email_address" maxlength="30"  /></td></tr>
+<table class='table table-bordered'><tr><td style='width:150px'><label for="email_address">アカウントID</label></td><td><input type="text" name="email_address" value="xjklongbbb@yahoo.co.jp" readonly="readonly" id="email_address" maxlength="30"  /></td></tr>
 <tr>
   <td><label for="name">氏名</label></td>
   <td>フリガナ&nbsp;<input type="text" name="phonetic1" value="0" style="width:150px" maxlength="30"/><input type="text" name="phonetic2" value="0" style="width:150px" maxlength="30"/>
@@ -63,7 +63,7 @@
     <td><label for="password_conf">パスワード再入力</label></td>
     <td><input type="password" name="password_conf" value="" minlength="4" maxlength="30"/></td></tr></table></fieldset>
     <button name="submit" type="submit" id="submit" style="margin-bottom: 3px" value="Update" class="btn btn-primary">&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;</button><span></span>
-    <a href="/#/User" class="btn">キャンセル</a>
+    <a href="/#/UserKanri" class="btn">キャンセル</a>
 </form></div>
 </div>
 </template>

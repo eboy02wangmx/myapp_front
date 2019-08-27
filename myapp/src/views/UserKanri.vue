@@ -94,11 +94,11 @@
 </div>
 </template>
 <script>
-import {albumViewModel} from '@/view-model/Album'
+import {userKanriViewModel} from '@/view-model/UserKanri'
 import {ACTIONS} from '@/store/action-types'
 
 export default {
-  mixins: [albumViewModel],
+  mixins: [userKanriViewModel],
   methods: {
   // エラーがある場合、ポップアップ画面を表示する。
     toDisclosureStatement () {

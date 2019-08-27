@@ -6,7 +6,7 @@ import Index from '@/views/Index'
 import Top from '@/views/Top'
 import Album from '@/views/Album'
 import Images from '@/views/Images'
-import User from '@/views/User'
+import UserKanri from '@/views/UserKanri'
 import UserEdit from '@/views/UserEdit'
 import Riyo from '@/views/Riyo'
 import AlbumCreate from '@/views/AlbumCreate'
@@ -71,9 +71,9 @@ const router = new Router({
       }
     },
     {
-      path: '/User',
-      name: 'User',
-      component: User,
+      path: '/UserKanri',
+      name: 'UserKanri',
+      component: UserKanri,
       meta: { existsStoreData: false,
         page_type: 'page1'
       }
