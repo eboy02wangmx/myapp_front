@@ -13,14 +13,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="https://mieru360.com/">Panolib</a>
+      <a class="brand" href="/#/Album">Panolib</a>
       <div class="nav-collapse">
         <ul class="nav">
           <li class="active"><a href="/#/Album">物件一覧</a></li>
-          <li><a href="/#/User">ユーザー管理</a></li>
+          <li><a href="/#/UserKanri">ユーザー管理</a></li>
           <li><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
-        <p class="navbar-text pull-right"><a href="https://mieru360.com/auth/logout">ログアウト</a></p>
+        <p class="navbar-text pull-right"><a href="/#/Top">ログアウト</a></p>
       </div><!--/.nav-collapse -->
     </div>
   </div>
@@ -31,7 +31,7 @@
             <span>現在位置：</span>
         </li>
         <li style="display: inline">
-            <a href="https://mieru360.com/album">H O M E</a>
+            <a href="/#/Album">H O M E</a>
         </li>
          >
         <li style="display: inline">

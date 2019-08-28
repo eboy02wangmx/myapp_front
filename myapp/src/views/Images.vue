@@ -13,14 +13,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="https://mieru360.com/">Panolib</a>
+      <a class="brand" href="/#/Album">Panolib</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="active"><a href="https://mieru360.com/album">物件一覧</a></li>
-          <li><a href="https://mieru360.com/user">ユーザー管理</a></li>
-          <li><a href="">利用状況一覧</a></li>
+          <li class="active"><a href="/#/Album">物件一覧</a></li>
+          <li><a href="/#/UserKanri">ユーザー管理</a></li>
+          <li><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
-        <p class="navbar-text pull-right"><a href="https://mieru360.com/auth/logout">ログアウト</a></p>
+        <p class="navbar-text pull-right"><a href="/#/Top">ログアウト</a></p>
       </div><!--/.nav-collapse -->
     </div>
   </div>
@@ -31,11 +31,11 @@
         <span>現在位置：</span>
     </li>
     <li style="display: inline">
-        <a class="returnPage" href="https://mieru360.com/album">H O M E</a>
+        <a class="returnPage" href="/#/Album">H O M E</a>
     </li>
     >
     <li style="display: inline">
-        <a  class="returnPage" href="https://mieru360.com/album">アルバム一覧</a>
+        <a  class="returnPage" href="/#/Album">アルバム一覧</a>
     </li>
     >
     <li style="display: inline">
@@ -48,7 +48,7 @@
       <a href="#/Album" style="margin-right: 130px;">&larr; アルバムに戻る</a>
     </li>
     <li class="previous">
-      <a target="_blank" onclick="return vrDisplay(this)" href="https://mieru360.com/play/index/391aefa7-b9b1-11e9-bdc9-9ca3ba01d8b9" style="margin-right: 10px;"><i class="icon-picture"></i>&nbsp;&nbsp;VR表示&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a target="_blank" onclick="return vrDisplay(this)" href="" style="margin-right: 10px;"><i class="icon-picture"></i>&nbsp;&nbsp;VR表示&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </li>
     <li class="previous">
       <a href="../static/Vtour.html">VR編集</a>

@@ -13,7 +13,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="https://mieru360.com/">Panolib</a>
+      <a class="brand" href="/#/Album">Panolib</a>
       <div class="nav-collapse">
         <ul class="nav">
           <li><a href="/#/Album">物件一覧</a></li>
