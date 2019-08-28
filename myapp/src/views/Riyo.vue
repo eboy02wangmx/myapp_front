@@ -17,7 +17,7 @@
       <div class="nav-collapse">
         <ul class="nav">
           <li><a href="/#/Album">物件一覧</a></li>
-          <li><a href="/#/User">ユーザー管理</a></li>
+          <li><a href="/#/UserKanri">ユーザー管理</a></li>
           <li class="active"><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
         <p class="navbar-text pull-right"><a href="/#/Top">ログアウト</a></p>
