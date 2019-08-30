@@ -41,10 +41,12 @@ import {NHA_O_0044_API} from '@/api/NHA_O_0044_API'
 import {NHA_O_0041_API} from '@/api/NHA_O_0041_Api'
 // 仕様新規の対応 20190320 BY KYOKU START
 import {NHA_O_0050_API} from '@/api/NHA_O_0050_Api'
+import {NHA_O_0110_API} from '@/api/NHA_O_0110_Api'
 // 仕様新規の対応 20190320 BY KYOKU END
 
 export default {
   state: {
+    userkanriItems: null,
     // 1:インターネット契約、2:ペーパレス募集
     entryType: '2',
     // 見積連番一覧
@@ -146,7 +148,8 @@ export default {
       [ACTIONS.MYAPP_GEN_POLICY_NO]: { doing: false },
       [ACTIONS.MYAPP_USER_LOGIN]: { doing: false },
       [ACTIONS.MYAPP_IMAGE_UPLOAD]: { doing: false },
-      [ACTIONS.MYAPP_USER_CREATE]: { doing: false }
+      [ACTIONS.MYAPP_USER_CREATE]: { doing: false },
+      [ACTIONS.MYAPP_USER_KANRI]: { doing: false }
     },
     // 銀行検索結果
     bankitems: [],
@@ -2564,6 +2567,24 @@ export default {
         })
         .catch(error => util.api.error(myAction, state.sync, error))
         .finally(() => util.api.end(myAction, state.sync))
+    },
+    /**
+     * ユーザー管理
+     */
+    async [ACTIONS.MYAPP_USER_KANRI] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_USER_KANRI
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0110_API.getUserkanriInfo(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_USER_KANRI_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
     }
   },
   mutations: {
@@ -2600,6 +2621,10 @@ export default {
     },
     [MUTATIONS.MYAPP_USER_LOGIN_OK] (state, data) {
       state.userName = cloneDeep(data.userName)
+      console.log('state.userName:' + state.userName)
+    },
+    [MUTATIONS.MYAPP_USER_KANRI_OK] (state, data) {
+      state.userkanriItems = cloneDeep(data)
       console.log('state.userName:' + state.userName)
     },
     [MUTATIONS.MYAPP_BANK_SET] (state, data) {

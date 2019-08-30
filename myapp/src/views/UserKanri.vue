@@ -57,13 +57,13 @@
     </tr>
   </thead>
     <tbody>
-      <tr>
-      <td>xjklong@yahoo.co.jp</td>
-      <td>管理者</td>
-      <td>有効</td>
-      <td>2019/08/08</td>
-      <td>3</td>
-        <td>3</td>
+      <tr v-for="item in items" :key="item">
+      <td>{{item.userid}}</td>
+      <td>{{item.kengen}}</td>
+      <td>{{item.yukokbn}}</td>
+      <td>{{item.systemdate}}</td>
+      <td>{{item.picnum}}</td>
+        <td>{{item.picnum}}</td>
       <td>
         <div class="btn-group">
           <a class="btn" href="/#/UserEdit">編&nbsp;&nbsp;&nbsp;集</a>

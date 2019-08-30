@@ -15,6 +15,7 @@ export const FILE_UPLOAD = 'FILE_UPLOAD'
 // APP
 export const MYAPP_SET_SYNC = 'MYAPP_SET_SYNC'
 export const MYAPP_USER_LOGIN_OK = 'MYAPP_USER_LOGIN_OK'
+export const MYAPP_USER_KANRI_OK = 'MYAPP_USER_KANRI_OK'
 
 export const MUTATIONS = {
   // config
@@ -31,5 +32,6 @@ export const MUTATIONS = {
   FILE_UPLOAD,
   // APP
   MYAPP_SET_SYNC,
-  MYAPP_USER_LOGIN_OK
+  MYAPP_USER_LOGIN_OK,
+  MYAPP_USER_KANRI_OK
 }
