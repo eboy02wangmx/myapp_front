@@ -52,13 +52,13 @@
       <th>所有アルバム数</th>
         <th>所有画像数</th>
       <th>
-                <a class="btn btn-primary" href="/#/UserEdit">ユーザー作成</a>
+                <a class="btn btn-primary" href="/#/UserCreate">ユーザー作成</a>
               </th>
     </tr>
   </thead>
     <tbody>
       <tr v-for="item in items" :key="item">
-      <td>{{item.userid}}</td>
+      <td>{{account}}</td>
       <td>{{item.kengen}}</td>
       <td>{{item.yukokbn}}</td>
       <td>{{item.systemdate}}</td>
@@ -66,7 +66,7 @@
         <td>{{item.picnum}}</td>
       <td>
         <div class="btn-group">
-          <a class="btn" href="/#/UserEdit">編&nbsp;&nbsp;&nbsp;集</a>
+          <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>
           </div>
           </td>
     </tr>

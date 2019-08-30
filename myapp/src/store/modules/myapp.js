@@ -42,6 +42,7 @@ import {NHA_O_0041_API} from '@/api/NHA_O_0041_Api'
 // 仕様新規の対応 20190320 BY KYOKU START
 import {NHA_O_0050_API} from '@/api/NHA_O_0050_Api'
 import {NHA_O_0110_API} from '@/api/NHA_O_0110_Api'
+import {NHA_O_0111_API} from '@/api/NHA_O_0111_Api'
 // 仕様新規の対応 20190320 BY KYOKU END
 
 export default {
@@ -2582,6 +2583,24 @@ export default {
       await NHA_O_0110_API.getUserkanriInfo(request)
         .then(function (response) {
           commit(MUTATIONS.MYAPP_USER_KANRI_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    /**
+     * ユーザーCREATE
+     */
+    async [ACTIONS.MYAPP_USER_CREATE] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_USER_CREATE
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0111_API.usercreate(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_USER_CREATE_OK, response.data)
         })
         .catch(error => util.api.error(myAction, state.sync, error))
         .finally(() => util.api.end(myAction, state.sync))

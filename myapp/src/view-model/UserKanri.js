@@ -10,7 +10,8 @@ export const userKanriViewModel = {
     }
   },
   created () {
-    let params = {userId: 'test'}
+    // let params = {userId: 'test'}
+    let params = {userId: this.$store.state.myapp.userName}
     this.$store.dispatch(ACTIONS.MYAPP_USER_KANRI, params)
   },
   computed: {
@@ -25,6 +26,9 @@ export const userKanriViewModel = {
     },
     items: function () {
       return this.$store.state.myapp.userkanriItems
+    },
+    account () {
+      return this.$store.state.myapp.userName
     }
   }
 }

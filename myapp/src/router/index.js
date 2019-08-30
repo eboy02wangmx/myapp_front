@@ -7,7 +7,7 @@ import Top from '@/views/Top'
 import Album from '@/views/Album'
 import Images from '@/views/Images'
 import UserKanri from '@/views/UserKanri'
-import UserEdit from '@/views/UserEdit'
+import UserCreate from '@/views/UserCreate'
 import Riyo from '@/views/Riyo'
 import AlbumCreate from '@/views/AlbumCreate'
 
@@ -79,9 +79,9 @@ const router = new Router({
       }
     },
     {
-      path: '/UserEdit',
-      name: 'UserEdit',
-      component: UserEdit,
+      path: '/UserCreate',
+      name: 'UserCreate',
+      component: UserCreate,
       meta: { existsStoreData: false,
         page_type: 'page1'
       }
