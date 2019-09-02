@@ -44,7 +44,7 @@ export const topViewModel = {
           if (this.$store.state.myapp.sync[ACTIONS.MYAPP_USER_LOGIN].status === 200) {
             console.log('this.$store.state.myapp.userName is ' + this.loginUserName)
             if (this.$store.state.myapp.userName !== undefined) {
-              this.routerPush('/images')
+              this.routerPush('/album');
             }
           } else {
             this.$store.dispatch(ACTIONS.ERROR_OPEN_API_ERRORS)
