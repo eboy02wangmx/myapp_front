@@ -25,6 +25,7 @@
     </div>
   </div>
 </div>
+    </div>
 <div class="nav" style="height: 9%">
     <ul style="margin: 0">
         <li style="display: inline">
