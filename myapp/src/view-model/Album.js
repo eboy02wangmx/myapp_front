@@ -3,6 +3,7 @@
  *
  * see: 画面定義書_G-NHA-002_ALBUM画面_v1.1.xlsx
  */
+import { ACTIONS } from '@/store/action-types'
 import {MUTATIONS} from '@/store/mutation-types'
 export const albumViewModel = {
   name: 'Album',

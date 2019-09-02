@@ -157,7 +157,12 @@ export default {
       [ACTIONS.MYAPP_USER_LOGIN]: { doing: false },
       [ACTIONS.MYAPP_IMAGE_UPLOAD]: { doing: false },
       [ACTIONS.MYAPP_USER_CREATE]: { doing: false },
-      [ACTIONS.MYAPP_USER_KANRI]: { doing: false }
+      [ACTIONS.MYAPP_USER_KANRI]: { doing: false },
+      [ACTIONS.MYAPP_USER_ALBUM]: { doing: false },
+      [ACTIONS.MYAPP_ALBUMCREATE]: { doing: false },
+      [ACTIONS.MYAPP_ALBUM_REMOVE]: { doing: false },
+      [ACTIONS.MYAPP_USER_RIYO]: { doing: false },
+      [ACTIONS.MYAPP_USER_RIYOEFF]: { doing: false },
     },
     // 銀行検索結果
     bankitems: [],
