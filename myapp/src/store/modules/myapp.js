@@ -45,6 +45,12 @@ import {NHA_O_0110_API} from '@/api/NHA_O_0110_Api'
 import {NHA_O_0111_API} from '@/api/NHA_O_0111_Api'
 // 仕様新規の対応 20190320 BY KYOKU END
 
+import {NHA_O_0150_API} from '@/api/NHA_O_0150_Api'
+import {NHA_O_0151_API} from '@/api/NHA_O_0151_Api'
+import {NHA_O_0152_API} from '@/api/NHA_O_0152_Api'
+import {NHA_O_0153_API} from '@/api/NHA_O_0153_Api'
+import {NHA_O_0154_API} from '@/api/NHA_O_0154_Api'
+
 export default {
   state: {
     userkanriItems: null,
@@ -54,7 +60,8 @@ export default {
     entryNoList: null,
     totalSize: 0,
     entryNo: null,
-
+    albums:[],
+    riyos:[],
     // 申込一時保存データ（local用の拡張を含む）
     data: new EntryData(),
 
@@ -2546,6 +2553,106 @@ export default {
         .finally(() => util.api.end(myAction, state.sync))
     },
     /**
+     * album
+     */
+    async [ACTIONS.MYAPP_USER_ALBUM] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_USER_ALBUM
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0150_API.album(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_USER_ALBUM_OK, response.data)
+ 
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+
+    /**
+     * albumCreate
+     */
+    async [ACTIONS.MYAPP_ALBUMCREATE] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_ALBUMCREATE
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0151_API.albumCreate(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_ALBUMCREATE_OK, response.data)
+ 
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+
+    /**
+     * albumRemove
+     */
+    async [ACTIONS.MYAPP_ALBUM_REMOVE] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_ALBUM_REMOVE
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0153_API.albumRemove(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_ALBUM_REMOVE_OK, response.data)
+ 
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+        
+    /**
+     * riyo
+     */
+    async [ACTIONS.MYAPP_USER_RIYO] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_USER_RIYO
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0152_API.riyo(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_USER_RIYO_OK, response.data)
+ 
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+
+    /**
+     * riyoeff
+     */
+    async [ACTIONS.MYAPP_USER_RIYOEFF] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_USER_RIYOEFF
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0154_API.riyoEff(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_USER_RIYOEFF_OK, response.data)
+ 
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+
+    /**
      * imageUpload
      */
     async [ACTIONS.MYAPP_IMAGE_UPLOAD] ({ state, commit }, request) {
@@ -2642,6 +2749,31 @@ export default {
       state.userName = cloneDeep(data.userName)
       console.log('state.userName:' + state.userName)
     },
+    [MUTATIONS.MYAPP_USER_ALBUM_OK] (state, data) {
+      state.albums = cloneDeep(data)
+      // console.log('state.userName:' + state.userName)
+    },
+
+    [MUTATIONS.MYAPP_ALBUMCREATE_OK] (state, data) {
+      state.albumsCreate = cloneDeep(data)
+      // console.log('state.userName:' + state.userName)
+    },
+    
+    [MUTATIONS.MYAPP_ALBUM_REMOVE_OK] (state, data) {
+      state.albums = cloneDeep(data)
+      // console.log('state.userName:' + state.userName)
+    },
+
+    [MUTATIONS.MYAPP_USER_RIYO_OK] (state, data) {
+      state.riyos = cloneDeep(data)
+      // console.log('state.userName:' + state.userName)
+    },
+
+    [MUTATIONS.MYAPP_USER_RIYOEFF_OK] (state, data) {
+      state.riyos = cloneDeep(data)
+      // console.log('state.userName:' + state.userName)
+    },
+
     [MUTATIONS.MYAPP_USER_KANRI_OK] (state, data) {
       state.userkanriItems = cloneDeep(data)
       console.log('state.userName:' + state.userName)
