@@ -4,11 +4,11 @@
 
 import {ACTIONS} from '@/store/action-types'
 
-export const userCreateViewModel = {
-  name: 'UserCreate',
+export const userInsertViewModel = {
+  name: 'UserInsert',
   data () {
     return {
-      userId: this.$store.state.myapp.userName,
+      userid: null,
       furiganase: null,
       furiganame: null,
       kanjise: null,
@@ -30,20 +30,17 @@ export const userCreateViewModel = {
         return true
       }
       return false
-    },
-    account () {
-      return this.$store.state.myapp.userName
     }
   },
   methods: {
     koushin () {
-      console.log('updateupdateupdateupdateupdateupdateupdateupdateupdate')
-      let params = {userid: this.$store.state.myapp.userName, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise, kanjime: this.kanjime, password: this.password}
-      this.$store.dispatch(ACTIONS.MYAPP_USER_CREATE, params)
-      this.routerPush('/UserKanri')
+      console.log('insertinsertinsertinsertinsertinsertinsert')
+      let params = {userid: this.userid, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise, kanjime: this.kanjime, password: this.password}
+      this.$store.dispatch(ACTIONS.MYAPP_USER_INSERT, params)
+      // this.routerPush('/UserKanri')
     }
   }
 }
 export default {
-  userCreateViewModel
+  userInsertViewModel
 }

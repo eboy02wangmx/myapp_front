@@ -4,18 +4,17 @@
  * see: 画面定義書_G-NHA-002_ALBUM画面_v1.1.xlsx
  */
 import { ACTIONS } from '@/store/action-types'
-import {MUTATIONS} from '@/store/mutation-types'
+
 export const riyoViewModel = {
   name: 'Riyo',
   data () {
     return {
-      riyos :[],
+      riyos: []
     }
   },
   created () {
-    let params = {userid:"admin"}
-    this.$store.dispatch(ACTIONS.MYAPP_USER_RIYO, params);
-    this.$store.state.myapp.riyos
+    let params = {userid: 'admin'}
+    this.$store.dispatch(ACTIONS.MYAPP_USER_RIYO, params)
   },
 
   computed: {

@@ -60,9 +60,7 @@
           <br />
           <br />
         </fieldset>
-        
-        <r-button 
-          name="submit"
+        <r-button name="submit"
           type="submit"
           id="submit"
           style="margin-bottom: 3px"
@@ -76,28 +74,28 @@
   </div>
 </template>
 <script>
-import { albumCreateViewModel } from "@/view-model/AlbumCreate";
-import { ACTIONS } from "@/store/action-types";
+import { albumCreateViewModel } from '@/view-model/AlbumCreate'
+import { ACTIONS } from '@/store/action-types'
 
 export default {
   mixins: [albumCreateViewModel],
   methods: {
     // エラーがある場合、ポップアップ画面を表示する。
-    toDisclosureStatement() {
+    toDisclosureStatement () {
       if (this.$root.isMobile.any === true) {
         this.$store.dispatch(ACTIONS.DOCUMENT_OPEN, {
-          name: "DisclosureStatementSp",
+          name: 'DisclosureStatementSp',
           showScrollBtn: true
-        });
+        })
       } else {
         this.$store.dispatch(ACTIONS.DOCUMENT_OPEN, {
-          name: "DisclosureStatement",
+          name: 'DisclosureStatement',
           showScrollBtn: true
-        });
+        })
       }
     }
   }
-};
+}
 </script>
 <style scoped>
 </style>

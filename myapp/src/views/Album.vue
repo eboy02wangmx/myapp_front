@@ -68,7 +68,7 @@
       <td style="min-width:135px;">
         <div class="btn-group" >
             <div>
-              <router-link :to="{path:'/Images',query:{album:i}}" class="btn img-fancy"><i class="icon-list"></i> &nbsp;&nbsp;編　集</router-link>
+              <router-link :to="{path:'/Images',query:{album:i}}" class="btn img-fancy"><i class="icon-list"></i> &nbsp;&nbsp;編&nbsp;集</router-link>
             </div>
             <div style="position: relative; left:5px;">
               <r-button class="btn album-delete-btn"  data-toggle="modal" @click="remove(i)"><i class="icon-trash"></i> &nbsp;&nbsp;削除</r-button>
