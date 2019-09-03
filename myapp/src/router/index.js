@@ -8,6 +8,7 @@ import Album from '@/views/Album'
 import Images from '@/views/Images'
 import UserKanri from '@/views/UserKanri'
 import UserCreate from '@/views/UserCreate'
+import UserInsert from '@/views/UserInsert'
 import Riyo from '@/views/Riyo'
 import AlbumCreate from '@/views/AlbumCreate'
 
@@ -82,6 +83,14 @@ const router = new Router({
       path: '/UserCreate',
       name: 'UserCreate',
       component: UserCreate,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/UserInsert',
+      name: 'UserInsert',
+      component: UserInsert,
       meta: { existsStoreData: false,
         page_type: 'page1'
       }

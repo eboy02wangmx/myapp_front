@@ -57,7 +57,7 @@
     </tr>
   </thead>
     <tbody>
-      <tr v-for="item in items" :key="item">
+      <!-- tr v-for="item in items" :key="item">
       <td>{{account}}</td>
       <td>{{item.kengen}}</td>
       <td>{{item.yukokbn}}</td>
@@ -67,27 +67,51 @@
       <td>
         <div class="btn-group">
           <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>
+          <a class="btn" href="/#/UserCreate">削&nbsp;&nbsp;&nbsp;除</a>
+          </div>
+          </td>
+    </tr>-->
+    <tr>
+      <td>cus1</td>
+      <td>カスタマ</td>
+      <td>有効</td>
+      <td>20160101</td>
+      <td>2</td>
+        <td>3</td>
+      <td>
+        <div class="btn-group">
+          <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>
+          <a class="btn" href="/#/UserCreate">削&nbsp;&nbsp;&nbsp;除</a>
           </div>
           </td>
     </tr>
     <tr>
-      <td>xjklongbbb@yahoo.co.jp</td>
-      <td>作業者</td>
+      <td>test</td>
+      <td>一般ユーザー</td>
       <td>有効</td>
-      <td>2019/08/08</td>
-      <td>1</td>
-      <td>1</td>
+      <td>20160101</td>
+      <td>2</td>
+        <td>3</td>
       <td>
         <div class="btn-group">
-          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">操作<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href=""><i class="icon-pencil"></i>編集</a></li>
-        <li><a href=""><i class="icon-ban-circle"></i>無効化</a></li>
-        <li><a class="user-delete-btn" href="#user-modal" data-toggle="modal" rel="">
-        <i class="icon-trash"></i>削除</a></li>
-        </ul>
-        </div>
-        </td>
+          <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>
+          <a class="btn" href="/#/UserCreate">削&nbsp;&nbsp;&nbsp;除</a>
+          </div>
+          </td>
+    </tr>
+    <tr>
+      <td>test222</td>
+      <td>一般ユーザー</td>
+      <td>有効</td>
+      <td>20160101</td>
+      <td>3</td>
+        <td>4</td>
+      <td>
+        <div class="btn-group">
+          <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>
+          <a class="btn" href="/#/UserCreate">削&nbsp;&nbsp;&nbsp;除</a>
+          </div>
+          </td>
     </tr>
     </tbody>
 </table>
