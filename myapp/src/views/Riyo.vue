@@ -13,14 +13,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="https://mieru360.com/">Panolib</a>
+          <a class="brand" href="/#/Album">Panolib</a>
           <div class="nav-collapse">
             <ul class="nav">
               <li>
                 <a href="/#/Album">物件一覧</a>
               </li>
               <li>
-                <a href="/#/User">ユーザー管理</a>
+                <a href="/#/UserKanri">ユーザー管理</a>
               </li>
               <li class="active">
                 <a href="/#/Riyo">利用状況一覧</a>
@@ -81,12 +81,12 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://mieru360.com/user/edit/38">
+                  <a href="">
                     <i class="icon-pencil"></i>編集
                   </a>
                 </li>
                 <li>
-                  <a href="https://mieru360.com/user/deactivate/38">
+                  <a href="">
                     <i class="icon-ban-circle"></i>無効化
                   </a>
                 </li>
@@ -95,7 +95,7 @@
                     class="user-delete-btn"
                     href="#user-modal"
                     data-toggle="modal"
-                    rel="https://mieru360.com/user/remove/38"
+                    rel=""
                   >
                     <i class="icon-trash"></i>削除
                   </a>
