@@ -52,60 +52,18 @@
       <th>所有アルバム数</th>
         <th>所有画像数</th>
       <th>
-                <a class="btn btn-primary" href="/#/UserCreate">ユーザー作成</a>
+                <a class="btn btn-primary" href="/#/UserInsert">ユーザー作成</a>
               </th>
     </tr>
   </thead>
     <tbody>
-      <!-- tr v-for="item in items" :key="item">
+      <tr v-for="item in items" :key="item">
       <td>{{account}}</td>
       <td>{{item.kengen}}</td>
       <td>{{item.yukokbn}}</td>
       <td>{{item.systemdate}}</td>
       <td>{{item.picnum}}</td>
         <td>{{item.picnum}}</td>
-      <td>
-        <div class="btn-group">
-          <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>
-          <a class="btn" href="/#/UserCreate">削&nbsp;&nbsp;&nbsp;除</a>
-          </div>
-          </td>
-    </tr>-->
-    <tr>
-      <td>cus1</td>
-      <td>カスタマ</td>
-      <td>有効</td>
-      <td>20160101</td>
-      <td>2</td>
-        <td>3</td>
-      <td>
-        <div class="btn-group">
-          <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>
-          <a class="btn" href="/#/UserCreate">削&nbsp;&nbsp;&nbsp;除</a>
-          </div>
-          </td>
-    </tr>
-    <tr>
-      <td>test</td>
-      <td>一般ユーザー</td>
-      <td>有効</td>
-      <td>20160101</td>
-      <td>2</td>
-        <td>3</td>
-      <td>
-        <div class="btn-group">
-          <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>
-          <a class="btn" href="/#/UserCreate">削&nbsp;&nbsp;&nbsp;除</a>
-          </div>
-          </td>
-    </tr>
-    <tr>
-      <td>test222</td>
-      <td>一般ユーザー</td>
-      <td>有効</td>
-      <td>20160101</td>
-      <td>3</td>
-        <td>4</td>
       <td>
         <div class="btn-group">
           <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>

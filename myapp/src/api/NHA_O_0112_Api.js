@@ -4,6 +4,6 @@ import Api from '@/api/api'
 export const NHA_O_0112_API = {
   // ReadEntryTempSave
   userinsert (request) {
-    return Api.instance().post('/userCreate', request)
+    return Api.instance().post('/userInsert', request)
   }
 }
