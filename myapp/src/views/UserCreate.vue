@@ -22,7 +22,7 @@
               <li class="active">
                 <a href="/#/UserKanri">ユーザー管理</a>
               </li>
-              <li>
+              <li v-if="this.$store.state.myapp.userName === 'panolib_admin'">
                 <a href="/#/Riyo">利用状況一覧</a>
               </li>
             </ul>

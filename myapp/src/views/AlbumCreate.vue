@@ -27,7 +27,7 @@
               </li>
             </ul>
             <p class="navbar-text pull-right">
-              <a href="#">ログアウト</a>
+              <a href="/#/Top">ログアウト</a>
             </p>
           </div>
           <!--/.nav-collapse -->

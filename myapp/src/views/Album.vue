@@ -18,7 +18,7 @@
         <ul class="nav">
           <li class="active"><a href="/#/Album">物件一覧</a></li>
           <li><a href="/#/UserKanri">ユーザー管理</a></li>
-          <li v-if="this.$store.state.myapp.userName === 'admin'"><a href="/#/Riyo">利用状況一覧</a></li>
+          <li v-if="this.$store.state.myapp.userName === 'panolib_admin'"><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
         <p class="navbar-text pull-right"><a href="/#/Top">ログアウト</a></p>
       </div><!--/.nav-collapse -->
