@@ -44,6 +44,7 @@ import {NHA_O_0050_API} from '@/api/NHA_O_0050_Api'
 import {NHA_O_0110_API} from '@/api/NHA_O_0110_Api'
 import {NHA_O_0111_API} from '@/api/NHA_O_0111_Api'
 import {NHA_O_0112_API} from '@/api/NHA_O_0112_Api'
+import {NHA_O_0113_API} from '@/api/NHA_O_0113_Api'
 // 仕様新規の対応 20190320 BY KYOKU END
 
 import {NHA_O_0150_API} from '@/api/NHA_O_0150_Api'
@@ -159,6 +160,8 @@ export default {
       [ACTIONS.MYAPP_IMAGE_UPLOAD]: { doing: false },
       [ACTIONS.MYAPP_USER_CREATE]: { doing: false },
       [ACTIONS.MYAPP_USER_KANRI]: { doing: false },
+      [ACTIONS.MYAPP_USER_INSERT]: { doing: false },
+      [ACTIONS.MYAPP_USER_DELETE]: { doing: false },
       [ACTIONS.MYAPP_USER_ALBUM]: { doing: false },
       [ACTIONS.MYAPP_ALBUMCREATE]: { doing: false },
       [ACTIONS.MYAPP_ALBUM_REMOVE]: { doing: false },
@@ -2719,6 +2722,24 @@ export default {
       await NHA_O_0112_API.userinsert(request)
         .then(function (response) {
           commit(MUTATIONS.MYAPP_USER_INSERT_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    /**
+     * ユーザーdelete
+     */
+    async [ACTIONS.MYAPP_USER_DELETE] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_USER_DELETE
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0113_API.userdelete(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_USER_DELETE_OK, response.data)
         })
         .catch(error => util.api.error(myAction, state.sync, error))
         .finally(() => util.api.end(myAction, state.sync))

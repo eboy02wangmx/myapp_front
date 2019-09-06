@@ -9,6 +9,8 @@ import Images from '@/views/Images'
 import UserKanri from '@/views/UserKanri'
 import UserCreate from '@/views/UserCreate'
 import UserInsert from '@/views/UserInsert'
+import DeletePopup from '@/views/DeletePopup'
+import Deleteok from '@/views/Deleteok'
 import Riyo from '@/views/Riyo'
 import AlbumCreate from '@/views/AlbumCreate'
 
@@ -91,6 +93,22 @@ const router = new Router({
       path: '/UserInsert',
       name: 'UserInsert',
       component: UserInsert,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/DeletePopup',
+      name: 'DeletePopup',
+      component: DeletePopup,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/Deleteok',
+      name: 'Deleteok',
+      component: Deleteok,
       meta: { existsStoreData: false,
         page_type: 'page1'
       }

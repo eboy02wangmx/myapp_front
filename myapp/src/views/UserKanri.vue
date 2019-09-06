@@ -18,7 +18,7 @@
         <ul class="nav">
           <li><a href="/#/Album">物件一覧</a></li>
           <li class="active"><a href="/#/User">ユーザー管理</a></li>
-          <li><a href="/#/Riyo">利用状況一覧</a></li>
+          <li v-if="this.$store.state.myapp.userName === 'admin'"><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
         <p class="navbar-text pull-right"><a href="/#/Top">ログアウト</a></p>
       </div><!--/.nav-collapse -->
@@ -57,8 +57,8 @@
     </tr>
   </thead>
     <tbody>
-      <tr v-for="item in items" :key="item">
-      <td>{{account}}</td>
+      <tr v-for="item in items" :key="item" @click="getDataId(item.userid)">
+      <td>{{item.userid}}</td>
       <td>{{item.kengen}}</td>
       <td>{{item.yukokbn}}</td>
       <td>{{item.systemdate}}</td>
@@ -67,7 +67,7 @@
       <td>
         <div class="btn-group">
           <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>
-          <a class="btn" href="/#/UserCreate">削&nbsp;&nbsp;&nbsp;除</a>
+          <a class="btn" href="/#/DeletePopup">削&nbsp;&nbsp;&nbsp;除</a>
           </div>
           </td>
     </tr>

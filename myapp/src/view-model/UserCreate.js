@@ -19,7 +19,8 @@ export const userCreateViewModel = {
   },
   created () {
     console.log('888888888888888888888888888888888')
-    console.log(this.furiganase)
+    var param = localStorage.getItem('userid')
+    this.param = param
   },
   computed: {
     isError: function () {
@@ -32,15 +33,16 @@ export const userCreateViewModel = {
       return false
     },
     account () {
-      return this.$store.state.myapp.userName
+      // return this.$store.state.myapp.userName
+      return this.param
     }
   },
   methods: {
     koushin () {
       console.log('updateupdateupdateupdateupdateupdateupdateupdateupdate')
-      let params = {userid: this.$store.state.myapp.userName, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise, kanjime: this.kanjime, password: this.password}
+      let params = {userid: this.account, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise, kanjime: this.kanjime, password: this.password}
       this.$store.dispatch(ACTIONS.MYAPP_USER_CREATE, params)
-      this.routerPush('/UserKanri')
+      // this.routerPush('/UserKanri')
     }
   }
 }

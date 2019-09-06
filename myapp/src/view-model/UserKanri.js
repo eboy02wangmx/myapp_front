@@ -6,13 +6,15 @@ export const userKanriViewModel = {
   name: 'UserKanri',
   data () {
     return {
-      userId: this.$store.state.myapp.userkanriItems.userId
+      userId: this.$store.state.myapp.userkanriItems.userId,
+      userid: null,
+      param: null
     }
   },
   created () {
     // let params = {userId: 'test'}
-    let params = {userId: this.$store.state.myapp.userName}
-    this.$store.dispatch(ACTIONS.MYAPP_USER_KANRI, params)
+    let kanriparams = {userId: this.$store.state.myapp.userName}
+    this.$store.dispatch(ACTIONS.MYAPP_USER_KANRI, kanriparams)
   },
   computed: {
     isError: function () {
@@ -26,9 +28,14 @@ export const userKanriViewModel = {
     },
     items: function () {
       return this.$store.state.myapp.userkanriItems
-    },
-    account () {
-      return this.$store.state.myapp.userName
+    }
+  },
+  methods: {
+    getDataId (userid) {
+      console.log('当前被点击的id=' + userid)
+      // localStorage.setItem('deleteid', JSON.stringify(userid))
+      localStorage.setItem('userid', userid)
+      console.log('当前被点击的id=' + userid)
     }
   }
 }

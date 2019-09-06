@@ -37,7 +37,6 @@ export const userInsertViewModel = {
       console.log('insertinsertinsertinsertinsertinsertinsert')
       let params = {userid: this.userid, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise, kanjime: this.kanjime, password: this.password}
       this.$store.dispatch(ACTIONS.MYAPP_USER_INSERT, params)
-      // this.routerPush('/UserKanri')
     }
   }
 }

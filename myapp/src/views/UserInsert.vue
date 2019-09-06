@@ -145,7 +145,8 @@
             </tr>
           </table>
         </fieldset>
-        <button
+        <a
+          href="/#/UserKanri"
           name="submit"
           type="submit"
           id="submit"
@@ -153,7 +154,7 @@
           style="margin-bottom: 3px"
           value="Update"
           class="btn btn-primary"
-        >&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;</button>
+        >&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;</a>
         <span></span>
         <a href="/#/UserKanri" class="btn">キャンセル</a>
       </form>
