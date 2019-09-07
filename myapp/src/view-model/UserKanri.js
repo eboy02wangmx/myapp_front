@@ -28,6 +28,13 @@ export const userKanriViewModel = {
     },
     items: function () {
       return this.$store.state.myapp.userkanriItems
+    },
+    isAdmin () {
+      let kengen = this.$store.state.myapp.kengen
+      if (kengen === '1' || kengen === '2') {
+        return true
+      }
+      return false
     }
   },
   methods: {

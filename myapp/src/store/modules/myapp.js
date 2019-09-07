@@ -52,6 +52,7 @@ import {NHA_O_0151_API} from '@/api/NHA_O_0151_Api'
 import {NHA_O_0152_API} from '@/api/NHA_O_0152_Api'
 import {NHA_O_0153_API} from '@/api/NHA_O_0153_Api'
 import {NHA_O_0154_API} from '@/api/NHA_O_0154_Api'
+import {NHA_O_0155_API} from '@/api/NHA_O_0155_Api'
 
 export default {
   state: {
@@ -62,7 +63,10 @@ export default {
     entryNoList: null,
     totalSize: 0,
     entryNo: null,
+    userName: null,
+    kengen: null,
     albums: [],
+    userInfo: [],
     riyos: [],
     // 申込一時保存データ（local用の拡張を含む）
     data: new EntryData(),
@@ -163,6 +167,7 @@ export default {
       [ACTIONS.MYAPP_USER_INSERT]: { doing: false },
       [ACTIONS.MYAPP_USER_DELETE]: { doing: false },
       [ACTIONS.MYAPP_USER_ALBUM]: { doing: false },
+      [ACTIONS.MYAPP_GET_USER_INFO]: { doing: false },
       [ACTIONS.MYAPP_ALBUMCREATE]: { doing: false },
       [ACTIONS.MYAPP_ALBUM_REMOVE]: { doing: false },
       [ACTIONS.MYAPP_USER_RIYO]: { doing: false },
@@ -2580,6 +2585,24 @@ export default {
         .finally(() => util.api.end(myAction, state.sync))
     },
     /**
+     * ユーザー
+     */
+    [ACTIONS.MYAPP_GET_USER_INFO] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_GET_USER_INFO
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      NHA_O_0155_API.getUserInfo(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_USER_INFO_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    /**
      * albumCreate
      */
     async [ACTIONS.MYAPP_ALBUMCREATE] ({ state, commit }, request) {
@@ -2703,7 +2726,7 @@ export default {
       // 実行
       await NHA_O_0111_API.usercreate(request)
         .then(function (response) {
-          commit(MUTATIONS.MYAPP_USER_CREATE_OK, response.data)
+          commit(MUTATIONS.MYAPP_USER_CREATE_OK, request)
         })
         .catch(error => util.api.error(myAction, state.sync, error))
         .finally(() => util.api.end(myAction, state.sync))
@@ -2779,10 +2802,15 @@ export default {
     },
     [MUTATIONS.MYAPP_USER_LOGIN_OK] (state, data) {
       state.userName = cloneDeep(data.userName)
+      state.kengen = cloneDeep(data.kengen)
       console.log('state.userName:' + state.userName)
     },
     [MUTATIONS.MYAPP_USER_ALBUM_OK] (state, data) {
       state.albums = cloneDeep(data)
+      // console.log('state.userName:' + state.userName)
+    },
+    [MUTATIONS.MYAPP_USER_INFO_OK] (state, data) {
+      state.userInfo = cloneDeep(data)
       // console.log('state.userName:' + state.userName)
     },
 
@@ -2851,6 +2879,12 @@ export default {
     },
     [MUTATIONS.MYAPP_SET_SENDFLAGDATA] (state, data) {
       state.sendFlagData = cloneDeep(data)
+    },
+    [MUTATIONS.MYAPP_USER_CREATE_OK] (state, data) {
+      state.userInfo.furiganase = data.furiganase
+      state.userInfo.furiganame = data.furiganame
+      state.userInfo.kanjise = data.kanjise
+      state.userInfo.kanjime = data.kanjime
     },
     [MUTATIONS.MYAPP_CLEAR_DATA] (state) {
       state.data = new EntryData()

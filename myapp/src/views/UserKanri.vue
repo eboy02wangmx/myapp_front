@@ -50,10 +50,13 @@
       <th>状態</th>
       <th>システム登録日付</th>
       <th>所有アルバム数</th>
-        <th>所有画像数</th>
-      <th>
-                <a class="btn btn-primary" href="/#/UserInsert">ユーザー作成</a>
-              </th>
+      <th>所有画像数</th>
+      <th v-if="isAdmin">
+        <a class="btn btn-primary" href="/#/UserInsert">ユーザー作成</a>
+      </th>
+      <th v-if="!isAdmin">
+        <button class="btn btn-primary" disabled="disabled" href="/#/UserInsert">ユーザー作成</button>
+      </th>
     </tr>
   </thead>
     <tbody>

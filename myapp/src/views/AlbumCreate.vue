@@ -51,7 +51,7 @@
       <h1>アルバム新規作成</h1>
     </div>
     <div class="well">
-      <form action="https://mieru360.com/album/add" method="post" accept-charset="utf-8">
+      <form action method="post" accept-charset="utf-8">
         <fieldset>
           <legend>アルバム作成</legend>
           <label for="album_name">アルバム名</label>

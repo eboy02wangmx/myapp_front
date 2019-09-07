@@ -18,7 +18,11 @@ export const topViewModel = {
   },
   computed: {
     isError: function () {
-      return this.$store.state.configs.parameterError
+      let userName = this.$store.state.myapp.userName
+      if (userName === '') {
+        return true
+      }
+      return false
     },
     loginUserName: function () {
       return this.$store.state.myapp.userName
@@ -43,7 +47,7 @@ export const topViewModel = {
         if (oldValue === true && newValue === false) {
           if (this.$store.state.myapp.sync[ACTIONS.MYAPP_USER_LOGIN].status === 200) {
             console.log('this.$store.state.myapp.userName is ' + this.loginUserName)
-            if (this.$store.state.myapp.userName !== undefined) {
+            if (this.$store.state.myapp.userName !== '') {
               this.routerPush('/album')
             }
           } else {

@@ -1,9 +1,4 @@
-/**
- * see: 画面定義書_G-NHA-004_ユーザー管理画面->ユーザー編集画面_v1.1.xlsx
- */
-
-import {ACTIONS} from '@/store/action-types'
-
+import { ACTIONS } from '@/store/action-types'
 export const userCreateViewModel = {
   name: 'UserCreate',
   data () {
@@ -21,6 +16,14 @@ export const userCreateViewModel = {
     console.log('888888888888888888888888888888888')
     var param = localStorage.getItem('userid')
     this.param = param
+    let userInfo = {userid: this.param}
+    this.$store.dispatch(ACTIONS.MYAPP_GET_USER_INFO, userInfo)
+  },
+  mounted () {
+    this.furiganase = this.$store.state.myapp.userInfo.furiganase
+    this.furiganame = this.$store.state.myapp.userInfo.furiganame
+    this.kanjise = this.$store.state.myapp.userInfo.kanjise
+    this.kanjime = this.$store.state.myapp.userInfo.kanjime
   },
   computed: {
     isError: function () {
@@ -42,7 +45,7 @@ export const userCreateViewModel = {
       console.log('updateupdateupdateupdateupdateupdateupdateupdateupdate')
       let params = {userid: this.account, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise, kanjime: this.kanjime, password: this.password}
       this.$store.dispatch(ACTIONS.MYAPP_USER_CREATE, params)
-      // this.routerPush('/UserKanri')
+      this.routerPush('/UserKanri')
     }
   }
 }
