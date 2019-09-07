@@ -53,56 +53,22 @@
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th>カスタム名</th>
-          <th width="120">物件名</th>
+          <th width="180">カスタム名</th>
+          <th width="180">物件名</th>
           <th width="120">登录者</th>
           <th width="120">作成日時</th>
           <th width="120">更新日時</th>
           <th width="70">画像数</th>
-          <th width="180" style="text-align:center;">操作</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="i in this.$store.state.myapp.riyos" :key="i">
-          <td>
-            <a href>{{i.customid }}</a>
-            <div class="clear"></div>
-          </td>
+          <td>{{i.customid}}</td>
           <td>{{i.bukenme}}</td>
           <td>{{i.userid}}</td>
           <td>{{i.sakusehi}}</td>
           <td>{{i.koushinhi}}</td>
           <td>{{i.picnum}}</td>
-          <td>
-            <div class="btn-group">
-              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                操作
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="">
-                    <i class="icon-pencil"></i>編集
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <i class="icon-ban-circle"></i>無効化
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="user-delete-btn"
-                    href="#user-modal"
-                    data-toggle="modal"
-                    rel=""
-                  >
-                    <i class="icon-trash"></i>削除
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </td>
         </tr>
       </tbody>
     </table>
