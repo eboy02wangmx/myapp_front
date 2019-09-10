@@ -2803,6 +2803,7 @@ export default {
     [MUTATIONS.MYAPP_USER_LOGIN_OK] (state, data) {
       state.userName = cloneDeep(data.userName)
       state.kengen = cloneDeep(data.kengen)
+      state.customId = cloneDeep(data.customId)
       console.log('state.userName:' + state.userName)
     },
     [MUTATIONS.MYAPP_USER_ALBUM_OK] (state, data) {

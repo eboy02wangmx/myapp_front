@@ -31,7 +31,6 @@ export const albumCreateViewModel = {
     newCreate () {
       let params = {bukenme: this.albumName, userid: this.$store.state.myapp.userName}
       this.$store.dispatch(ACTIONS.MYAPP_ALBUMCREATE, params)
-      this.routerPush('/album')
     }
   }
 }

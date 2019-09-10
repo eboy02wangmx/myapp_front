@@ -60,13 +60,15 @@
           <br />
           <br />
         </fieldset>
-        <r-button name="submit"
+        <a
+          href="/#/Sakuseok"
+          name="submit"
           type="submit"
           id="submit"
           style="margin-bottom: 3px"
           value="Add"
           class="btn btn-primary" @click="newCreate"
-        >&nbsp;&nbsp;&nbsp;作&nbsp;成&nbsp;&nbsp;&nbsp;</r-button>
+        >&nbsp;&nbsp;&nbsp;作&nbsp;成&nbsp;&nbsp;&nbsp;</a>
         <span></span>
         <a href="/#/Album" class="btn">キャンセル</a>
       </form>

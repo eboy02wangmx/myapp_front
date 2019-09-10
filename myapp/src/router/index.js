@@ -11,6 +11,8 @@ import UserCreate from '@/views/UserCreate'
 import UserInsert from '@/views/UserInsert'
 import DeletePopup from '@/views/DeletePopup'
 import Deleteok from '@/views/Deleteok'
+import Success from '@/views/Success'
+import Sakuseok from '@/views/Sakuseok'
 import Riyo from '@/views/Riyo'
 import AlbumCreate from '@/views/AlbumCreate'
 
@@ -109,6 +111,22 @@ const router = new Router({
       path: '/Deleteok',
       name: 'Deleteok',
       component: Deleteok,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/Success',
+      name: 'Success',
+      component: Success,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/Sakuseok',
+      name: 'Sakuseok',
+      component: Sakuseok,
       meta: { existsStoreData: false,
         page_type: 'page1'
       }

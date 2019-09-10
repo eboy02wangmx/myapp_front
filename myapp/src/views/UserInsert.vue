@@ -146,7 +146,7 @@
           </table>
         </fieldset>
         <a
-          href="/#/UserKanri"
+          href="/#/Success"
           name="submit"
           type="submit"
           id="submit"

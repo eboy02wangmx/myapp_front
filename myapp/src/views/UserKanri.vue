@@ -62,11 +62,14 @@
     <tbody>
       <tr v-for="item in items" :key="item" @click="getDataId(item.userid)">
       <td>{{item.userid}}</td>
-      <td>{{item.kengen}}</td>
-      <td>{{item.yukokbn}}</td>
+      <td v-if="item.kengen === '1' ">管理者</td>
+      <td v-if="item.kengen === '2' ">カスタム</td>
+      <td v-if="item.kengen === '3' ">一般ユーザー</td>
+      <td v-if="item.yukokbn === '0' ">無効</td>
+      <td v-if="item.yukokbn === '1' ">有効</td>
       <td>{{item.systemdate}}</td>
       <td>{{item.picnum}}</td>
-        <td>{{item.picnum}}</td>
+      <td>{{item.picnum}}</td>
       <td>
         <div class="btn-group">
           <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>

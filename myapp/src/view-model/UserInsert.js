@@ -14,7 +14,8 @@ export const userInsertViewModel = {
       kanjise: null,
       kanjime: null,
       password: null,
-      repsd: null
+      repsd: null,
+      customId: this.$store.state.myapp.customId
     }
   },
   created () {
@@ -35,7 +36,7 @@ export const userInsertViewModel = {
   methods: {
     koushin () {
       console.log('insertinsertinsertinsertinsertinsertinsert')
-      let params = {userid: this.userid, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise, kanjime: this.kanjime, password: this.password}
+      let params = {userid: this.userid, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise, kanjime: this.kanjime, password: this.password, customId: this.customId, loginid: this.$store.state.myapp.userName}
       this.$store.dispatch(ACTIONS.MYAPP_USER_INSERT, params)
       this.routerPush('/UserKanri')
     }
