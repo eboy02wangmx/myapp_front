@@ -58,9 +58,8 @@
   </ul>
   </div>
   <div class="well" style="float:left;width: 210px;height: 80px;margin-bottom: 15px;">
-    <p><b>アルバム名：cccc</b></p>
-    <p>画像数：<span id="img_num"></span>枚</p>
-    <p>合計サイズ：<span id="img_size"></span>MB</p>
+    <p><b>物件名：{{parambukenme}}</b></p>
+    <p>画像数：{{parampicnum}}<span id="img_num"></span>枚</p>
   </div>
   <div class="well" style="margin: 0 0 0 265px;">
     <h4 style="margin-bottom: 10px;">画像ファイルをアップロードしてください。　<span id="o_file_length"></span></h4>
@@ -73,14 +72,16 @@
             <div class="fileupload-buttons">
                 <!-- The fileinput-button span is used to style the file input field as button -->
                 <span class="fileinput-button">
-                    <span>画像追加</span>
-                    <input type="file" name="Filedata" multiple>
-                    <button class="start" disabled>アップロード</button>
+                    <div>
+                      <input :id="id" @change="preview" type="file" name="Filedata" multiple>
+                    <button v-if="filelength > 0" class="start">一括アップロード</button>&nbsp;
+                    <button v-if="filelength > 0" class="start">一括キャンセル</button>
+                    </div>
+                    <tr v-for="item in picfile" :key="item">
+                    <td>{{item}}</td>
+                    <td><button type="button" onclick="buttreset()" class="cancel">キャンセル</button></td>
+                    </tr>
                 </span>
-				<span id="buttondisplay" style="display:none; width: 350px;">
-                <button type="submit" class="start">一括アップロード</button>
-                <button type="button" onclick="buttreset()" class="cancel">一括キャンセル</button>
-				</span>
                 <!--<button type="button" class="delete">画像削除</button>
                 <input type="checkbox" class="toggle">-->
                 <!-- The global file processing state
@@ -101,40 +102,28 @@
   <div>
 <span class="left w100">
       <ul id="sortable">
-            <li id="image_1555" class="ui-state-default" style="height: 110px">
-      <div class="drag-handle" style="height: 105px"></div>
-      <div class="image-container">1111111111</div>
-      <div class="info" style="left: 250px;line-height:21px;">あああ</div>
-      <div class="btn-group" style="top: 65px;margin-right: 10px">
-		<a href="#image-modal" class="btn image-delete-btn" title="削除" rel="tooltip" action="https://mieru360.com/image/remove/158/1555" data-toggle="modal" data-original-title="Delete"><i class="icon-remove"></i>&nbsp;&nbsp;削除&nbsp;&nbsp;&nbsp;</a>
+        <li id="image_1555" class="ui-state-default" style="height: 75px;">
+      <div class="drag-handle" style="height: 105px; top: 20px;margin-left: 10px; font-size: 18px">No.</div>
+      <div class="image-container" style="top: 22px; margin-left: 50px; font-size: 18px">画像</div>
+      <div class="image-container" style="top: 22px; margin-left: 400px; font-size: 18px">画像名</div>
+      <div class="info" style="top: 22px; margin-left: 850px; font-size: 18px">作成日</div>
+      <div class="btn-group" style="top: 25px;margin-right: 40px; font-size: 18px">操作</div>
+            </li>
+            <li id="image_1555" class="ui-state-default" style="height: 75px;" v-for="(item, index) in items" :key="item">
+      <div class="drag-handle" style="height: 105px; top: 20px;margin-left: 10px; font-size: 18px">No.{{index+1}}</div>
+      <div class="image-container" style="top: 22px; margin-left: 50px; font-size: 18px">
+        <div><img :src = item.location /></div>
+      </div>
+      <div class="image-container" style="top: 22px; margin-left: 400px; font-size: 18px">{{item.filename}}</div>
+      <div class="info" style="top: 22px; margin-left: 850px; font-size: 18px">{{item.create_time}}</div>
+      <div class="btn-group" style="top: 25px;margin-right: 10px">
+		<a href="#image-modal" class="btn image-delete-btn" title="削除" rel="tooltip" action="" data-toggle="modal" data-original-title="Delete"><i class="icon-remove"></i>&nbsp;&nbsp;削除&nbsp;&nbsp;&nbsp;</a>
     </div>
             </li>
       </ul>
   </span>
   </div>
-<div style="width: 250px; background: yellow">
-  <div class="left" style="margin-top: 15px;">
-  <div class="well" style="width: 210px; height: 250px;">
-    <ul class="nav nav-list" style=" padding-left: 5px; padding-right: 5px;">
-      <li class="nav-header" style="font-size: 14px;padding: 0;margin-left: 0;margin-right: 0;margin-bottom: 3px">位置
-          <span>
-              <select id="sizeQr" onclick="sizeChange()" style="-moz-appearance: none;-webkit-appearance: none; -ms-progress-appearance: display:none;
-               display:inline;width: 14%;padding: 0 3%;margin: 0;position:relative;left: 3px;bottom:1px;text-align: center">
-                <option style="text-align: center" value="200" ></option>
-                <option style="text-align: center" selected value="350"></option>
-                <option style="text-align: center" value="500"></option>
-              </select>
-          </span>
-          <span id="downloadButton">
-              <a id="downloadQr" class="btn" role="button" href="" style="position:relative;left: 8px"></a>
-		      </span>
-	    </li>
-      <img src="" id="imgid" width="200" height="200">
-    </ul>
-  </div>
-  </div>
-</div>
-<div style="margin: 0 0 0 265px;">
+<div style="margin: 0 0 0 0;">
 	<div class="left w100" style="margin-top: 15px;">
 		<div class="well sidebar-nav" style="margin-bottom: 15px;">
 			<ul class="nav nav-list" style="height: 90px;">

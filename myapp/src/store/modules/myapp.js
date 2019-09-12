@@ -45,6 +45,7 @@ import {NHA_O_0110_API} from '@/api/NHA_O_0110_Api'
 import {NHA_O_0111_API} from '@/api/NHA_O_0111_Api'
 import {NHA_O_0112_API} from '@/api/NHA_O_0112_Api'
 import {NHA_O_0113_API} from '@/api/NHA_O_0113_Api'
+import {NHA_O_0114_API} from '@/api/NHA_O_0114_Api'
 // 仕様新規の対応 20190320 BY KYOKU END
 
 import {NHA_O_0150_API} from '@/api/NHA_O_0150_Api'
@@ -57,6 +58,7 @@ import {NHA_O_0155_API} from '@/api/NHA_O_0155_Api'
 export default {
   state: {
     userkanriItems: null,
+    imagesItems: null,
     // 1:インターネット契約、2:ペーパレス募集
     entryType: '2',
     // 見積連番一覧
@@ -171,7 +173,8 @@ export default {
       [ACTIONS.MYAPP_ALBUMCREATE]: { doing: false },
       [ACTIONS.MYAPP_ALBUM_REMOVE]: { doing: false },
       [ACTIONS.MYAPP_USER_RIYO]: { doing: false },
-      [ACTIONS.MYAPP_USER_RIYOEFF]: { doing: false }
+      [ACTIONS.MYAPP_USER_RIYOEFF]: { doing: false },
+      [ACTIONS.MYAPP_ALBUM_IMAGES]: { doing: false }
     },
     // 銀行検索結果
     bankitems: [],
@@ -2766,6 +2769,24 @@ export default {
         })
         .catch(error => util.api.error(myAction, state.sync, error))
         .finally(() => util.api.end(myAction, state.sync))
+    },
+    /**
+     * images
+     */
+    async [ACTIONS.MYAPP_ALBUM_IMAGES] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_ALBUM_IMAGES
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0114_API.imagesinfo(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_ALBUM_IMAGES_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
     }
   },
   mutations: {
@@ -2837,6 +2858,10 @@ export default {
     [MUTATIONS.MYAPP_USER_KANRI_OK] (state, data) {
       state.userkanriItems = cloneDeep(data)
       console.log('state.userName:' + state.userName)
+    },
+    [MUTATIONS.MYAPP_ALBUM_IMAGES_OK] (state, data) {
+      state.imagesItems = cloneDeep(data)
+      console.log('state.userName:' + state.filename)
     },
     [MUTATIONS.MYAPP_BANK_SET] (state, data) {
       state.selecteditem = cloneDeep(data)

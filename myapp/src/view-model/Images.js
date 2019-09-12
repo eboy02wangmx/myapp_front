@@ -4,58 +4,32 @@
  * see: 画面定義書_G-NHA-002_ALBUM画面_v1.1.xlsx
  */
 import { ACTIONS } from '@/store/action-types'
-import { MUTATIONS } from '@/store/mutation-types'
 // import axios from 'axios'
 export const imagesViewModel = {
   name: 'Images',
   data() {
     return {
       albums:[],
-      userid:null
-      // entryNo: null,
-      // setEntryNo: null,
-      // mail: null,
-      // agentCode: null,
-      // showPrintListFlag: false,
-      // selectIndex: null,
-      // pageNo: 1,
-      // pageSize: 10,
-      // agentList: [],
-      // downloading: false,
-      // policyNo: null,
-      // uploadFile: null
+      userid:null,
+      filelength:null,
+      filelename:null,
+      picfile:[],
+      url:this.$store.state.myapp.imagesItems.location
     }
   },
   created() {
     let params = {userid:this.$store.state.myapp.userName}
     this.$store.dispatch(ACTIONS.MYAPP_USER_ALBUM, params)
     this.albums = this.$store.state.myapp.data
-    // if (this.$route.query.entryType !== undefined && this.$route.query.entryType !== '') {
-    //   this.$store.commit(MUTATIONS.HOMEASSIST_SET_ENTRY_TYPE, this.$route.query.entryType)
-    // }
-    // // this.$store.dispatch(ACTIONS.READ_NOTICE_LIST, {goodsType: '1', entryType: this.$store.state.homeassist.entryType})
-    // this.agentList = this.$store.state.configs.agentList
-    // this.agentCode = this.$store.state.configs.agentCode
-
-    // let params = {userid: this.userid}
-    // const unwatch = this.$store.watch(() => this.$store.state.myapp.sync[ACTIONS.MYAPP_USER_ALBUM].doing, (newValue, oldValue) => {
-
-    // this.albums = store.state.myapp
-    // })
-    // this.$store.dispatch(ACTIONS.MYAPP_USER_LOGIN, params)
-
-
-    // this.$watch('$store.state.configs.agentCode', (newValue, oldValue) => {
-    //   this.agentCode = newValue
-    // })
-    // this.$watch('$store.state.configs.agentList', (newValue, oldValue) => {
-    //   this.agentList = newValue
-    // })
-    // this.$watch('$store.state.homeassist.entryNo', (newValue, oldValue) => {
-    //   console.log('$store.state.homeassist.entryNo new value is=' + newValue)
-    //   this.entryNo = newValue
-    // })
     this.policyNo = ''
+    var parambukenme = localStorage.getItem('bukenme')
+    this.parambukenme = parambukenme
+    var parampicnum = localStorage.getItem('picnum')
+    this.parampicnum = parampicnum
+    // let imagesparams = {userid: this.$store.state.myapp.userid}
+    let imagesparams = {userid: 'test02'}
+    this.$store.dispatch(ACTIONS.MYAPP_ALBUM_IMAGES, imagesparams)
+    files.splice(0,files.length)
   },
   computed: {
     isError: function () {
@@ -66,6 +40,9 @@ export const imagesViewModel = {
         return true
       }
       return false
+    },
+    items: function () {
+      return this.$store.state.myapp.imagesItems
     }
   },
   methods: {
@@ -74,6 +51,12 @@ export const imagesViewModel = {
       e.preventDefault()
       let files = e.target.files
       this.uploadFile = files[0]
+    },
+    onecancel(index){
+      this.picfile.splice(index,1)
+    },
+    allcancel() {
+      this.picfile=[]
     },
     async imageUpload() {
       // FormData を利用して File を POST する
@@ -98,7 +81,20 @@ export const imagesViewModel = {
       }
       console.log('uploadstart')
       await this.$store.dispatch(ACTIONS.MYAPP_IMAGE_UPLOAD, request)
-    }
+    },
+    preview(event){
+      let filelength = event.target.files.length
+      this.filelength = filelength
+        for (var i = 0; i < filelength; i++) {
+          if (this.picfile.indexOf(event.target.files[i].name) === -1) {
+          this.picfile.push(event.target.files[i].name)
+          }
+        }
+      }
+      // this.filelength = filelength
+      // let filename = event.target.files.name
+      // this.filename = filename
+      // console.log(event.target.files.length)
   }
 }
 export default {

@@ -9,6 +9,7 @@ export const topViewModel = {
   name: 'Top',
   data () {
     return {
+      topheadpic: require('@/assets/images/head_logo.png'),
       userName: null,
       password: null
     }
