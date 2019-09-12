@@ -2,7 +2,7 @@
 module.exports = {
   NODE_ENV: '"production"',
   SERVER_URL: '"https://fire.rakuten-sonpo.co.jp/"',
-  CONTEXT: '"myapp"',
+  CONTEXT: '"myapp-backend"',
   SMBC_PROD: true,
   GA: true,
   MOCK: false

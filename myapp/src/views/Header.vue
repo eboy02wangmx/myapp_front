@@ -1,11 +1,6 @@
 <template>
 <header role="banner">
   <title>MYPIC360</title>
-  <link rel="stylesheet" href="./MIERU360_files/bootstrap.min.css">
-  <link rel="stylesheet" href="./MIERU360_files/bootstrap-responsive.min.css">
-  <link rel="stylesheet" href="./MIERU360_files/main.css">
-  <link rel="shortcut icon" href="https://mieru360.com/images/favicon.ico">
-
 </header>
 
 </template>
