@@ -73,14 +73,18 @@
                 <!-- The fileinput-button span is used to style the file input field as button -->
                 <span class="fileinput-button">
                     <div>
-                      <input :id="id" @change="preview" type="file" name="Filedata" multiple>
+                      <span class="fileinput-button">
+                    <input type="file" name="Filedata" multiple>
+                      </span>
                     <button v-if="filelength > 0" class="start">一括アップロード</button>&nbsp;
                     <button v-if="filelength > 0" class="start">一括キャンセル</button>
                     </div>
-                    <tr v-for="item in picfile" :key="item">
+                    <table v-if="filelength > 0">
+                    <tr v-for="(item, index) in picfile" :key="item">
                     <td>{{item}}</td>
-                    <td><button type="button" onclick="buttreset()" class="cancel">キャンセル</button></td>
+                    <td><button type="button" @click="preview(index)" class="cancel">キャンセル</button></td>
                     </tr>
+                    </table>
                 </span>
                 <!--<button type="button" class="delete">画像削除</button>
                 <input type="checkbox" class="toggle">-->
@@ -101,26 +105,29 @@
   </div>
   <div>
 <span class="left w100">
-      <ul id="sortable">
-        <li id="image_1555" class="ui-state-default" style="height: 75px;">
-      <div class="drag-handle" style="height: 105px; top: 20px;margin-left: 10px; font-size: 18px">No.</div>
-      <div class="image-container" style="top: 22px; margin-left: 50px; font-size: 18px">画像</div>
-      <div class="image-container" style="top: 22px; margin-left: 400px; font-size: 18px">画像名</div>
-      <div class="info" style="top: 22px; margin-left: 850px; font-size: 18px">作成日</div>
-      <div class="btn-group" style="top: 25px;margin-right: 40px; font-size: 18px">操作</div>
-            </li>
-            <li id="image_1555" class="ui-state-default" style="height: 75px;" v-for="(item, index) in items" :key="item">
-      <div class="drag-handle" style="height: 105px; top: 20px;margin-left: 10px; font-size: 18px">No.{{index+1}}</div>
-      <div class="image-container" style="top: 22px; margin-left: 50px; font-size: 18px">
-        <div><img :src = item.location /></div>
-      </div>
-      <div class="image-container" style="top: 22px; margin-left: 400px; font-size: 18px">{{item.filename}}</div>
-      <div class="info" style="top: 22px; margin-left: 850px; font-size: 18px">{{item.create_time}}</div>
-      <div class="btn-group" style="top: 25px;margin-right: 10px">
-		<a href="#image-modal" class="btn image-delete-btn" title="削除" rel="tooltip" action="" data-toggle="modal" data-original-title="Delete"><i class="icon-remove"></i>&nbsp;&nbsp;削除&nbsp;&nbsp;&nbsp;</a>
-    </div>
-            </li>
-      </ul>
+  <table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th width="80">No.&nbsp;&nbsp;&nbsp;&nbsp;
+      </th>
+            <th>画像</th>
+            <th width="550">画像名</th>
+      <th width="150">作成日</th>
+      <th width="180" style="text-align:center;">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="height: 75px; font-size: 18px" v-for="(item, index) in items" :key="item">
+      <td style="vertical-align:middle;">No.{{index+1}}</td>
+      <td><img :src = item.location /></td>
+      <td style="vertical-align:middle;">{{item.filename}}</td>
+      <td style="vertical-align:middle;">{{item.create_time}}</td>
+      <td style="min-width:135px; vertical-align:middle;">
+        <a href="#image-modal" class="btn image-delete-btn" title="削除" rel="tooltip" action="" data-toggle="modal" data-original-title="Delete"><i class="icon-remove"></i>&nbsp;&nbsp;削除&nbsp;&nbsp;&nbsp;</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
   </span>
   </div>
 <div style="margin: 0 0 0 0;">
