@@ -65,8 +65,6 @@
     <h4 style="margin-bottom: 10px;">画像ファイルをアップロードしてください。　<span id="o_file_length"></span></h4>
     <!-- The file upload form used as target for the file upload widget -->
     <form id="fileupload" action="//weshare.co.jp/" method="POST" enctype="multipart/form-data">
-        <!-- Redirect browsers with JavaScript disabled to the origin page -->
-        <noscript><input type="hidden" name="redirect" value="http://weshare.co.jp/"></noscript>
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
         <div class="fileupload-buttonbar">
             <div class="fileupload-buttons">
@@ -77,12 +75,12 @@
                     <input type="file" @change="preview" name="Filedata" multiple>
                       </span>
                     <button v-if="filelength > 0" class="start">一括アップロード</button>&nbsp;
-                    <button v-if="filelength > 0" class="start">一括キャンセル</button>
+                    <!--<button v-if="filelength > 0" class="start" @click="allcancel">一括キャンセル</button>-->
                     </div>
                     <table v-if="filelength > 0">
                     <tr v-for="(item, index) in picfile" :key="item">
                     <td>{{item}}</td>
-                    <td><button type="button" @click="preview(index)" class="cancel">キャンセル</button></td>
+                    <td><button type="button" @click="onecancel(index)" class="cancel">キャンセル</button></td>
                     </tr>
                     </table>
                 </span>
@@ -99,8 +97,6 @@
                 <div class="progress-extended">&nbsp;</div>
             </div>
         </div>
-        <!-- The table listing the files available for upload/download -->
-        <table role="presentation"><tbody class="files"></tbody></table>
     </form>
   </div>
   <div>
