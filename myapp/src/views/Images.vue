@@ -50,10 +50,10 @@
       <a href="/#/Album" style="margin-right: 130px;">&larr; 物件に戻る</a>
     </li>
     <li class="previous">
-      <a target="_blank" onclick="return vrDisplay(this)" href="https://mieru360.com/play/index/bfe04bbb-bd7e-11e9-bdc9-9ca3ba01d8b9" style="margin-right: 10px;"><i class="icon-picture"></i>&nbsp;&nbsp;VR表示&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a href="#" @click="panoPreview(id)" style="margin-right: 10px;"><i class="icon-picture"></i>&nbsp;&nbsp;VR表示&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </li>
     <li class="previous">
-      <a target="_blank" onclick="return vrEditing(this)" href="https://mieru360.com/album/vredit/158" style="margin-right: 10px;"><i class="icon-cog"></i>&nbsp;&nbsp;VR編集&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a href="#" @click="panoEdit(id)"  style="margin-right: 10px;"><i class="icon-cog"></i>&nbsp;&nbsp;VR編集&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </li>
   </ul>
   </div>

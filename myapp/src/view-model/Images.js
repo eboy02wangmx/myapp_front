@@ -22,6 +22,8 @@ export const imagesViewModel = {
     this.$store.dispatch(ACTIONS.MYAPP_USER_ALBUM, params)
     this.albums = this.$store.state.myapp.data
     this.policyNo = ''
+    var id = localStorage.getItem('id')
+    this.id = id;
     var parambukenme = localStorage.getItem('bukenme')
     this.parambukenme = parambukenme
     var parampicnum = localStorage.getItem('picnum')
@@ -89,6 +91,16 @@ export const imagesViewModel = {
           if (this.picfile.indexOf(event.target.files[i].name) === -1) {
           this.picfile.push(event.target.files[i].name)
           }
+        }
+      },
+      panoEdit (vrInfoId) {
+        if (vrInfoId) {
+          window.open("/myapp-backend/pano_edit.html?pid=" + vrInfoId);
+        }
+      },
+      panoPreview (vrInfoId) {
+        if (vrInfoId) {
+          window.open("/myapp-backend/pano_preview.html?pid=" + vrInfoId);
         }
       }
       // this.filelength = filelength

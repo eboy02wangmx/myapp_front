@@ -33,10 +33,11 @@ export const albumViewModel = {
       let params = {filename: album.filename, userid: album.userid}
       this.$store.dispatch(ACTIONS.MYAPP_ALBUM_REMOVE, params)
     },
-    getDataId (bukenme, picnum) {
+    getDataId (id, bukenme, picnum) {
       // localStorage.setItem('deleteid', JSON.stringify(userid))
       localStorage.setItem('picnum', picnum ,'bukenme', bukenme)
-      localStorage.setItem('bukenme', bukenme, 'picnum', picnum ,)
+      localStorage.setItem('bukenme', bukenme, 'picnum', picnum, 'id', id)
+      localStorage.setItem('id', id)
       // localStorage.setItem('picnum', picnum)
       console.log('当前被点击的bukenme=' + bukenme)
       console.log('当前被点击的picnum=' + picnum)

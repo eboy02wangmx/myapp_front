@@ -57,7 +57,7 @@
     </tr>
   </thead>
   <tbody>
-      <tr v-for="i in this.$store.state.myapp.albums" :key="i" @click="getDataId(i.bukenme, i.picnum)">
+      <tr v-for="i in this.$store.state.myapp.albums" :key="i" @click="getDataId(i.id, i.bukenme, i.picnum)">
       <td><a href="">{{i.bukenme}}</a>
       <div class="clear"></div>
       </td>
