@@ -74,7 +74,7 @@
                 <span class="fileinput-button">
                     <div>
                       <span class="fileinput-button">
-                    <input type="file" name="Filedata" multiple>
+                    <input type="file" @change="preview" name="Filedata" multiple>
                       </span>
                     <button v-if="filelength > 0" class="start">一括アップロード</button>&nbsp;
                     <button v-if="filelength > 0" class="start">一括キャンセル</button>
@@ -110,16 +110,16 @@
     <tr>
       <th width="80">No.&nbsp;&nbsp;&nbsp;&nbsp;
       </th>
-            <th>画像</th>
-            <th width="550">画像名</th>
-      <th width="150">作成日</th>
+            <th width="200">画像</th>
+            <th>画像名</th>
+      <th width="300">作成日</th>
       <th width="180" style="text-align:center;">操作</th>
     </tr>
   </thead>
   <tbody>
-    <tr style="height: 75px; font-size: 18px" v-for="(item, index) in items" :key="item">
+    <tr style="height: 100px; font-size: 18px" v-for="(item, index) in items" :key="item">
       <td style="vertical-align:middle;">No.{{index+1}}</td>
-      <td><img :src = item.location /></td>
+      <td style="vertical-align:middle;"><img :src = item.location /></td>
       <td style="vertical-align:middle;">{{item.filename}}</td>
       <td style="vertical-align:middle;">{{item.create_time}}</td>
       <td style="min-width:135px; vertical-align:middle;">
