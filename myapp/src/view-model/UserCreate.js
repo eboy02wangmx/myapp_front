@@ -9,7 +9,8 @@ export const userCreateViewModel = {
       kanjise: null,
       kanjime: null,
       password: null,
-      repsd: null
+      repsd: null,
+      psdchkflg:null
     }
   },
   created () {
@@ -24,6 +25,7 @@ export const userCreateViewModel = {
     this.furiganame = this.$store.state.myapp.userInfo.furiganame
     this.kanjise = this.$store.state.myapp.userInfo.kanjise
     this.kanjime = this.$store.state.myapp.userInfo.kanjime
+    this.psdchkflg = '0'
   },
   computed: {
     isError: function () {
@@ -42,10 +44,17 @@ export const userCreateViewModel = {
   },
   methods: {
     koushin () {
+      this.psdchkflg = '0'
       console.log('updateupdateupdateupdateupdateupdateupdateupdateupdate')
+      if(this.repsd !== this.password){
+        this.psdchkflg = '1'
+        console.log(this.psdchkflg)
+        return
+      }else{
       let params = {userid: this.account, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise, kanjime: this.kanjime, password: this.password}
       this.$store.dispatch(ACTIONS.MYAPP_USER_CREATE, params)
       this.routerPush('/UserKanri')
+      this.routerPush('/Success')}
     }
   }
 }

@@ -117,6 +117,7 @@
             <tr>
               <td>
                 <label for="password">パスワード</label>
+                <P><font color='#d56a00'>※変更しない場合空白</font></P>
               </td>
               <td>
                 <input
@@ -132,6 +133,7 @@
             <tr>
               <td>
                 <label for="password_conf">パスワード再入力</label>
+                <P><font color='#d56a00'>※変更しない場合空白</font></P>
               </td>
               <td>
                 <input
@@ -147,7 +149,6 @@
           </table>
         </fieldset>
         <a
-          href="/#/Success"
           name="submit"
           type="submit"
           id="submit"
@@ -158,6 +159,7 @@
         >&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;</a>
         <span></span>
         <a href="/#/UserKanri" class="btn">キャンセル</a>
+        <a v-if="psdchkflg === '1'">パスワードとパスワード再入力が異なる！</a>
       </form>
     </div>
   </div>
