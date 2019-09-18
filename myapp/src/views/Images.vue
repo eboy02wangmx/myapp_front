@@ -16,7 +16,7 @@
       <a class="brand" href="/#/Album">Panolib</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="active"><a href="/#/Album">物件一覧</a></li>
+          <li class="active"><a href="/#/Album">アルバム一覧</a></li>
           <li><a href="/#/UserKanri">ユーザー管理</a></li>
           <li v-if="this.$store.state.myapp.userName === 'panolib_admin'"><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
@@ -35,11 +35,11 @@
         </li>
          >
         <li style="display: inline">
-            <a href="/#/Album" class="nowPage" style="text-decoration: none; color: black">物件一覧</a>
+            <a href="/#/Album" class="nowPage" style="text-decoration: none; color: black">アルバム一覧</a>
         </li>
          >
          <li style="display: inline">
-            <a  class="nowPage" style="text-decoration: none; color: black">物件編集</a>
+            <a  class="nowPage" style="text-decoration: none; color: black">アルバム編集</a>
         </li>
     </ul>
 </div>
@@ -47,18 +47,18 @@
 
   <ul class="pager">
     <li class="previous">
-      <a href="/#/Album" style="margin-right: 130px;">&larr; 物件に戻る</a>
+      <a href="/#/Album" style="margin-right: 130px;">&larr; アルバムに戻る</a>
     </li>
     <li class="previous">
-      <a href="#" @click="panoPreview(id)" style="margin-right: 10px;"><i class="icon-picture"></i>&nbsp;&nbsp;VR表示&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a target="_blank" onclick="return vrDisplay(this)" href="https://mieru360.com/play/index/bfe04bbb-bd7e-11e9-bdc9-9ca3ba01d8b9" style="margin-right: 10px;"><i class="icon-picture"></i>&nbsp;&nbsp;VR表示&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </li>
     <li class="previous">
-      <a href="#" @click="panoEdit(id)"  style="margin-right: 10px;"><i class="icon-cog"></i>&nbsp;&nbsp;VR編集&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a target="_blank" onclick="return vrEditing(this)" href="https://mieru360.com/album/vredit/158" style="margin-right: 10px;"><i class="icon-cog"></i>&nbsp;&nbsp;VR編集&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </li>
   </ul>
   </div>
   <div class="well" style="float:left;width: 210px;height: 80px;margin-bottom: 15px;">
-    <p><b>物件名：{{parambukenme}}</b></p>
+    <p><b>アルバム名：{{parambukenme}}</b></p>
     <p>画像数：{{parampicnum}}<span id="img_num"></span>枚</p>
   </div>
   <div class="well" style="margin: 0 0 0 265px;">
@@ -107,19 +107,22 @@
       <th width="80">No.&nbsp;&nbsp;&nbsp;&nbsp;
       </th>
             <th width="200">画像</th>
-            <th>画像名</th>
-      <th width="300">作成日</th>
+            <th>ファイル名</th>
+            <th width="200">説明</th>
+      <th width="200">作成日</th>
       <th width="180" style="text-align:center;">操作</th>
     </tr>
   </thead>
   <tbody>
-    <tr style="height: 100px; font-size: 18px" v-for="(item, index) in items" :key="item">
-      <td style="vertical-align:middle;">No.{{index+1}}</td>
+    <tr style="height: 100px; font-size: 18px" v-for="(item, index) in items" :key="item" @click="getDataId(item.location)">
+      <td style="vertical-align:middle;">{{index+1}}</td>
       <td style="vertical-align:middle;"><img :src = item.location /></td>
       <td style="vertical-align:middle;">{{item.filename}}</td>
+      <td style="vertical-align:middle;">{{item.setsumei}}</td>
       <td style="vertical-align:middle;">{{item.create_time}}</td>
       <td style="min-width:135px; vertical-align:middle;">
         <a href="#image-modal" class="btn image-delete-btn" title="削除" rel="tooltip" action="" data-toggle="modal" data-original-title="Delete"><i class="icon-remove"></i>&nbsp;&nbsp;削除&nbsp;&nbsp;&nbsp;</a>
+        <a class="btn" href="/#/Setsumei">説明変更</a>
       </td>
     </tr>
   </tbody>
@@ -130,7 +133,7 @@
 	<div class="left w100" style="margin-top: 15px;">
 		<div class="well sidebar-nav" style="margin-bottom: 15px;">
 			<ul class="nav nav-list" style="height: 90px;">
-				<li class="nav-header" style="font-size: 15px;">物件リンク</li>
+				<li class="nav-header" style="font-size: 15px;">アルバムリンク</li>
 				<li><textarea readonly="readonly" rows="auto" name="txtrea" style="cursor: text; min-width: 390px;width:100%;">link1</textarea></li>
 			</ul>
 		</div>

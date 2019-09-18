@@ -16,7 +16,7 @@
       <a class="brand" href="https://mieru360.com/">Panolib</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li><a href="/#/Album">物件一覧</a></li>
+          <li><a href="/#/Album">アルバム一覧</a></li>
           <li class="active"><a href="/#/User">ユーザー管理</a></li>
           <li v-if="this.$store.state.myapp.userName === 'panolib_admin'"><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
@@ -62,8 +62,8 @@
     <tbody>
       <tr v-for="item in items" :key="item" @click="getDataId(item.userid)">
       <td>{{item.userid}}</td>
-      <td v-if="item.kengen === '1' ">管理者</td>
-      <td v-if="item.kengen === '2' ">カスタム</td>
+      <td v-if="item.kengen === '1' ">システム管理者</td>
+      <td v-if="item.kengen === '2' ">管理ユーザー</td>
       <td v-if="item.kengen === '3' ">一般ユーザー</td>
       <td v-if="item.yukokbn === '0' ">無効</td>
       <td v-if="item.yukokbn === '1' ">有効</td>

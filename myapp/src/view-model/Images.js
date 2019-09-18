@@ -22,14 +22,12 @@ export const imagesViewModel = {
     this.$store.dispatch(ACTIONS.MYAPP_USER_ALBUM, params)
     this.albums = this.$store.state.myapp.data
     this.policyNo = ''
-    var id = localStorage.getItem('id')
-    this.id = id;
     var parambukenme = localStorage.getItem('bukenme')
     this.parambukenme = parambukenme
     var parampicnum = localStorage.getItem('picnum')
     this.parampicnum = parampicnum
     // let imagesparams = {userid: this.$store.state.myapp.userid}
-    let imagesparams = {userid: 'test02'}
+    let imagesparams = {userid: this.$store.state.myapp.userName}
     this.$store.dispatch(ACTIONS.MYAPP_ALBUM_IMAGES, imagesparams)
     files.splice(0,files.length)
   },
@@ -93,20 +91,10 @@ export const imagesViewModel = {
           }
         }
       },
-      panoEdit (vrInfoId) {
-        if (vrInfoId) {
-          window.open("/myapp-backend/pano_edit.html?pid=" + vrInfoId);
-        }
-      },
-      panoPreview (vrInfoId) {
-        if (vrInfoId) {
-          window.open("/myapp-backend/pano_preview.html?pid=" + vrInfoId);
-        }
+      getDataId (location) {
+        localStorage.setItem('location', location)
+        console.log('当前被点击的bukenme=' + location)
       }
-      // this.filelength = filelength
-      // let filename = event.target.files.name
-      // this.filename = filename
-      // console.log(event.target.files.length)
   }
 }
 export default {

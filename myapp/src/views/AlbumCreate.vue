@@ -17,7 +17,7 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active">
-                <a href="/#/Album">物件一覧</a>
+                <a href="/#/Album">アルバム一覧</a>
               </li>
               <li>
                 <a href="/#/UserKanri">ユーザー管理</a>

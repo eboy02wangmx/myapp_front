@@ -16,7 +16,7 @@
       <a class="brand" href="/#/Album">Panolib</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="active"><a href="/#/Album">物件一覧</a></li>
+          <li class="active"><a href="/#/Album">アルバム一覧</a></li>
           <li><a href="/#/UserKanri">ユーザー管理</a></li>
           <li v-if="this.$store.state.myapp.userName === 'panolib_admin'"><a href="/#/Riyo">利用状況一覧</a></li>
         </ul>
@@ -35,21 +35,21 @@
         </li>
          >
         <li style="display: inline">
-            <a  class="nowPage" style="text-decoration: none; color: black">物件一覧</a>
+            <a  class="nowPage" style="text-decoration: none; color: black">アルバム一覧</a>
         </li>
     </ul>
 </div>
 <div class="page-header">
-  <h1>物件一覧</h1>
+  <h1>アルバム一覧</h1>
 </div>
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>物件名&nbsp;&nbsp;&nbsp;&nbsp;
+      <th>アルバム名&nbsp;&nbsp;&nbsp;&nbsp;
         <!-- <router-link :to="{path:'/AlbumCreate',query:{album:i}}" class="btn btn-primary">新規作成</router-link> -->
         <a class="btn btn-primary" href="/#/AlbumCreate">新規作成</a>
       </th>
-            <th width="120">所有者</th>
+            <th width="120">作成者</th>
             <th width="120">作成日時</th>
       <th width="120">更新日時</th>
       <th width="70">画像数</th>
@@ -57,7 +57,7 @@
     </tr>
   </thead>
   <tbody>
-      <tr v-for="i in this.$store.state.myapp.albums" :key="i" @click="getDataId(i.id, i.bukenme, i.picnum)">
+      <tr v-for="i in this.$store.state.myapp.albums" :key="i" @click="getDataId(i.bukenme, i.picnum, i.userid)">
       <td><a href="">{{i.bukenme}}</a>
       <div class="clear"></div>
       </td>

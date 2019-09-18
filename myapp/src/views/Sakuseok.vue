@@ -4,7 +4,7 @@
       <div class="r-popup-contents" tabIndex="0">
         <h3></h3>
         <div class="r-popup-contents-inner" style="text-align: center; font-size: 20px">
-          物件作成しました！<br/>
+          アルバム作成しました！<br/>
         </div>
         <a href="/#/Album" class="btn" style="background: #c01700; color: white; padding: 10px 20px;">はい</a>
       </div>

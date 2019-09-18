@@ -17,7 +17,7 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li>
-                <a href="/#/Album">物件一覧</a>
+                <a href="/#/Album">アルバム一覧</a>
               </li>
               <li>
                 <a href="/#/UserKanri">ユーザー管理</a>
@@ -54,7 +54,7 @@
       <thead>
         <tr>
           <th width="180">カスタム名</th>
-          <th width="180">物件名</th>
+          <th width="180">アルバム名</th>
           <th width="120">登录者</th>
           <th width="120">作成日時</th>
           <th width="120">更新日時</th>
