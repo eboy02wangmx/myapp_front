@@ -15,6 +15,9 @@ import Success from '@/views/Success'
 import Sakuseok from '@/views/Sakuseok'
 import Riyo from '@/views/Riyo'
 import AlbumCreate from '@/views/AlbumCreate'
+import Psdforget from '@/views/Psdforget'
+import Setsumei from '@/views/Setsumei'
+import Setsumeiok from '@/views/Setsumeiok'
 
 import TopSp from '@/views-sp/Top'
 import Error from '@/views/Error'
@@ -143,6 +146,30 @@ const router = new Router({
       path: '/AlbumCreate',
       name: 'AlbumCreate',
       component: AlbumCreate,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/Psdforget',
+      name: 'Psdforget',
+      component: Psdforget,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/Setsumei',
+      name: 'Setsumei',
+      component: Setsumei,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/Setsumeiok',
+      name: 'Setsumeiok',
+      component: Setsumeiok,
       meta: { existsStoreData: false,
         page_type: 'page1'
       }

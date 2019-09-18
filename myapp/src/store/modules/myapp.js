@@ -46,6 +46,7 @@ import {NHA_O_0111_API} from '@/api/NHA_O_0111_Api'
 import {NHA_O_0112_API} from '@/api/NHA_O_0112_Api'
 import {NHA_O_0113_API} from '@/api/NHA_O_0113_Api'
 import {NHA_O_0114_API} from '@/api/NHA_O_0114_Api'
+import {NHA_O_0115_API} from '@/api/NHA_O_0115_Api'
 // 仕様新規の対応 20190320 BY KYOKU END
 
 import {NHA_O_0150_API} from '@/api/NHA_O_0150_Api'
@@ -174,7 +175,8 @@ export default {
       [ACTIONS.MYAPP_ALBUM_REMOVE]: { doing: false },
       [ACTIONS.MYAPP_USER_RIYO]: { doing: false },
       [ACTIONS.MYAPP_USER_RIYOEFF]: { doing: false },
-      [ACTIONS.MYAPP_ALBUM_IMAGES]: { doing: false }
+      [ACTIONS.MYAPP_ALBUM_IMAGES]: { doing: false },
+      [ACTIONS.MYAPP_IMAGES_SETSUMEI]: { doing: false }
     },
     // 銀行検索結果
     bankitems: [],
@@ -2787,6 +2789,24 @@ export default {
         })
         .catch(error => util.api.error(myAction, state.sync, error))
         .finally(() => util.api.end(myAction, state.sync))
+    },
+    /**
+     *画像説明
+     */
+    async [ACTIONS.MYAPP_IMAGES_SETSUMEI] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_IMAGES_SETSUMEI
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0115_API.insertsetsumei(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_IMAGES_SETSUMEI_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
     }
   },
   mutations: {
@@ -2862,6 +2882,9 @@ export default {
     [MUTATIONS.MYAPP_ALBUM_IMAGES_OK] (state, data) {
       state.imagesItems = cloneDeep(data)
       console.log('state.userName:' + state.filename)
+    },
+    [MUTATIONS.MYAPP_IMAGES_SETSUMEI_OK] (state, data) {
+      state.setsumeiItems = cloneDeep(data)
     },
     [MUTATIONS.MYAPP_BANK_SET] (state, data) {
       state.selecteditem = cloneDeep(data)
