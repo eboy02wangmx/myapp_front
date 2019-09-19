@@ -13,6 +13,10 @@ export const userKanriViewModel = {
   },
   created () {
     // let params = {userId: 'test'}
+    let loginidkengen = this.$store.state.myapp.kengen
+    this.loginidkengen = loginidkengen
+    let loginid = this.$store.state.myapp.userName
+    this.loginid = loginid
     let kanriparams = {userId: this.$store.state.myapp.userName}
     this.$store.dispatch(ACTIONS.MYAPP_USER_KANRI, kanriparams)
   },
@@ -43,6 +47,16 @@ export const userKanriViewModel = {
       // localStorage.setItem('deleteid', JSON.stringify(userid))
       localStorage.setItem('userid', userid)
       console.log('当前被点击的id=' + userid)
+    },
+    yukokbnhenko (userid, yukokbn) {
+      if(yukokbn === '0'){
+        let kengenparams = {userId: userid, yukokbn: '1'}
+        this.$store.dispatch(ACTIONS.MYAPP_USER_KENGEN, kengenparams)
+      }else{
+        let kengenparams = {userId: userid, yukokbn: '0'}
+        this.$store.dispatch(ACTIONS.MYAPP_USER_KENGEN, kengenparams)
+      }
+      this.routerPush('/UserKanri')
     }
   }
 }

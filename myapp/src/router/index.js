@@ -18,6 +18,7 @@ import AlbumCreate from '@/views/AlbumCreate'
 import Psdforget from '@/views/Psdforget'
 import Setsumei from '@/views/Setsumei'
 import Setsumeiok from '@/views/Setsumeiok'
+import Yukokbnok from '@/views/Yukokbnok'
 
 import TopSp from '@/views-sp/Top'
 import Error from '@/views/Error'
@@ -170,6 +171,14 @@ const router = new Router({
       path: '/Setsumeiok',
       name: 'Setsumeiok',
       component: Setsumeiok,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/Yukokbnok',
+      name: 'Yukokbnok',
+      component: Yukokbnok,
       meta: { existsStoreData: false,
         page_type: 'page1'
       }

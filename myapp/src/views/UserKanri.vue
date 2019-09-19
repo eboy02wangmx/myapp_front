@@ -46,11 +46,11 @@
   <thead>
     <tr>
       <th>アカウントID</th>
-      <th>権限</th>
+      <th>組織ID</th>
+      <th>組織名</th>
+      <th>区分</th>
       <th>状態</th>
-      <th>システム登録日付</th>
-      <th>所有アルバム数</th>
-      <th>所有画像数</th>
+      <th>登録日</th>
       <th v-if="isAdmin">
         <a class="btn btn-primary" href="/#/UserInsert">ユーザー作成</a>
       </th>
@@ -59,23 +59,34 @@
       </th>
     </tr>
   </thead>
-    <tbody>
+     <tbody>
       <tr v-for="item in items" :key="item" @click="getDataId(item.userid)">
       <td>{{item.userid}}</td>
+      <td>{{item.soshikiid}}</td>
+      <td>{{item.soshikime}}</td>
       <td v-if="item.kengen === '1' ">システム管理者</td>
       <td v-if="item.kengen === '2' ">管理ユーザー</td>
       <td v-if="item.kengen === '3' ">一般ユーザー</td>
       <td v-if="item.yukokbn === '0' ">無効</td>
       <td v-if="item.yukokbn === '1' ">有効</td>
       <td>{{item.systemdate}}</td>
-      <td>{{item.picnum}}</td>
-      <td>{{item.picnum}}</td>
       <td>
-        <div class="btn-group">
-          <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a>
-          <a class="btn" href="/#/DeletePopup">削&nbsp;&nbsp;&nbsp;除</a>
-          </div>
-          </td>
+        <div class="btn-group" v-if="loginidkengen === '1'|| loginidkengen === '2'">
+          <a class="btn" href=" ">編&nbsp;&nbsp;&nbsp;集</a >
+          <a class="btn" href="/#/DeletePopup">削&nbsp;&nbsp;&nbsp;除</a >
+          <a class="btn" @click="yukokbnhenko(item.userid, item.yukokbn)" href="/#/Yukokbnok">有&nbsp;/&nbsp;無効</a >
+         </div>
+         <div class="btn-group" v-else-if="loginidkengen === '3' && loginid !== item.userid">
+          <a class="btn" disabled="true">編&nbsp;&nbsp;&nbsp;集</a >
+          <a class="btn" disabled="true">削&nbsp;&nbsp;&nbsp;除</a >
+          <a class="btn" disabled="true">有&nbsp;/&nbsp;無効</a >
+         </div>
+         <div class="btn-group" v-else-if="loginidkengen === '3' && loginid === item.userid">
+          <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a >
+          <a class="btn" disabled="true">削&nbsp;&nbsp;&nbsp;除</a >
+          <a class="btn" disabled="true">有&nbsp;/&nbsp;無効</a >
+         </div>
+      </td>
     </tr>
     </tbody>
 </table>
