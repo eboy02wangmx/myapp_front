@@ -72,7 +72,7 @@
       <td>{{item.systemdate}}</td>
       <td>
         <div class="btn-group" v-if="loginidkengen === '1'|| loginidkengen === '2'">
-          <a class="btn" href=" ">編&nbsp;&nbsp;&nbsp;集</a >
+          <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a >
           <a class="btn" href="/#/DeletePopup">削&nbsp;&nbsp;&nbsp;除</a >
           <a class="btn" @click="yukokbnhenko(item.userid, item.yukokbn)" href="/#/Yukokbnok">有&nbsp;/&nbsp;無効</a >
          </div>
