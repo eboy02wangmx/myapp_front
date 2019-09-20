@@ -62,7 +62,7 @@
      <tbody>
       <tr v-for="item in items" :key="item" @click="getDataId(item.userid)">
       <td>{{item.userid}}</td>
-      <td>{{item.soshikiid}}</td>
+      <td>{{item.customid}}</td>
       <td>{{item.soshikime}}</td>
       <td v-if="item.kengen === '1' ">システム管理者</td>
       <td v-if="item.kengen === '2' ">管理ユーザー</td>
