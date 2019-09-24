@@ -70,7 +70,7 @@ export default {
     userName: null,
     kengen: null,
     albums: [],
-    userInfo: [],
+    userInfo: null,
     riyos: [],
     // 申込一時保存データ（local用の拡張を含む）
     data: new EntryData(),
@@ -2957,6 +2957,7 @@ export default {
       state.userInfo.furiganame = data.furiganame
       state.userInfo.kanjise = data.kanjise
       state.userInfo.kanjime = data.kanjime
+      state.userInfo.planname = data.planname
     },
     [MUTATIONS.MYAPP_CLEAR_DATA] (state) {
       state.data = new EntryData()

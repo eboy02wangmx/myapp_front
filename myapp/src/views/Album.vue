@@ -47,7 +47,6 @@
     <tr>
       <th>アルバム名&nbsp;&nbsp;&nbsp;&nbsp;
         <!-- <router-link :to="{path:'/AlbumCreate',query:{album:i}}" class="btn btn-primary">新規作成</router-link> -->
-        <a class="btn btn-primary" href="/#/AlbumCreate">新規作成</a>
       </th>
             <th width="120">作成者</th>
             <th width="120">作成日時</th>

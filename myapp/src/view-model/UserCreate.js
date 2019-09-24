@@ -10,22 +10,26 @@ export const userCreateViewModel = {
       kanjime: null,
       password: null,
       repsd: null,
-      psdchkflg:null
+      psdchkflg:null,
+      planname: null,
+      planList: this.$store.state.myapp.userInfo.userplans
+      // cityList: ['11','22','33','44']
     }
   },
   created () {
     console.log('888888888888888888888888888888888')
+    let loginid = this.$store.state.myapp.userName
+    this.loginid = loginid
     var param = localStorage.getItem('userid')
     this.param = param
+    var tocreatekengen = localStorage.getItem('tocreatekengen')
+    this.tocreatekengen = tocreatekengen
     let userInfo = {userid: this.param}
     this.$store.dispatch(ACTIONS.MYAPP_GET_USER_INFO, userInfo)
   },
   mounted () {
-    this.furiganase = this.$store.state.myapp.userInfo.furiganase
-    this.furiganame = this.$store.state.myapp.userInfo.furiganame
-    this.kanjise = this.$store.state.myapp.userInfo.kanjise
-    this.kanjime = this.$store.state.myapp.userInfo.kanjime
     this.psdchkflg = '0'
+    planList = this.$store.state.myapp.userInfo.userplans
   },
   computed: {
     isError: function () {
@@ -40,6 +44,9 @@ export const userCreateViewModel = {
     account () {
       // return this.$store.state.myapp.userName
       return this.param
+    },
+    createItems: function () {
+      return this.$store.state.myapp.userInfo
     }
   },
   methods: {
@@ -51,9 +58,8 @@ export const userCreateViewModel = {
         console.log(this.psdchkflg)
         return
       }else{
-      let params = {userid: this.account, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise, kanjime: this.kanjime, password: this.password}
+      let params = {userid: this.account, furiganase: this.createItems.furiganase, furiganame: this.createItems.furiganame, kanjise: this.createItems.kanjise, kanjime: this.createItems.kanjime, password: this.password, planname: this.planname}
       this.$store.dispatch(ACTIONS.MYAPP_USER_CREATE, params)
-      this.routerPush('/UserKanri')
       this.routerPush('/Success')}
     }
   }

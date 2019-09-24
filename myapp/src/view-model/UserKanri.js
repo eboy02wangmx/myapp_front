@@ -57,6 +57,9 @@ export const userKanriViewModel = {
         this.$store.dispatch(ACTIONS.MYAPP_USER_KENGEN, kengenparams)
       }
       this.routerPush('/UserKanri')
+    },
+    tocreate (tocreatekengen) {
+      localStorage.setItem('tocreatekengen', tocreatekengen)
     }
   }
 }
