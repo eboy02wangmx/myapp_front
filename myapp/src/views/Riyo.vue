@@ -16,15 +16,10 @@
           <a class="brand" href="/#/Album">Panolib</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li>
-                <a href="/#/Album">アルバム一覧</a>
-              </li>
-              <li>
-                <a href="/#/UserKanri">ユーザー管理</a>
-              </li>
-              <li class="active">
-                <a href="/#/Riyo">利用状況一覧</a>
-              </li>
+              <li><a href="/#/Album">アルバム一覧</a></li>
+              <li><a href="/#/UserKanri">ユーザー管理</a></li>
+              <li class="active" v-if="this.$store.state.myapp.kengen === '1' || this.$store.state.myapp.kengen === '2'"><a href="/#/Riyo">利用状況一覧</a></li>
+              <li v-if="this.$store.state.myapp.kengen === '1'"><a href="/#/Contract">契約情報管理</a></li>
             </ul>
             <p class="navbar-text pull-right">
               <a href="/#/Top">ログアウト</a>
@@ -48,30 +43,43 @@
       </ul>
     </div>
     <div class="page-header">
-      <h1>利用状況一覧</h1>
+      <h1 style="display: inline;">利用状況一覧</h1>
+      <a @click="csvDownload" class="btn btn-primary" style="border:1px solid black; display: inline; float: right; margin: 10px 50px 0px 0px; ">CSV ダウンロード</a>
     </div>
-    <table class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th width="180">カスタム名</th>
-          <th width="180">アルバム名</th>
-          <th width="120">登录者</th>
-          <th width="120">作成日時</th>
-          <th width="120">更新日時</th>
-          <th width="70">画像数</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="i in this.$store.state.myapp.riyos" :key="i">
-          <td>{{i.customid}}</td>
-          <td>{{i.bukenme}}</td>
-          <td>{{i.userid}}</td>
-          <td>{{i.sakusehi}}</td>
-          <td>{{i.koushinhi}}</td>
-          <td>{{i.picnum}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      <div v-for="(riyo, i) in this.$store.state.myapp.riyos" :key="riyo">
+        <hr style="margin-top: 40px;" v-if="i!==0" />
+        <div style="padding: 10px;">
+          <font style="font-size: 14px; font-weight: bold;">組織ID：</font><span style="width: 180px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.customid}}</span>
+          <font style="font-size: 14px; font-weight: bold; margin-left: 10px;">組織名：</font><span style="width: 120px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.soshikime}}</span>
+          <font style="font-size: 14px; font-weight: bold; margin-left: 10px;">契約プラン：</font><span style="width: 120px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.contractName}}</span>
+          <font style="font-size: 14px; font-weight: bold; margin-left: 10px;">登録可能画像数：</font><span style="width: 60px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.contractUploadNum}}</span>
+          <font style="font-size: 14px; font-weight: bold; margin-left: 10px;">登録済み画像数：</font><span style="width: 60px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.contractUploadedNum}}</span>
+        </div>
+        <div style="padding-left: 38px;">
+          <table class="table table-bordered" style="width: 100%;">
+            <thead>
+              <tr style="background-color: #f9f9f9;">
+                <th width="180">アルバム名</th>
+                <th width="180">作成者</th>
+                <th width="120">作成日時</th>
+                <th width="120">更新日時</th>
+                <th width="120">画像数</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="body in riyo.bodyList" :key="body">
+                <td>{{body.vrInfoName}}</td>
+                <td>{{body.userid}}</td>
+                <td>{{body.sakusehiDisplay}}</td>
+                <td>{{body.koushinhiDisplay}}</td>
+                <td>{{body.picnum}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>

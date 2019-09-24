@@ -13,7 +13,7 @@ export const riyoViewModel = {
     }
   },
   created () {
-    let params = {userid: 'admin'}
+    let params = {userId: this.$store.state.myapp.userName}
     this.$store.dispatch(ACTIONS.MYAPP_USER_RIYO, params)
   },
 
@@ -26,6 +26,12 @@ export const riyoViewModel = {
         return true
       }
       return false
+    }
+  },
+  methods: {
+    csvDownload () {
+      var userId = this.$store.state.myapp.userName;
+      window.location.href = 'http://localhost:8080/myapp-backend/api/riyo/download?userId=' + userId;
     }
   }
 }

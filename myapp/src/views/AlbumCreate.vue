@@ -16,15 +16,10 @@
           <a class="brand" href="/#/Album">Panolib</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active">
-                <a href="/#/Album">アルバム一覧</a>
-              </li>
-              <li>
-                <a href="/#/UserKanri">ユーザー管理</a>
-              </li>
-              <li>
-                <a href="/#/Riyo">利用状況一覧</a>
-              </li>
+              <li class="active"><a href="/#/Album">アルバム一覧</a></li>
+              <li><a href="/#/UserKanri">ユーザー管理</a></li>
+              <li v-if="this.$store.state.myapp.kengen === '1' || this.$store.state.myapp.kengen === '2'"><a href="/#/Riyo">利用状況一覧</a></li>
+              <li v-if="this.$store.state.myapp.kengen === '1'"><a href="/#/Contract">契約情報管理</a></li>
             </ul>
             <p class="navbar-text pull-right">
               <a href="/#/Top">ログアウト</a>
@@ -37,13 +32,18 @@
     <div class="nav" style="height: 9%">
       <ul style="margin: 0">
         <li style="display: inline">
-          <span>現在位置：</span>
+            <span>現在位置：</span>
         </li>
         <li style="display: inline">
-          <a href="/#/Album">H O M E</a>
-        </li>>
+            <a href="/#/Album">H O M E</a>
+        </li>
+         >
         <li style="display: inline">
-          <a class="nowPage" style="text-decoration: none; color: black">アルバム一覧</a>
+            <a href="/#/Album">アルバム一覧</a>
+        </li>
+         >
+         <li style="display: inline">
+            <a  class="nowPage" style="text-decoration: none; color: black">アルバム新規作成</a>
         </li>
       </ul>
     </div>

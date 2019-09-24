@@ -29,13 +29,6 @@ export const setsumeiViewModel = {
     let setsumeiparams = {setsumei: this.setsumei, location: this.location}
     this.$store.dispatch(ACTIONS.MYAPP_IMAGES_SETSUMEI, setsumeiparams)
     this.$router.push({path: '/Setsumeiok'})
-  },
-  directives: {
-    focus: {
-      inserted: function (el) {
-        el.focus()
-      }
-    }
   }
   }
 }

@@ -7,6 +7,9 @@ import store from './store'
 import VueAnalytics from 'vue-analytics'
 import RUi from './r-elements'
 
+import vDialog from 'v-dialogs'
+Vue.use(vDialog)
+
 // eslint-disable-next-line no-unused-vars
 import filter from './filter'
 // eslint-disable-next-line no-unused-vars

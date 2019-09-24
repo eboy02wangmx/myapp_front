@@ -17,8 +17,9 @@
       <div class="nav-collapse">
         <ul class="nav">
           <li><a href="/#/Album">アルバム一覧</a></li>
-          <li class="active"><a href="/#/User">ユーザー管理</a></li>
-          <li v-if="this.$store.state.myapp.userName === 'panolib_admin'"><a href="/#/Riyo">利用状況一覧</a></li>
+          <li class="active"><a href="/#/UserKanri">ユーザー管理</a></li>
+          <li v-if="this.$store.state.myapp.kengen === '1' || this.$store.state.myapp.kengen === '2'"><a href="/#/Riyo">利用状況一覧</a></li>
+          <li v-if="this.$store.state.myapp.kengen === '1'"><a href="/#/Contract">契約情報管理</a></li>
         </ul>
         <p class="navbar-text pull-right"><a href="/#/Top">ログアウト</a></p>
       </div><!--/.nav-collapse -->
@@ -45,9 +46,9 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
+      <th>アカウントID</th>
       <th>組織ID</th>
       <th>組織名</th>
-      <th>アカウントID</th>
       <th>区分</th>
       <th>状態</th>
       <th>登録日</th>
@@ -61,9 +62,9 @@
   </thead>
      <tbody>
       <tr v-for="item in items" :key="item" @click="getDataId(item.userid)">
+      <td>{{item.userid}}</td>
       <td>{{item.customid}}</td>
       <td>{{item.soshikime}}</td>
-      <td>{{item.userid}}</td>
       <td v-if="item.kengen === '1' ">システム管理者</td>
       <td v-if="item.kengen === '2' ">管理ユーザー</td>
       <td v-if="item.kengen === '3' ">一般ユーザー</td>
@@ -72,7 +73,7 @@
       <td>{{item.systemdate}}</td>
       <td>
         <div class="btn-group" v-if="loginidkengen === '1'|| loginidkengen === '2'">
-          <a class="btn" href="/#/UserCreate" @click="tocreate(item.kengen)">編&nbsp;&nbsp;&nbsp;集</a >
+          <a class="btn" href="/#/UserCreate">編&nbsp;&nbsp;&nbsp;集</a >
           <a class="btn" href="/#/DeletePopup">削&nbsp;&nbsp;&nbsp;除</a >
           <a class="btn" @click="yukokbnhenko(item.userid, item.yukokbn)" href="/#/Yukokbnok">有&nbsp;/&nbsp;無効</a >
          </div>

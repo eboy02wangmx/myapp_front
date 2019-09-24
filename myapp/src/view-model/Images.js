@@ -22,12 +22,14 @@ export const imagesViewModel = {
     this.$store.dispatch(ACTIONS.MYAPP_USER_ALBUM, params)
     this.albums = this.$store.state.myapp.data
     this.policyNo = ''
+    var id = localStorage.getItem('id')
+    this.id = id;
     var parambukenme = localStorage.getItem('bukenme')
     this.parambukenme = parambukenme
     var parampicnum = localStorage.getItem('picnum')
     this.parampicnum = parampicnum
     // let imagesparams = {userid: this.$store.state.myapp.userid}
-    let imagesparams = {userid: this.$store.state.myapp.userName}
+    let imagesparams = {vrInfoId: localStorage.getItem('vrInfoId')};
     this.$store.dispatch(ACTIONS.MYAPP_ALBUM_IMAGES, imagesparams)
     files.splice(0,files.length)
   },
@@ -85,16 +87,67 @@ export const imagesViewModel = {
     preview(event){
       let filelength = event.target.files.length
       this.filelength = filelength
-        for (var i = 0; i < filelength; i++) {
-          if (this.picfile.indexOf(event.target.files[i].name) === -1) {
+      for (var i = 0; i < filelength; i++) {
+        if (this.picfile.indexOf(event.target.files[i].name) === -1) {
           this.picfile.push(event.target.files[i].name)
-          }
         }
-      },
-      getDataId (location) {
-        localStorage.setItem('location', location)
-        console.log('当前被点击的bukenme=' + location)
       }
+    },
+    getDataId (location) {
+      localStorage.setItem('location', location)
+      console.log('当前被点击的bukenme=' + location)
+    },
+    panoEdit (vrInfoId) {
+      if (vrInfoId) {
+        window.open("/myapp-backend/pano_edit.html?pid=" + vrInfoId);
+      }
+    },
+    panoPreview (vrInfoId) {
+      if (vrInfoId) {
+        window.open("/myapp-backend/pano_preview.html?pid=" + vrInfoId);
+      }
+    },
+    upload () {
+      var inFile = document.getElementById("inFile");
+      if (inFile.files && inFile.files.length > 0) {
+        const key = this.$dlg.mask('<span style="font-size: 12px; margin-top: 20px;">アップロード中</span>', null, {
+          width: 300,
+          height:200
+        });
+        var vrInfoId = document.getElementById('vrInfoId');
+        var inVrInfoId = document.getElementById('inVrInfoId');
+        inVrInfoId.value=vrInfoId.innerText;
+        var formdata= new FormData($("#formPanoImageUpload")[0]);
+        $.ajax({
+          //url: 'http://localhost:8080/myapp-backend/api/panoImageUpload',
+          url: 'http://203.189.97.178:8080/myapp-backend/api/panoImageUpload',
+          type: 'POST',
+          context: this,
+          data: formdata,
+          processData: false,
+          contentType : false,
+          success: function () {
+            this.$dlg.close(key);
+            this.$dlg.alert('ファイルのアップロードに成功しました。', {
+                messageType: 'info',
+                language: 'jp'
+            });
+          },
+          error: function () {
+            this.$dlg.close(key);
+            this.$dlg.alert('ファイルのアップロードに失敗しました。', {
+                messageType: 'error',
+                language: 'jp'
+            });
+          }
+        })
+      } else {
+        this.$dlg.alert('画像ファイルを選択してください。', {
+            messageType: 'error',
+            language: 'jp'
+        });
+      }
+    }
   }
 }
 export default {

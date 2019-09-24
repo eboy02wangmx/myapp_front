@@ -14,7 +14,7 @@
       </div>
     </main>
 
-    <main-footer v-if="$root.isMobile.any===false"></main-footer>
+    <!-- <main-footermain-footer v-if="$root.isMobile.any===false"></main-footer> -->
     <sp-footer v-if="$root.isMobile.any===true"></sp-footer>
 
     <div class="r-popup-back" v-show="showPopup" @click="closePopup(1)">

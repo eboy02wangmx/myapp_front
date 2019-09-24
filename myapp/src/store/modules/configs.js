@@ -186,6 +186,7 @@ export default {
     [ACTIONS.CONFIGS_INIT_MOBILE] ({state, commit}, isMobile) {
       const data = cloneDeep(isMobile)
       data.getFirstIsMobile = () => isMobile
+      data.any = false;
       commit(MUTATIONS.CONFIGS_INIT, {isMobile: data})
     },
     /**

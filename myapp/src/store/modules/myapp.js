@@ -57,8 +57,17 @@ import {NHA_O_0153_API} from '@/api/NHA_O_0153_Api'
 import {NHA_O_0154_API} from '@/api/NHA_O_0154_Api'
 import {NHA_O_0155_API} from '@/api/NHA_O_0155_Api'
 
+import {NHA_O_0601_API} from '@/api/NHA_O_0601_Api'
+import {NHA_O_0602_API} from '@/api/NHA_O_0602_API'
+import {NHA_O_0603_API} from '@/api/NHA_O_0603_API'
+import {NHA_O_0604_API} from '@/api/NHA_O_0604_API'
+import {NHA_O_0605_API} from '@/api/NHA_O_0605_API'
+import {NHA_O_0606_API} from '@/api/NHA_O_0606_API'
+import {NHA_O_0607_API} from '@/api/NHA_O_0607_API'
+
 export default {
   state: {
+    contracts: null,
     userkanriItems: null,
     imagesItems: null,
     // 1:インターネット契約、2:ペーパレス募集
@@ -70,7 +79,7 @@ export default {
     userName: null,
     kengen: null,
     albums: [],
-    userInfo: null,
+    userInfo: [],
     riyos: [],
     // 申込一時保存データ（local用の拡張を含む）
     data: new EntryData(),
@@ -178,7 +187,14 @@ export default {
       [ACTIONS.MYAPP_USER_RIYOEFF]: { doing: false },
       [ACTIONS.MYAPP_ALBUM_IMAGES]: { doing: false },
       [ACTIONS.MYAPP_IMAGES_SETSUMEI]: { doing: false },
-      [ACTIONS.MYAPP_USER_KENGEN]: { doing: false }
+      [ACTIONS.MYAPP_USER_KENGEN]: { doing: false },
+      [ACTIONS.MYAPP_CONTRACT_LIST]: { doing: false },
+      [ACTIONS.MYAPP_CONTRACT_GET]: { doing: false },
+      [ACTIONS.MYAPP_CONTRACT_ADD]: { doing: false },
+      [ACTIONS.MYAPP_CONTRACT_EDIT]: { doing: false },
+      [ACTIONS.MYAPP_CONTRACT_REMOVE]: { doing: false },
+      [ACTIONS.MYAPP_CONTRACT_DISABLED]: { doing: false },
+      [ACTIONS.MYAPP_CONTRACT_ENABLED]: { doing: false }
     },
     // 銀行検索結果
     bankitems: [],
@@ -2827,6 +2843,114 @@ export default {
         })
         .catch(error => util.api.error(myAction, state.sync, error))
         .finally(() => util.api.end(myAction, state.sync))
+    },
+    /**
+     * 契約情報管理管理
+     */
+    async [ACTIONS.MYAPP_CONTRACT_LIST] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_CONTRACT_LIST
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0601_API.search(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_CONTRACT_LIST_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    async [ACTIONS.MYAPP_CONTRACT_GET] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_CONTRACT_GET
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0602_API.get(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_CONTRACT_GET_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    async [ACTIONS.MYAPP_CONTRACT_ADD] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_CONTRACT_ADD
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0603_API.add(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_CONTRACT_ADD_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    async [ACTIONS.MYAPP_CONTRACT_EDIT] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_CONTRACT_EDIT
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0604_API.edit(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_CONTRACT_EDIT_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    async [ACTIONS.MYAPP_CONTRACT_REMOVE] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_CONTRACT_REMOVE
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0605_API.remove(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_CONTRACT_REMOVE_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    async [ACTIONS.MYAPP_CONTRACT_DISABLED] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_CONTRACT_DISABLED
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0606_API.disabled(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_CONTRACT_DISABLED_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    async [ACTIONS.MYAPP_CONTRACT_ENABLED] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_CONTRACT_ENABLED
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0607_API.enabled(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_CONTRACT_ENABLED_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
     }
   },
   mutations: {
@@ -2957,7 +3081,6 @@ export default {
       state.userInfo.furiganame = data.furiganame
       state.userInfo.kanjise = data.kanjise
       state.userInfo.kanjime = data.kanjime
-      state.userInfo.planname = data.planname
     },
     [MUTATIONS.MYAPP_CLEAR_DATA] (state) {
       state.data = new EntryData()
@@ -3203,6 +3326,21 @@ export default {
     },
     [MUTATIONS.MYAPP_CONTRACTORNAME] (state, payload) {
       state.data.contractorName = payload
+    },
+    [MUTATIONS.MYAPP_CONTRACT_LIST_OK] (state, data) {
+      state.contracts = cloneDeep(data)
+    },
+    [MUTATIONS.MYAPP_CONTRACT_GET_OK] (state, data) {
+      state.contract = cloneDeep(data)
+    },
+    [MUTATIONS.MYAPP_CONTRACT_ADD_OK] (state, data) {
+      state.contractAdd = cloneDeep(data)
+    },
+    [MUTATIONS.MYAPP_CONTRACT_EDIT_OK] (state, data) {
+      state.contractEdit = cloneDeep(data)
+    },
+    [MUTATIONS.MYAPP_CONTRACT_REMOVE_OK] (state, data) {
+      state.contractRemove = cloneDeep(data)
     }
   }
 }

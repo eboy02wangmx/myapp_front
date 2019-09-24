@@ -16,15 +16,10 @@
           <a class="brand" href>Panolib</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li>
-                <a href="/#/Album">アルバム一覧</a>
-              </li>
-              <li class="active">
-                <a href="/#/UserKanri">ユーザー管理</a>
-              </li>
-              <li v-if="this.$store.state.myapp.userName === 'panolib_admin'">
-                <a href="/#/Riyo">利用状況一覧</a>
-              </li>
+              <li><a href="/#/Album">アルバム一覧</a></li>
+              <li class="active"><a href="/#/UserKanri">ユーザー管理</a></li>
+              <li v-if="this.$store.state.myapp.kengen === '1' || this.$store.state.myapp.kengen === '2'"><a href="/#/Riyo">利用状況一覧</a></li>
+              <li v-if="this.$store.state.myapp.kengen === '1'"><a href="/#/Contract">契約情報管理</a></li>
             </ul>
             <p class="navbar-text pull-right">
               <a href="/#/Top">ログアウト</a>

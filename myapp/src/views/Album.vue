@@ -18,7 +18,8 @@
         <ul class="nav">
           <li class="active"><a href="/#/Album">アルバム一覧</a></li>
           <li><a href="/#/UserKanri">ユーザー管理</a></li>
-          <li v-if="this.$store.state.myapp.userName === 'panolib_admin'"><a href="/#/Riyo">利用状況一覧</a></li>
+          <li v-if="this.$store.state.myapp.kengen === '1' || this.$store.state.myapp.kengen === '2'"><a href="/#/Riyo">利用状況一覧</a></li>
+          <li v-if="this.$store.state.myapp.kengen === '1'"><a href="/#/Contract">契約情報管理</a></li>
         </ul>
         <p class="navbar-text pull-right"><a href="/#/Top">ログアウト</a></p>
       </div><!--/.nav-collapse -->
@@ -45,34 +46,28 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>アルバム名&nbsp;&nbsp;&nbsp;&nbsp;
-        <!-- <router-link :to="{path:'/AlbumCreate',query:{album:i}}" class="btn btn-primary">新規作成</router-link> -->
-      </th>
-            <th width="120">作成者</th>
-            <th width="120">作成日時</th>
-      <th width="120">更新日時</th>
-      <th width="70">画像数</th>
-      <th width="180" style="text-align:center;">操作</th>
+      <th width="140">アルバム名</th>
+      <th width="100">作成者</th>
+      <th width="130">作成日時</th>
+      <th width="130">更新日時</th>
+      <th width="50">画像数</th>
+      <th>物件リンク</th>
+      <th width="200"><a class="btn btn-primary" href="/#/AlbumCreate">新規作成</a></th>
     </tr>
   </thead>
   <tbody>
-      <tr v-for="i in this.$store.state.myapp.albums" :key="i" @click="getDataId(i.bukenme, i.picnum, i.userid)">
-      <td><a href="">{{i.bukenme}}</a>
-      <div class="clear"></div>
-      </td>
+      <tr v-for="i in this.$store.state.myapp.albums" :key="i" @click="getDataId(i.id, i.bukenme, i.picnum, i.userid)">
+      <td>{{i.bukenme}}</td>
       <td>{{i.userid}}</td>
       <td>{{i.sakusehi}}</td>
       <td>{{i.koushinhi}}</td>
       <td>{{i.picnum}}</td>
-      <td style="min-width:135px;">
-        <div class="btn-group" >
-            <div>
-              <!--router-link :to="{path:'/Images',query:{album:i.filename}}" class="btn img-fancy"><i class="icon-list"></i> &nbsp;&nbsp;編&nbsp;集</router-link>-->
-              <a class="btn img-fancy" href="/#/Images"><i class="icon-list"></i> &nbsp;&nbsp;編集</a></div><div style="position: relative; left:5px;">
-            </div>
-            <div style="position: relative; left:5px;">
-              <r-button class="btn album-delete-btn"  data-toggle="modal" @click="remove(i)"><i class="icon-trash"></i> &nbsp;&nbsp;削除</r-button>
-            </div>
+      <td>{{i.panoPreviewUrl}}</td>
+      <td style="min-width:200px;">
+        <div class="btn-group" style="width: 203px;">
+          <a class="btn" @click="edit(i.id)">編&nbsp;&nbsp;&nbsp;集</a>
+          <a class="btn" @click="remove(i)">削&nbsp;&nbsp;&nbsp;除</a>
+          <a class="btn" @click="panoPreview(i)" :disabled="!i.panoPreviewUrl">プレビュー</a>
         </div>
       </td>
     </tr>
