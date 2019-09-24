@@ -101,28 +101,6 @@
 </table>
   </span>
   </div>
-<div style="margin: 0 0 0 0;">
-	<div class="left w100" style="margin-top: 15px;">
-		<div class="well sidebar-nav" style="margin-bottom: 15px;">
-			<ul class="nav nav-list" style="height: 90px;">
-				<li class="nav-header" style="font-size: 15px;">アルバムリンク</li>
-				<li><textarea readonly="readonly" rows="auto" name="txtrea" style="cursor: text; min-width: 390px;width:100%;">link1</textarea></li>
-				<li class="nav-header" style="font-size: 15px;">物件リンク</li>
-				<li>
-          <textarea readonly="readonly" rows="auto" name="txtrea" style="cursor: text; min-width: 390px;width:100%;">asdasdas</textarea>
-        </li>
-			</ul>
-		</div>
-	</div>
-	<div class="left w100" style="margin-top: 15px;">
-		<div class="well sidebar-nav" style="margin-bottom: 15px;">
-			<ul class="nav nav-list" style="height: 90px;">
-				<li class="nav-header" style="font-size: 15px;">埋め込みコード</li>
-				<li><textarea readonly="readonly" rows="auto" name="txtrea" style="cursor: text; min-width: 390px;width:100%;">link2</textarea></li>
-			</ul>
-		</div>
-	</div>
-</div>
 </div>
 </template>
 <script>

@@ -16,10 +16,15 @@
           <a class="brand" href>Panolib</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="/#/Album">アルバム一覧</a></li>
-              <li class="active"><a href="/#/UserKanri">ユーザー管理</a></li>
-              <li v-if="this.$store.state.myapp.kengen === '1' || this.$store.state.myapp.kengen === '2'"><a href="/#/Riyo">利用状況一覧</a></li>
-              <li v-if="this.$store.state.myapp.kengen === '1'"><a href="/#/Contract">契約情報管理</a></li>
+              <li>
+                <a href="/#/Album">アルバム一覧</a>
+              </li>
+              <li class="active">
+                <a href="/#/UserKanri">ユーザー管理</a>
+              </li>
+              <li v-if="this.$store.state.myapp.userName === 'panolib_admin'">
+                <a href="/#/Riyo">利用状況一覧</a>
+              </li>
             </ul>
             <p class="navbar-text pull-right">
               <a href="/#/Top">ログアウト</a>
@@ -76,7 +81,7 @@
                 フリガナ&nbsp;
                 <input
                   type="text"
-                  v-model="furiganase"
+                  v-model="createItems.furiganase"
                   name="phonetic1"
                   value="0"
                   style="width:150px"
@@ -84,7 +89,7 @@
                 />
                 <input
                   type="text"
-                  v-model="furiganame"
+                  v-model="createItems.furiganame"
                   name="phonetic2"
                   value="0"
                   style="width:150px"
@@ -93,7 +98,7 @@
                 <br />漢&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字&nbsp;
                 <input
                   type="text"
-                  v-model="kanjise"
+                  v-model="createItems.kanjise"
                   name="fullname1"
                   value="0"
                   style="width:150px"
@@ -101,7 +106,7 @@
                 />
                 <input
                   type="text"
-                  v-model="kanjime"
+                  v-model="createItems.kanjime"
                   name="fullname2"
                   value="0"
                   style="width:150px"
@@ -139,6 +144,29 @@
                   minlength="4"
                   maxlength="30"
                 />
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2' && loginid !== 'panolib_admin'">
+              <td>
+                <label for="plan">契約プラン</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  v-model="createItems.planname"
+                  readonly="readonly"
+                  maxlength="30"
+                />
+              </td>
+            </tr>
+            <tr v-else-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+              <td>
+                <label for="plan">契約プラン</label>
+              </td>
+              <td>
+                  <Select v-model="planname" style="width:200px">
+                  <Option v-for="item in planList" :key="item" :value="item">{{item}}</Option>
+                  </Select>
               </td>
             </tr>
           </table>
