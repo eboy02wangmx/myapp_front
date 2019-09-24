@@ -20,6 +20,11 @@ import Setsumei from '@/views/Setsumei'
 import Setsumeiok from '@/views/Setsumeiok'
 import Yukokbnok from '@/views/Yukokbnok'
 
+import Contract from '@/views/Contract'
+import ContractAdd from '@/views/ContractAdd'
+import ContractEdit from '@/views/ContractEdit'
+import ContractEditTip from '@/views/ContractEditTip'
+
 import TopSp from '@/views-sp/Top'
 import Error from '@/views/Error'
 import ErrorSp from '@/views-sp/Error'
@@ -180,6 +185,42 @@ const router = new Router({
       name: 'Yukokbnok',
       component: Yukokbnok,
       meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/Contract',
+      name: 'Contract',
+      component: Contract,
+      meta: {
+        existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/ContractAdd',
+      name: 'ContractAdd',
+      component: ContractAdd,
+      meta: {
+        existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/ContractEdit',
+      name: 'ContractEdit',
+      component: ContractEdit,
+      meta: {
+        existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/ContractEditTip',
+      name: 'ContractEditTip',
+      component: ContractEditTip,
+      meta: {
+        existsStoreData: false,
         page_type: 'page1'
       }
     },
