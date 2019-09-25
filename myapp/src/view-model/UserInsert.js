@@ -15,14 +15,27 @@ export const userInsertViewModel = {
       kanjime: null,
       password: null,
       repsd: null,
-      customId: this.$store.state.myapp.customId
+      customId: this.$store.state.myapp.customId,
+      planList: this.$store.state.myapp.userPlanInfo.userplans
     }
   },
   created () {
     console.log('888888888888888888888888888888888')
     console.log(this.furiganase)
+    let loginid = this.$store.state.myapp.userName
+    this.loginid = loginid
+    var tocreatekengen = localStorage.getItem('tocreatekengen')
+    this.tocreatekengen = tocreatekengen
+    let param1 = {userid: null}
+    this.$store.dispatch(ACTIONS.MYAPP_GET_USERPLAN_INFO, param1)
+  },
+  mounted () {
+    planList = this.$store.state.myapp.userPlanInfo.userplans
   },
   computed: {
+    planList (){
+      return this.$store.state.myapp.userPlanInfo.userplans
+    },
     isError: function () {
       return this.$store.state.configs.parameterError
     },
@@ -36,7 +49,11 @@ export const userInsertViewModel = {
   methods: {
     koushin () {
       console.log('insertinsertinsertinsertinsertinsertinsert')
-      let params = {userid: this.userid, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise, kanjime: this.kanjime, password: this.password, customId: this.customId, loginid: this.$store.state.myapp.userName}
+      let userplanname = document.getElementById('planname1').value
+      let params = {userid: this.userid, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise,
+         kanjime: this.kanjime, password: this.password, customId: this.customId, loginid: this.$store.state.myapp.userName,
+         soshikime: this.soshikime, address: this.address, tel: this.tel, tantobusho: this.tantobusho ,tantosha: this.tantosha,
+         planname: userplanname, mail: this.mail, keiyakuhi: this.keiyakuhi, keiyakushiki: this.keiyakushiki, keiyakushuki: this.keiyakushuki}
       this.$store.dispatch(ACTIONS.MYAPP_USER_INSERT, params)
       this.routerPush('/UserKanri')
     }

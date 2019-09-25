@@ -13,7 +13,6 @@ export const userCreateViewModel = {
       psdchkflg:null,
       planname: null,
       planList: this.$store.state.myapp.userInfo.userplans
-      // cityList: ['11','22','33','44']
     }
   },
   created () {
@@ -29,9 +28,11 @@ export const userCreateViewModel = {
   },
   mounted () {
     this.psdchkflg = '0'
-    planList = this.$store.state.myapp.userInfo.userplans
   },
   computed: {
+    planList (){
+      return this.$store.state.myapp.userInfo.userplans
+    },
     isError: function () {
       return this.$store.state.configs.parameterError
     },
@@ -58,7 +59,8 @@ export const userCreateViewModel = {
         console.log(this.psdchkflg)
         return
       }else{
-      let params = {userid: this.account, furiganase: this.createItems.furiganase, furiganame: this.createItems.furiganame, kanjise: this.createItems.kanjise, kanjime: this.createItems.kanjime, password: this.password, planname: this.planname}
+      let userplanname = document.getElementById('planname1').value
+      let params = {userid: this.account, furiganase: this.createItems.furiganase, furiganame: this.createItems.furiganame, kanjise: this.createItems.kanjise, kanjime: this.createItems.kanjime, password: this.password, planname: userplanname}
       this.$store.dispatch(ACTIONS.MYAPP_USER_CREATE, params)
       this.routerPush('/Success')}
     }
