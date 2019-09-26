@@ -132,6 +132,8 @@ export const imagesViewModel = {
                 messageType: 'info',
                 language: 'jp'
             });
+            let imagesparams = {vrInfoId: localStorage.getItem('vrInfoId')};
+            this.$store.dispatch(ACTIONS.MYAPP_ALBUM_IMAGES, imagesparams)
           },
           error: function () {
             this.$dlg.close(key);

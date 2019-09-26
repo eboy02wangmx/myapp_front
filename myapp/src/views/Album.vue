@@ -46,12 +46,13 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th width="140">アルバム名</th>
-      <th width="100">作成者</th>
+      <th width="100">アルバム名</th>
+      <th width="60">作成者</th>
       <th width="130">作成日時</th>
       <th width="130">更新日時</th>
-      <th width="50">画像数</th>
+      <th width="40">画像数</th>
       <th>物件リンク</th>
+      <th width="150">利用可能ドメイン</th>
       <th width="200"><a class="btn btn-primary" href="/#/AlbumCreate">新規作成</a></th>
     </tr>
   </thead>
@@ -63,11 +64,13 @@
       <td>{{i.koushinhi}}</td>
       <td>{{i.picnum}}</td>
       <td>{{i.panoPreviewUrl}}</td>
-      <td style="min-width:200px;">
-        <div class="btn-group" style="width: 203px;">
+      <td>{{i.domain}}</td>
+      <td style="min-width:276px;">
+        <div class="btn-group">
           <a class="btn" @click="edit(i.id)">編&nbsp;&nbsp;&nbsp;集</a>
           <a class="btn" @click="remove(i)">削&nbsp;&nbsp;&nbsp;除</a>
           <a class="btn" @click="panoPreview(i)" :disabled="!i.panoPreviewUrl">プレビュー</a>
+          <a class="btn" @click="setDomain(i)">ドメイン</a>
         </div>
       </td>
     </tr>

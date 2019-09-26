@@ -31,7 +31,8 @@ export const riyoViewModel = {
   methods: {
     csvDownload () {
       var userId = this.$store.state.myapp.userName;
-      window.location.href = 'http://localhost:8080/myapp-backend/api/riyo/download?userId=' + userId;
+      //window.location.href = 'http://localhost:8080/myapp-backend/api/riyo/download?userId=' + userId;
+      window.location.href = 'http://203.189.97.178:8080/myapp-backend/api/riyo/download?userId=' + userId;
     }
   }
 }

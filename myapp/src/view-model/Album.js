@@ -52,6 +52,19 @@ export const albumViewModel = {
       if (album && album.panoPreviewUrl && album.picnum && album.picnum > 0) {
         window.open(album.panoPreviewUrl);
       }
+    },
+    setDomain (album) {
+      if (album.id) {
+        localStorage.setItem('vrInfoId', album.id);
+      } else {
+        localStorage.setItem('vrInfoId', '');
+      }
+      if (album.domain) {
+        localStorage.setItem('vrInfoDomain', album.domain);
+      } else {
+        localStorage.setItem('vrInfoDomain', '');
+      }
+      this.$router.push('AlbumDomain');
     }
   }
 }

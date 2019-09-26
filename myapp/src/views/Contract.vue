@@ -46,9 +46,9 @@
         <tr>
           <th width="100">プランID</th>
           <th>プラン名</th>
-          <th width="150">アップロード可能画像数</th>
-          <th width="120">月次利用金額</th>
-          <th width="80">月次PV数</th>
+          <th width="190">アップロード可能画像数（枚）</th>
+          <th width="120">月次利用金額（円）</th>
+          <th width="100">月次PV数（枚）</th>
           <th width="80">有効 / 無効</th>
           <th width="233">
             <a class="btn btn-primary" href="/#/ContractAdd">契約情報作成</a>
@@ -60,7 +60,7 @@
           <td>{{contract.id}}</td>
           <td>{{contract.name}}</td>
           <td>{{contract.uploadNum}}</td>
-          <td>{{contract.money}}</td>
+          <td>{{contract.moneyDisplay}}</td>
           <td>{{contract.pv}}</td>
           <td><span v-if="contract.status === 1">有効</span><span v-if="contract.status === 2">無効</span></td>
           <td>

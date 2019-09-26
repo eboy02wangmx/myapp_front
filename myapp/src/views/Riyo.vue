@@ -44,7 +44,7 @@
     </div>
     <div class="page-header">
       <h1 style="display: inline;">利用状況一覧</h1>
-      <a @click="csvDownload" class="btn btn-primary" style="border:1px solid black; display: inline; float: right; margin: 10px 50px 0px 0px; ">CSV ダウンロード</a>
+      <a @click="csvDownload" class="btn btn-primary" style="display: inline; float: right; margin: 10px 50px 0px 0px; ">CSV ダウンロード</a>
     </div>
     <div>
       <div v-for="(riyo, i) in this.$store.state.myapp.riyos" :key="riyo">

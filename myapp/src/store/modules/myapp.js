@@ -64,7 +64,7 @@ import {NHA_O_0604_API} from '@/api/NHA_O_0604_API'
 import {NHA_O_0605_API} from '@/api/NHA_O_0605_API'
 import {NHA_O_0606_API} from '@/api/NHA_O_0606_API'
 import {NHA_O_0607_API} from '@/api/NHA_O_0607_API'
-
+import {NHA_O_0608_API} from '@/api/NHA_O_0608_API'
 export default {
   state: {
     contracts: null,
@@ -183,6 +183,7 @@ export default {
       [ACTIONS.MYAPP_GET_USER_INFO]: { doing: false },
       [ACTIONS.MYAPP_ALBUMCREATE]: { doing: false },
       [ACTIONS.MYAPP_ALBUM_REMOVE]: { doing: false },
+      [ACTIONS.MYAPP_ALBUM_DOMAIN]: { doing: false },
       [ACTIONS.MYAPP_USER_RIYO]: { doing: false },
       [ACTIONS.MYAPP_USER_RIYOEFF]: { doing: false },
       [ACTIONS.MYAPP_ALBUM_IMAGES]: { doing: false },
@@ -2951,6 +2952,21 @@ export default {
         })
         .catch(error => util.api.error(myAction, state.sync, error))
         .finally(() => util.api.end(myAction, state.sync))
+    },
+    async [ACTIONS.MYAPP_ALBUM_DOMAIN] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_ALBUM_DOMAIN
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0608_API.editDomain(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_ALBUM_DOMAIN_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
     }
   },
   mutations: {
@@ -3342,6 +3358,9 @@ export default {
     },
     [MUTATIONS.MYAPP_CONTRACT_REMOVE_OK] (state, data) {
       state.contractRemove = cloneDeep(data)
+    },
+    [MUTATIONS.MYAPP_ALBUM_DOMAIN_OK] (state, data) {
+      state.albumDomain = cloneDeep(data)
     }
   }
 }

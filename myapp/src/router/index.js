@@ -5,6 +5,9 @@ import store from '@/store'
 import Index from '@/views/Index'
 import Top from '@/views/Top'
 import Album from '@/views/Album'
+import AlbumCreate from '@/views/AlbumCreate'
+import AlbumDomain from '@/views/AlbumDomain'
+import AlbumDomainOk from '@/views/AlbumDomainOk'
 import Images from '@/views/Images'
 import UserKanri from '@/views/UserKanri'
 import UserCreate from '@/views/UserCreate'
@@ -14,7 +17,6 @@ import Deleteok from '@/views/Deleteok'
 import Success from '@/views/Success'
 import Sakuseok from '@/views/Sakuseok'
 import Riyo from '@/views/Riyo'
-import AlbumCreate from '@/views/AlbumCreate'
 import Psdforget from '@/views/Psdforget'
 import Setsumei from '@/views/Setsumei'
 import Setsumeiok from '@/views/Setsumeiok'
@@ -72,6 +74,30 @@ const router = new Router({
       path: '/Album',
       name: 'Album',
       component: Album,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/AlbumCreate',
+      name: 'AlbumCreate',
+      component: AlbumCreate,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/AlbumDomain',
+      name: 'AlbumDomain',
+      component: AlbumDomain,
+      meta: { existsStoreData: false,
+        page_type: 'page1'
+      }
+    },
+    {
+      path: '/AlbumDomainOk',
+      name: 'AlbumDomainOk',
+      component: AlbumDomainOk,
       meta: { existsStoreData: false,
         page_type: 'page1'
       }
@@ -144,14 +170,6 @@ const router = new Router({
       path: '/Riyo',
       name: 'Riyo',
       component: Riyo,
-      meta: { existsStoreData: false,
-        page_type: 'page1'
-      }
-    },
-    {
-      path: '/AlbumCreate',
-      name: 'AlbumCreate',
-      component: AlbumCreate,
       meta: { existsStoreData: false,
         page_type: 'page1'
       }
