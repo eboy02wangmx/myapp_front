@@ -114,6 +114,156 @@
                 />
               </td>
             </tr>
+            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+              <td>
+                <label for="soshikime">組織名</label>
+              </td>
+              <td>
+                <input
+                  type="soshikime"
+                  v-model="createItems.soshikime"
+                  name="soshikime"
+                  value
+                  minlength="1"
+                  maxlength="30"
+                />
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+              <td>
+                <label for="address">住所</label>
+              </td>
+              <td>
+                <input
+                  type="address"
+                  v-model="createItems.address"
+                  name="address"
+                  value
+                  minlength="4"
+                  maxlength="30"
+                />
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+              <td>
+                <label for="tel">電話番号</label>
+              </td>
+              <td>
+                <input
+                  type="tel"
+                  v-model="createItems.tel"
+                  name="tel"
+                  value
+                  minlength="8"
+                  maxlength="11"
+                />
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+              <td>
+                <label for="tantobusho">担当部署</label>
+              </td>
+              <td>
+                <input
+                  type="tantobusho"
+                  v-model="createItems.tantobusho"
+                  name="tantobusho"
+                  value
+                  minlength="1"
+                  maxlength="30"
+                />
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+              <td>
+                <label for="tantosha">担当者</label>
+              </td>
+              <td>
+                <input
+                  type="tantosha"
+                  v-model="createItems.tantosha"
+                  name="tantosha"
+                  value
+                  minlength="1"
+                  maxlength="20"
+                />
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+              <td>
+                <label for="mail">連絡メールアドレス</label>
+              </td>
+              <td>
+                <input
+                  type="mail"
+                  v-model="createItems.mail"
+                  name="mail"
+                  value
+                  minlength="1"
+                  maxlength="20"
+                />
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+              <td>
+                <label for="remail">連絡メールアドレス（確認）</label>
+              </td>
+              <td>
+                <input
+                  type="remail"
+                  v-model="remail"
+                  name="remail"
+                  value
+                  minlength="1"
+                  maxlength="20"
+                />
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+              <td>
+                <label for="keiyakuhi">契約日</label>
+              </td>
+              <td>
+                <input
+                  type="keiyakuhi"
+                  v-model="createItems.keiyakuhi"
+                  name="keiyakuhi"
+                  value
+                  minlength="1"
+                  maxlength="20"
+                />
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+              <td>
+                <label for="keiyakushiki">契約開始日</label>
+              </td>
+              <td>
+                <input
+                  type="keiyakushiki"
+                  v-model="createItems.keiyakushiki"
+                  name="keiyakushiki"
+                  value
+                  minlength="1"
+                  maxlength="20"
+                />
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+              <td>
+                <label for="keiyakushuki">契約終了日</label>
+              </td>
+              <td>
+                <input
+                  type="keiyakushuki"
+                  v-model="createItems.keiyakushuki"
+                  name="keiyakushuki"
+                  value
+                  minlength="1"
+                  maxlength="20"
+                />
+              </td>
+            </tr>
             <tr>
               <td>
                 <label for="password">パスワード</label>

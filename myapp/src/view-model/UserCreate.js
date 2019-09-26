@@ -11,6 +11,7 @@ export const userCreateViewModel = {
       password: null,
       repsd: null,
       psdchkflg:null,
+      mailchkflg:null,
       planname: null,
       planList: this.$store.state.myapp.userInfo.userplans
     }
@@ -53,14 +54,19 @@ export const userCreateViewModel = {
   methods: {
     koushin () {
       this.psdchkflg = '0'
+      this.mailchkflg = '0'
       console.log('updateupdateupdateupdateupdateupdateupdateupdateupdate')
+      if(this.remail !== this.mail){
+        this.mailchkflg = '1'
+        console.log(this.mailchkflg)}
       if(this.repsd !== this.password){
         this.psdchkflg = '1'
         console.log(this.psdchkflg)
-        return
-      }else{
+        return}
+      if(this.mailchkflg === '0' && this.psdchkflg === '0'){
       let userplanname = document.getElementById('planname1').value
-      let params = {userid: this.account, furiganase: this.createItems.furiganase, furiganame: this.createItems.furiganame, kanjise: this.createItems.kanjise, kanjime: this.createItems.kanjime, password: this.password, planname: userplanname}
+      let params = {userid: this.account, furiganase: this.createItems.furiganase, furiganame: this.createItems.furiganame, kanjise: this.createItems.kanjise, kanjime: this.createItems.kanjime, password: this.password, planname: userplanname, 
+        soshikime: this.soshikime, address: this.address, tel: this.tel, tantobusho: this.tantobusho ,tantosha: this.tantosha, mail: this.mail, keiyakuhi: this.keiyakuhi, keiyakushiki: this.keiyakushiki, keiyakushuki: this.keiyakushuki}
       this.$store.dispatch(ACTIONS.MYAPP_USER_CREATE, params)
       this.routerPush('/Success')}
     }

@@ -54,7 +54,7 @@ export const userInsertViewModel = {
       this.psdchkflg = '0'
       console.log('insertinsertinsertinsertinsertinsertinsert')
       let userplanname = document.getElementById('planname1').value
-      if(this.remail !== this.mail){
+      if(this.remail !== this.createItems.mail){
         this.mailchkflg = '1'
         console.log(this.mailchkflg)}
       if(this.repsd !== this.password){
