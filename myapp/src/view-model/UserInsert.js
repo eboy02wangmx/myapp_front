@@ -16,7 +16,9 @@ export const userInsertViewModel = {
       password: null,
       repsd: null,
       customId: this.$store.state.myapp.customId,
-      planList: this.$store.state.myapp.userPlanInfo.userplans
+      planList: this.$store.state.myapp.userPlanInfo.userplans,
+      mailchkflg: null,
+      psdchkflg: null
     }
   },
   created () {
@@ -48,14 +50,24 @@ export const userInsertViewModel = {
   },
   methods: {
     koushin () {
+      this.mailchkflg = '0'
+      this.psdchkflg = '0'
       console.log('insertinsertinsertinsertinsertinsertinsert')
       let userplanname = document.getElementById('planname1').value
+      if(this.remail !== this.mail){
+        this.mailchkflg = '1'
+        console.log(this.mailchkflg)}
+      if(this.repsd !== this.password){
+        this.psdchkflg = '1'
+        console.log(this.psdchkflg)
+        return}
+      if(this.mailchkflg === '0' && this.psdchkflg === '0'){
       let params = {userid: this.userid, furiganase: this.furiganase, furiganame: this.furiganame, kanjise: this.kanjise,
          kanjime: this.kanjime, password: this.password, customId: this.customId, loginid: this.$store.state.myapp.userName,
          soshikime: this.soshikime, address: this.address, tel: this.tel, tantobusho: this.tantobusho ,tantosha: this.tantosha,
          planname: userplanname, mail: this.mail, keiyakuhi: this.keiyakuhi, keiyakushiki: this.keiyakushiki, keiyakushuki: this.keiyakushuki}
       this.$store.dispatch(ACTIONS.MYAPP_USER_INSERT, params)
-      this.routerPush('/UserKanri')
+      this.routerPush('/Success')}
     }
   }
 }

@@ -301,7 +301,6 @@
           </table>
         </fieldset>
         <a
-          href="/#/Success"
           name="submit"
           type="submit"
           id="submit"
@@ -312,6 +311,8 @@
         >&nbsp;&nbsp;&nbsp;作成&nbsp;&nbsp;&nbsp;</a>
         <span></span>
         <a href="/#/UserKanri" class="btn">キャンセル</a>
+        <a v-if="mailchkflg === '1'">メールアドレスとメールアドレス（確認）が異なる！</a>
+        <a v-if="psdchkflg === '1'">パスワードとパスワード再入力が異なる！</a>
       </form>
     </div>
   </div>
