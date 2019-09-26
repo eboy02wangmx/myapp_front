@@ -165,6 +165,7 @@
               </td>
               <td>
                   <Select v-model="planname" id="planname1" style="width:200px">
+                  <option selected>{{createItems.planname}}</option>
                   <Option v-for="item in planList" :key="item" :value="item">{{item}}</Option>
                   </Select>
               </td>
