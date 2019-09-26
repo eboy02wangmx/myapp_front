@@ -164,7 +164,7 @@
                 <label for="plan">契約プラン</label>
               </td>
               <td>
-                  <Select v-model="planname" style="width:200px">
+                  <Select v-model="planname" id="planname1" style="width:200px">
                   <Option v-for="item in planList" :key="item" :value="item">{{item}}</Option>
                   </Select>
               </td>

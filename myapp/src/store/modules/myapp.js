@@ -48,6 +48,7 @@ import {NHA_O_0113_API} from '@/api/NHA_O_0113_Api'
 import {NHA_O_0114_API} from '@/api/NHA_O_0114_Api'
 import {NHA_O_0115_API} from '@/api/NHA_O_0115_Api'
 import {NHA_O_0116_API} from '@/api/NHA_O_0116_Api'
+import {NHA_O_0117_API} from '@/api/NHA_O_0117_Api'
 // 仕様新規の対応 20190320 BY KYOKU END
 
 import {NHA_O_0150_API} from '@/api/NHA_O_0150_Api'
@@ -195,7 +196,8 @@ export default {
       [ACTIONS.MYAPP_CONTRACT_EDIT]: { doing: false },
       [ACTIONS.MYAPP_CONTRACT_REMOVE]: { doing: false },
       [ACTIONS.MYAPP_CONTRACT_DISABLED]: { doing: false },
-      [ACTIONS.MYAPP_CONTRACT_ENABLED]: { doing: false }
+      [ACTIONS.MYAPP_CONTRACT_ENABLED]: { doing: false },
+      [ACTIONS.MYAPP_GET_USERPLAN_INFO]: { doing: false }
     },
     // 銀行検索結果
     bankitems: [],
@@ -2627,6 +2629,24 @@ export default {
         .finally(() => util.api.end(myAction, state.sync))
     },
     /**
+     * ユーザーPLANLIST
+     */
+    [ACTIONS.MYAPP_GET_USERPLAN_INFO] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_GET_USERPLAN_INFO
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      NHA_O_0117_API.userPlanInfo(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_GET_USERPLAN_INFO_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
+    },
+    /**
      * albumCreate
      */
     async [ACTIONS.MYAPP_ALBUMCREATE] ({ state, commit }, request) {
@@ -3015,7 +3035,10 @@ export default {
       state.userInfo = cloneDeep(data)
       // console.log('state.userName:' + state.userName)
     },
-
+    [MUTATIONS.MYAPP_GET_USERPLAN_INFO_OK] (state, data) {
+      state.userPlanInfo = cloneDeep(data)
+      // console.log('state.userName:' + state.userName)
+    },
     [MUTATIONS.MYAPP_ALBUMCREATE_OK] (state, data) {
       state.albumsCreate = cloneDeep(data)
       // console.log('state.userName:' + state.userName)
