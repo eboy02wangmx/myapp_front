@@ -49,17 +49,51 @@ export const userKanriViewModel = {
       console.log('当前被点击的id=' + userid)
     },
     yukokbnhenko (userid, yukokbn) {
+      let params = '';
       if(yukokbn === '0'){
-        let kengenparams = {userId: userid, yukokbn: '1'}
-        this.$store.dispatch(ACTIONS.MYAPP_USER_KENGEN, kengenparams)
+        params = {userId: userid, yukokbn: '1'}
       }else{
-        let kengenparams = {userId: userid, yukokbn: '0'}
-        this.$store.dispatch(ACTIONS.MYAPP_USER_KENGEN, kengenparams)
+        params = {userId: userid, yukokbn: '0'}
       }
-      this.routerPush('/UserKanri')
+      $.ajax({
+        //url: 'http://localhost:8080/myapp-backend/api/yukokbnHenko',
+        url: 'http://203.189.97.178:8080/myapp-backend/api/yukokbnHenko',
+        type: 'POST',
+        context: this,
+        data: JSON.stringify(params),
+        processData: false,
+        contentType : 'application/json;charset=UTF-8',
+        success: function (data) {
+          let kanriparams = {userId: this.$store.state.myapp.userName}
+          this.$store.dispatch(ACTIONS.MYAPP_USER_KANRI, kanriparams)
+        }
+      });
     },
     tocreate (tocreatekengen) {
       localStorage.setItem('tocreatekengen', tocreatekengen)
+    },
+    order (type) {
+      var userKanriCustomid = $('#userKanriCustomid');
+      var userKanriCustomidValue = userKanriCustomid.text();
+      if (type === 'customid') {
+        if (userKanriCustomidValue === '▼') {
+          userKanriCustomid.text('▲');
+          let params = {
+            userId: this.$store.state.myapp.userName,
+            orderName: 'customid',
+            orderDirect: 'ASC'
+          }
+          this.$store.dispatch(ACTIONS.MYAPP_USER_KANRI, params)
+        } else if (userKanriCustomidValue === '▲') {
+          userKanriCustomid.text('▼');
+          let params = {
+            userId: this.$store.state.myapp.userName,
+            orderName: 'customid',
+            orderDirect: 'Desc'
+          }
+          this.$store.dispatch(ACTIONS.MYAPP_USER_KANRI, params)
+        }
+      }
     }
   }
 }

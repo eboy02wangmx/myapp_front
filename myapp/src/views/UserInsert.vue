@@ -1,8 +1,3 @@
-<!--
-  - 編集画面
-  -
-  - see: 画面定義書_G-NHA-004_ユーザー管理画面->ユーザー編集画面_v1.1.xlsx
-  -->
 <template>
   <div>
     <div class="navbar navbar-fixed-top">
@@ -25,7 +20,6 @@
               <a href="/#/Top">ログアウト</a>
             </p>
           </div>
-          <!--/.nav-collapse -->
         </div>
       </div>
     </div>
@@ -35,11 +29,13 @@
           <span>現在位置：</span>
         </li>
         <li style="display: inline">
-          <a href>H O M E</a>
-        </li>>
+          <a href="/#/Album">H O M E</a>
+        </li>
+        >
         <li style="display: inline">
-          <a class="nowPage" style="text-decoration: none; color: black">ユーザー管理</a>
-        </li>>
+          <a href="/#/UserKanri">ユーザー管理</a>
+        </li>
+        >
         <li style="display: inline">
           <a class="nowPage" style="text-decoration: none; color: black">ユーザー情報作成</a>
         </li>
@@ -54,133 +50,91 @@
           <legend>ユーザー情報</legend>
           <table class="table table-bordered">
             <tr>
-              <td style="width:150px">
-                <label for="email_address">アカウントID</label>
+              <td style="width:240px">
+                <label for="userInsertUserId">アカウントID</label>
               </td>
               <td>
-                <input
-                  type="userid"
-                  v-model="userid"
-                  name="userid"
-                  value="0"
-                  maxlength="30"
-                />
+                <input type="text" id="userInsertUserId" v-model="userid" name="userid" maxlength="30" />
+                <span id="userInsertUserIdErr" style="color: red; font-weight: bold; margin-left: 10px;"></span>
               </td>
             </tr>
             <tr>
               <td>
-                <label for="name">氏名</label>
+                <label for="userInsertName">説明</label>
               </td>
               <td>
-                フリガナ&nbsp;
-                <input
-                  type="text"
-                  v-model="furiganase"
-                  name="phonetic1"
-                  value="0"
-                  style="width:150px"
-                  maxlength="30"
-                />
-                <input
-                  type="text"
-                  v-model="furiganame"
-                  name="phonetic2"
-                  value="0"
-                  style="width:150px"
-                  maxlength="30"
-                />
-                <br />漢&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字&nbsp;
-                <input
-                  type="text"
-                  v-model="kanjise"
-                  name="fullname1"
-                  value="0"
-                  style="width:150px"
-                  maxlength="30"
-                />
-                <input
-                  type="text"
-                  v-model="kanjime"
-                  name="fullname2"
-                  value="0"
-                  style="width:150px"
-                  maxlength="30"
-                />
+                <input type="text" id="userInsertName" v-model="name" name="name" maxlength="32" />
               </td>
             </tr>
             <tr v-if="loginid == 'panolib_admin'">
               <td>
-                <label for="soshikime">組織名</label>
+                <label for="userInsertSoshikime">組織名</label>
               </td>
               <td>
-                <input
-                  type="soshikime"
-                  v-model="soshikime"
-                  name="soshikime"
-                  value
-                  minlength="1"
-                  maxlength="30"
-                />
+                <input type="text" id="userInsertSoshikime" v-model="soshikime"  name="soshikime" minlength="1" maxlength="30" />
               </td>
             </tr>
             <tr v-if="loginid == 'panolib_admin'">
               <td>
-                <label for="address">住所</label>
+                <label for="userInsertAddress">住所</label>
               </td>
               <td>
-                <input
-                  type="address"
-                  v-model="address"
-                  name="address"
-                  value
-                  minlength="4"
-                  maxlength="30"
-                />
+                <input type="text" id="userInsertAddress" v-model="address" name="address" minlength="4" maxlength="30" style="width: 372px;" />
               </td>
             </tr>
             <tr v-if="loginid == 'panolib_admin'">
               <td>
-                <label for="tel">電話番号</label>
+                <label for="userInsertTel">
+                  電話番号
+                  <P><font color='#d56a00'>※数字11桁の電話番号を入力ください</font></P>
+                </label>
               </td>
               <td>
-                <input
-                  type="tel"
-                  v-model="tel"
-                  name="tel"
-                  value
-                  minlength="8"
-                  maxlength="11"
-                />
+                <input type="text" id="userInsertTel" v-model="tel" name="tel" minlength="8" maxlength="11" />
               </td>
             </tr>
             <tr v-if="loginid == 'panolib_admin'">
               <td>
-                <label for="tantobusho">担当部署</label>
+                <label for="userInsertTantobusho">担当部署</label>
               </td>
               <td>
-                <input
-                  type="tantobusho"
-                  v-model="tantobusho"
-                  name="tantobusho"
-                  value
-                  minlength="1"
-                  maxlength="30"
-                />
+                <input type="text" id="userInsertTantobusho" v-model="tantobusho" name="tantobusho" minlength="1" maxlength="30" />
               </td>
             </tr>
             <tr v-if="loginid == 'panolib_admin'">
               <td>
-                <label for="tantosha">担当者</label>
+                <label for="userInsertTantosha">担当者</label>
               </td>
               <td>
-                <input
-                  type="tantosha"
-                  v-model="tantosha"
-                  name="tantosha"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
+                <input type="text" id="userInsertTantosha" v-model="tantosha" name="tantosha" minlength="1" maxlength="20" />
+              </td>
+            </tr>
+            <tr v-if="loginid == 'panolib_admin'">
+              <td>
+                <label for="userInsertMail">連絡メールアドレス</label>
+              </td>
+              <td>
+                <input type="text" id="userInsertMail" v-model="mail" name="mail" minlength="1" maxlength="20" />
+                <span id="userInsertMailErr" style="color: red; font-weight: bold; margin-left: 10px;"></span>
+              </td>
+            </tr>
+            <tr v-if="loginid == 'panolib_admin'">
+              <td>
+                <label for="userInsertRemail">連絡メールアドレス（確認）</label>
+              </td>
+              <td>
+                <input type="text" id="userInsertRemail" v-model="remail" name="remail" minlength="1" maxlength="20" />
+              </td>
+            </tr>
+            <tr v-if="loginid == 'panolib_admin'">
+              <td>
+                <label for="userInsertKeiyakuhi">
+                  契約日
+                  <P><font color='#d56a00'>※数字8桁の日付を入力ください</font></P>
+                </label>
+              </td>
+              <td>
+                <input type="text" id="userInsertKeiyakuhi" v-model="keiyakuhi" name="keiyakuhi" minlength="1" maxlength="20" />
               </td>
             </tr>
             <tr v-if="loginid == 'panolib_admin'">
@@ -188,99 +142,38 @@
                 <label for="plan">契約プラン</label>
               </td>
               <td>
-                  <Select v-model="planname" id="planname1" style="width:200px">
-                  <Option v-for="item in planList" :key="item" :value="item">{{item}}</Option>
-                  </Select>
+                  <select v-model="planname" id="plan" style="width:220px"></select>
               </td>
             </tr>
             <tr v-if="loginid == 'panolib_admin'">
               <td>
-                <label for="mail">連絡メールアドレス</label>
+                <label for="userInsertKeiyakushiki">
+                  契約開始日
+                  <P><font color='#d56a00'>※数字8桁の日付を入力ください</font></P>
+                </label>
               </td>
               <td>
-                <input
-                  type="mail"
-                  v-model="mail"
-                  name="mail"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
+                <input type="text" id="userInsertKeiyakushiki" v-model="keiyakushiki" name="keiyakushiki" minlength="1" maxlength="20" />
               </td>
             </tr>
             <tr v-if="loginid == 'panolib_admin'">
               <td>
-                <label for="remail">連絡メールアドレス（確認）</label>
+                <label for="userInsertKeiyakushuki">
+                  契約終了日
+                  <P><font color='#d56a00'>※数字8桁の日付を入力ください</font></P>
+                </label>
               </td>
               <td>
-                <input
-                  type="remail"
-                  v-model="remail"
-                  name="remail"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
-              </td>
-            </tr>
-            <tr v-if="loginid == 'panolib_admin'">
-              <td>
-                <label for="keiyakuhi">契約日</label>
-              </td>
-              <td>
-                <input
-                  type="keiyakuhi"
-                  v-model="keiyakuhi"
-                  name="keiyakuhi"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
-              </td>
-            </tr>
-            <tr v-if="loginid == 'panolib_admin'">
-              <td>
-                <label for="keiyakushiki">契約開始日</label>
-              </td>
-              <td>
-                <input
-                  type="keiyakushiki"
-                  v-model="keiyakushiki"
-                  name="keiyakushiki"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
-              </td>
-            </tr>
-            <tr v-if="loginid == 'panolib_admin'">
-              <td>
-                <label for="keiyakushuki">契約終了日</label>
-              </td>
-              <td>
-                <input
-                  type="keiyakushuki"
-                  v-model="keiyakushuki"
-                  name="keiyakushuki"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
+                <input type="text" id="userInsertKeiyakushuki" v-model="keiyakushuki" name="keiyakushuki" minlength="1" maxlength="20" />
               </td>
             </tr>
             <tr>
               <td>
-                <label for="password">パスワード</label>
+                <label for="userInsertPassword">パスワード</label>
               </td>
               <td>
-                <input
-                  type="password"
-                  v-model="password"
-                  name="password"
-                  value
-                  minlength="4"
-                  maxlength="30"
-                />
+                <input type="password" id="userInsertPassword" v-model="password" name="password" minlength="4" maxlength="30" />
+                <span id="userInsertPasswordErr" style="color: red; font-weight: bold; margin-left: 10px;"></span>
               </td>
             </tr>
             <tr>
@@ -288,31 +181,13 @@
                 <label for="password_conf">パスワード再入力</label>
               </td>
               <td>
-                <input
-                  type="password"
-                  v-model="repsd"
-                  name="password_conf"
-                  value
-                  minlength="4"
-                  maxlength="30"
-                />
+                <input type="password" id="userInsertPasswordConf" v-model="repsd" name="password_conf" minlength="4" maxlength="30" />
               </td>
             </tr>
           </table>
         </fieldset>
-        <a
-          name="submit"
-          type="submit"
-          id="submit"
-          @click="koushin"
-          style="margin-bottom: 3px"
-          value="Update"
-          class="btn btn-primary"
-        >&nbsp;&nbsp;&nbsp;作成&nbsp;&nbsp;&nbsp;</a>
-        <span></span>
+        <a name="submit" type="submit" id="submit"  @click="koushin" style="margin-bottom: 3px" value="Update" class="btn btn-primary">&nbsp;&nbsp;&nbsp;作成&nbsp;&nbsp;&nbsp;</a>
         <a href="/#/UserKanri" class="btn">キャンセル</a>
-        <a v-if="mailchkflg === '1'">メールアドレスとメールアドレス（確認）が異なる！</a>
-        <a v-if="psdchkflg === '1'">パスワードとパスワード再入力が異なる！</a>
       </form>
     </div>
   </div>
@@ -324,7 +199,7 @@ import { ACTIONS } from '@/store/action-types'
 export default {
   mixins: [userInsertViewModel],
   methods: {
-  // エラーがある場合、ポップアップ画面を表示する。
+    // エラーがある場合、ポップアップ画面を表示する。
     toDisclosureStatement () {
       if (this.$root.isMobile.any === true) {
         this.$store.dispatch(ACTIONS.DOCUMENT_OPEN, {name: 'DisclosureStatementSp', showScrollBtn: true})

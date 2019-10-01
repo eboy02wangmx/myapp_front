@@ -24,9 +24,9 @@ export const imagesViewModel = {
     this.policyNo = ''
     var id = localStorage.getItem('id')
     this.id = id;
-    var parambukenme = localStorage.getItem('bukenme')
+    var parambukenme = localStorage.getItem('vrInfoBukenme')
     this.parambukenme = parambukenme
-    var parampicnum = localStorage.getItem('picnum')
+    var parampicnum = localStorage.getItem('vrInfoPicnum')
     this.parampicnum = parampicnum
     // let imagesparams = {userid: this.$store.state.myapp.userid}
     let imagesparams = {vrInfoId: localStorage.getItem('vrInfoId')};
@@ -43,8 +43,13 @@ export const imagesViewModel = {
       }
       return false
     },
-    items: function () {
-      return this.$store.state.myapp.imagesItems
+    picNum() {
+      var picNum = 0;
+      if (this.$store.state.myapp.imagesItems) {
+        picNum = this.$store.state.myapp.imagesItems.length;
+      }
+
+      return picNum;
     }
   },
   methods: {
@@ -61,21 +66,6 @@ export const imagesViewModel = {
       this.picfile=[]
     },
     async imageUpload() {
-      // FormData を利用して File を POST する
-      // let formData = new FormData()
-      // formData.append('yourFileKey', this.uploadFile)
-      // let config = {
-      //   headers: {
-      //     'content-type': 'multipart/form-data'
-      //   }
-      // }
-      // axios.post('/fileupload', formData, config)
-      //   .then(response => {
-      //     // response 処理
-      //   })
-      //   .catch()
-      //   .finally()
-      // // this.$store.dispatch(ACTIONS.FILE_UPLOAD, {file: this.uploadFile})
       const request = {
         fileType: this.fileType,
         fileName: this.albums.fileName,
@@ -112,14 +102,14 @@ export const imagesViewModel = {
       if (inFile.files && inFile.files.length > 0) {
         const key = this.$dlg.mask('<span style="font-size: 12px; margin-top: 20px;">アップロード中</span>', null, {
           width: 300,
-          height:200
+          height: 200
         });
         var vrInfoId = document.getElementById('vrInfoId');
         var inVrInfoId = document.getElementById('inVrInfoId');
         inVrInfoId.value=vrInfoId.innerText;
         var formdata= new FormData($("#formPanoImageUpload")[0]);
         $.ajax({
-          //url: 'http://localhost:8080/myapp-backend/api/panoImageUpload',
+          // url: 'http://localhost:8080/myapp-backend/api/panoImageUpload',
           url: 'http://203.189.97.178:8080/myapp-backend/api/panoImageUpload',
           type: 'POST',
           context: this,
@@ -139,16 +129,63 @@ export const imagesViewModel = {
             this.$dlg.close(key);
             this.$dlg.alert('ファイルのアップロードに失敗しました。', {
                 messageType: 'error',
-                language: 'jp'
+                language: 'jp',
             });
           }
         })
       } else {
         this.$dlg.alert('画像ファイルを選択してください。', {
-            messageType: 'error',
-            language: 'jp'
+          messageType: 'error',
+          language: 'jp'
         });
       }
+    },
+    remove (item, id) {
+      if (item && item.id && id) {
+        const key = this.$dlg.mask('<span style="font-size: 12px; margin-top: 20px;"> 削除中</span>', null, {
+          width: 300,
+          height: 200
+        });
+        let params = {id: item.id, vrInfoId: id};
+        $.ajax({
+          //url: 'http://localhost:8080/myapp-backend/api/images/remove',
+          url: 'http://203.189.97.178:8080/myapp-backend/api/images/remove',
+          type: 'POST',
+          context: this,
+          data: JSON.stringify(params),
+          processData: false,
+          contentType : 'application/json;charset=UTF-8',
+          success: function () {
+            this.$dlg.close(key);
+            this.$dlg.alert('ファイルの削除に成功しました。', {
+                messageType: 'info',
+                language: 'jp'
+            });
+            let imagesparams = {vrInfoId: localStorage.getItem('vrInfoId')};
+            this.$store.dispatch(ACTIONS.MYAPP_ALBUM_IMAGES, imagesparams)
+          },
+          error: function () {
+            this.$dlg.close(key);
+            this.$dlg.alert('ファイルの削除に失敗しました。', {
+                messageType: 'error',
+                language: 'jp',
+            });
+          }
+        })
+      }
+    },
+    sumei (item) {
+      if (item.setsumei) {
+        localStorage.setItem('setsumei', item.setsumei);
+      } else {
+        localStorage.setItem('setsumei', '');
+      }
+
+      this.$router.push('Setsumei');
+    },
+    download (item) {
+      window.location.href = 'http://203.189.97.178:8080/myapp-backend/api/images/' + item.id;
+      //window.location.href = 'http://localhost:8080/myapp-backend/api/images/' + item.id;
     }
   }
 }

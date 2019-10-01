@@ -33,8 +33,18 @@ export const contractAddViewModel = {
       }
       if ($('#msgName').text() === '' && $('#msgUploadNum').text() === '' && $('#msgMoney').text() === '' && $('#msgPv').text() === '') {
         let params = {name: this.name, uploadNum: this.uploadNum, money: this.money, pv: this.pv}
-        this.$store.dispatch(ACTIONS.MYAPP_CONTRACT_ADD, params);
-        this.$router.push('Contract');
+        $.ajax({
+          //url: 'http://localhost:8080/myapp-backend/api/contract/add',
+          url: 'http://203.189.97.178:8080/myapp-backend/api/contract/add',
+          type: 'POST',
+          context: this,
+          data: JSON.stringify(params),
+          processData: false,
+          contentType : 'application/json;charset=UTF-8',
+          success: function () {
+            this.$router.push('Contract');
+          }
+        })
       }
     }
   }

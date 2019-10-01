@@ -4,8 +4,8 @@
       <div class="r-popup-contents" tabIndex="0">
         <h3></h3>
         <div>
-          <label for="caption">ドメインを入力してください：</label>
-          <textarea id="domain" name="domain" v-model="domain" cols="40" rows="10" maxlength="255" />
+          <label for="caption">利用可能のドメインをご入力ください（40文字以内）：</label>
+          <textarea id="domain" name="domain" v-model="domain" cols="40" rows="10" maxlength="40" />
         </div>
         <a @click="save" style="margin-bottom: 3px" class="btn btn-primary">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</a>
         <a href="/#/Album" class="btn">キャンセル</a>

@@ -1,8 +1,3 @@
-<!--
-  - 編集画面
-  -
-  - see: 画面定義書_G-NHA-004_ユーザー管理画面->ユーザー編集画面_v1.1.xlsx
-  -->
 <template>
   <div>
     <div class="navbar navbar-fixed-top">
@@ -30,7 +25,6 @@
               <a href="/#/Top">ログアウト</a>
             </p>
           </div>
-          <!--/.nav-collapse -->
         </div>
       </div>
     </div>
@@ -40,11 +34,13 @@
           <span>現在位置：</span>
         </li>
         <li style="display: inline">
-          <a href>H O M E</a>
-        </li>>
+          <a href="/#/Album">H O M E</a>
+        </li>
+        >
         <li style="display: inline">
-          <a class="nowPage" style="text-decoration: none; color: black">ユーザー管理</a>
-        </li>>
+          <a href="/#/UserKanri">ユーザー管理</a>
+        </li>
+        >
         <li style="display: inline">
           <a class="nowPage" style="text-decoration: none; color: black">ユーザー情報編集</a>
         </li>
@@ -59,209 +55,131 @@
           <legend>ユーザー情報</legend>
           <table class="table table-bordered">
             <tr>
-              <td style="width:150px">
-                <label for="email_address">アカウントID</label>
+              <td style="width:240px">
+                <label for="userCreateUserId">アカウントID</label>
               </td>
               <td>
-                <input
-                  type="text"
-                  name="email_address"
-                  v-model = "account"
-                  readonly="readonly"
-                  id="email_address"
-                  maxlength="30"
-                />
+                <input type="text" id="userCreateUserId" name="email_address" v-model = "account" readonly="readonly" maxlength="30" />
               </td>
             </tr>
             <tr>
               <td>
-                <label for="name">氏名</label>
+                <label for="userCreateFuriganase">説明</label>
               </td>
               <td>
-                フリガナ&nbsp;
-                <input
-                  type="text"
-                  v-model="createItems.furiganase"
-                  name="phonetic1"
-                  value="0"
-                  style="width:150px"
-                  maxlength="30"
-                />
-                <input
-                  type="text"
-                  v-model="createItems.furiganame"
-                  name="phonetic2"
-                  value="0"
-                  style="width:150px"
-                  maxlength="30"
-                />
-                <br />漢&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字&nbsp;
-                <input
-                  type="text"
-                  v-model="createItems.kanjise"
-                  name="fullname1"
-                  value="0"
-                  style="width:150px"
-                  maxlength="30"
-                />
-                <input
-                  type="text"
-                  v-model="createItems.kanjime"
-                  name="fullname2"
-                  value="0"
-                  style="width:150px"
-                  maxlength="30"
-                />
+                <input type="text" id="userCreateName" v-model="createItems.name" name="name" maxlength="32" />
               </td>
             </tr>
-            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+            <tr v-if="tocreatekengen === '2'">
               <td>
-                <label for="soshikime">組織名</label>
+                <label for="userCreateSoshikime">組織名</label>
               </td>
               <td>
-                <input
-                  type="soshikime"
-                  v-model="createItems.soshikime"
-                  name="soshikime"
-                  value
-                  minlength="1"
-                  maxlength="30"
-                />
+                <input type="text" id="userCreateSoshikime" v-model="createItems.soshikime" name="soshikime" minlength="1" maxlength="30" />
               </td>
             </tr>
-            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+            <tr v-if="tocreatekengen === '2'">
               <td>
-                <label for="address">住所</label>
+                <label for="userCreateAddress">住所</label>
               </td>
               <td>
-                <input
-                  type="address"
-                  v-model="createItems.address"
-                  name="address"
-                  value
-                  minlength="4"
-                  maxlength="30"
-                />
+                <input type="text" id="userCreateAddress" v-model="createItems.address" name="address" minlength="4" maxlength="40" style="width: 372px;" />
               </td>
             </tr>
-            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+            <tr v-if="tocreatekengen === '2'">
               <td>
-                <label for="tel">電話番号</label>
+                <label for="userCreateTel">
+                  電話番号
+                  <P><font color='#d56a00'>※数字11桁の電話番号を入力ください</font></P>
+                </label>
               </td>
               <td>
-                <input
-                  type="tel"
-                  v-model="createItems.tel"
-                  name="tel"
-                  value
-                  minlength="8"
-                  maxlength="11"
-                />
+                <input type="text" id="userCreateTel" v-model="createItems.tel" name="tel" minlength="8" maxlength="11" />
               </td>
             </tr>
-            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+            <tr v-if="tocreatekengen === '2'">
               <td>
-                <label for="tantobusho">担当部署</label>
+                <label for="userCreateTantobusho">担当部署</label>
               </td>
               <td>
-                <input
-                  type="tantobusho"
-                  v-model="createItems.tantobusho"
-                  name="tantobusho"
-                  value
-                  minlength="1"
-                  maxlength="30"
-                />
+                <input type="text" id="userCreateTantobusho" v-model="createItems.tantobusho" name="tantobusho" minlength="1" maxlength="30" />
               </td>
             </tr>
-            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+            <tr v-if="tocreatekengen === '2'">
               <td>
-                <label for="tantosha">担当者</label>
+                <label for="userCreateTantosha">担当者</label>
               </td>
               <td>
-                <input
-                  type="tantosha"
-                  v-model="createItems.tantosha"
-                  name="tantosha"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
+                <input type="text" id="userCreateTantosha" v-model="createItems.tantosha" name="tantosha" minlength="1" maxlength="20" />
               </td>
             </tr>
-            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+            <tr v-if="tocreatekengen === '2'">
               <td>
-                <label for="mail">連絡メールアドレス</label>
+                <label for="userCreateMail">連絡メールアドレス</label>
               </td>
               <td>
-                <input
-                  type="mail"
-                  v-model="createItems.mail"
-                  name="mail"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
+                <input type="text" id="userCreateMail" v-model="createItems.mail" name="mail" minlength="1" maxlength="20" />
+                <span id="userInsertMailErr" style="color: red; font-weight: bold; margin-left: 10px;"></span>
               </td>
             </tr>
-            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+            <tr v-if="tocreatekengen === '2'">
               <td>
-                <label for="remail">連絡メールアドレス（確認）</label>
+                <label for="userCreateRemail">連絡メールアドレス（確認）</label>
               </td>
               <td>
-                <input
-                  type="remail"
-                  v-model="remail"
-                  name="remail"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
+                <input type="text" id="userCreateRemail" v-model="createItems.remail" name="remail" minlength="1" maxlength="20" />
               </td>
             </tr>
-            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+            <tr v-if="tocreatekengen === '2'">
               <td>
-                <label for="keiyakuhi">契約日</label>
+                <label for="userCreateKeiyakuhi">
+                  契約日
+                  <P><font color='#d56a00'>※数字8桁の日付を入力ください</font></P>
+                </label>
               </td>
               <td>
-                <input
-                  type="keiyakuhi"
-                  v-model="createItems.keiyakuhi"
-                  name="keiyakuhi"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
+                <input type="text" id="userCreateKeiyakuhi" v-model="createItems.keiyakuhi" name="keiyakuhi" minlength="1" maxlength="20" />
               </td>
             </tr>
-            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+            <tr v-if="tocreatekengen === '2' && loginid !== 'panolib_admin'">
               <td>
-                <label for="keiyakushiki">契約開始日</label>
+                <label for="plan">契約プラン</label>
               </td>
               <td>
-                <input
-                  type="keiyakushiki"
-                  v-model="createItems.keiyakushiki"
-                  name="keiyakushiki"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
+                <input type="text" v-model="createItems.planname" readonly="readonly" maxlength="30" />
               </td>
             </tr>
-            <tr v-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
+            <tr v-else-if="tocreatekengen === '2'">
               <td>
-                <label for="keiyakushuki">契約終了日</label>
+                <label for="plan">契約プラン</label>
               </td>
               <td>
-                <input
-                  type="keiyakushuki"
-                  v-model="createItems.keiyakushuki"
-                  name="keiyakushuki"
-                  value
-                  minlength="1"
-                  maxlength="20"
-                />
+                <Select id="userCreatePlanname" v-model="planname"  style="width:220px">
+                  <option selected>{{createItems.planname}}</option>
+                  <Option v-for="item in planList" :key="item" :value="item">{{item}}</Option>
+                </Select>
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2'">
+              <td>
+                <label for="userCreateKeiyakushiki">
+                  契約開始日
+                  <P><font color='#d56a00'>※数字8桁の日付を入力ください</font></P>
+                </label>
+              </td>
+              <td>
+                <input type="text" id="userCreateKeiyakushiki" v-model="createItems.keiyakushiki" name="keiyakushiki" minlength="1" maxlength="20" />
+              </td>
+            </tr>
+            <tr v-if="tocreatekengen === '2'">
+              <td>
+                <label for="userCreateKeiyakushuki">
+                  契約終了日
+                  <P><font color='#d56a00'>※数字8桁の日付を入力ください</font></P>
+                </label>
+              </td>
+              <td>
+                <input type="text" id="userCreateKeiyakushuki" v-model="createItems.keiyakushuki" name="keiyakushuki" minlength="1" maxlength="20" />
               </td>
             </tr>
             <tr>
@@ -270,70 +188,23 @@
                 <P><font color='#d56a00'>※変更しない場合空白</font></P>
               </td>
               <td>
-                <input
-                  type="password"
-                  v-model="password"
-                  name="password"
-                  value
-                  minlength="4"
-                  maxlength="30"
-                />
+                <input type="password" id="userCreatePassword" v-model="password" name="password" minlength="4" maxlength="30" />
+                <span id="userInsertPasswordErr" style="color: red; font-weight: bold; margin-left: 10px;"></span>
               </td>
             </tr>
             <tr>
               <td>
-                <label for="password_conf">パスワード再入力</label>
+                <label for="userCreateRepassword">パスワード再入力</label>
                 <P><font color='#d56a00'>※変更しない場合空白</font></P>
               </td>
               <td>
-                <input
-                  type="password"
-                  v-model="repsd"
-                  name="password_conf"
-                  value
-                  minlength="4"
-                  maxlength="30"
-                />
-              </td>
-            </tr>
-            <tr v-if="tocreatekengen === '2' && loginid !== 'panolib_admin'">
-              <td>
-                <label for="plan">契約プラン</label>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  v-model="createItems.planname"
-                  readonly="readonly"
-                  maxlength="30"
-                />
-              </td>
-            </tr>
-            <tr v-else-if="tocreatekengen === '2' && loginid == 'panolib_admin'">
-              <td>
-                <label for="plan">契約プラン</label>
-              </td>
-              <td>
-                  <Select v-model="planname" id="planname1" style="width:200px">
-                  <option selected>{{createItems.planname}}</option>
-                  <Option v-for="item in planList" :key="item" :value="item">{{item}}</Option>
-                  </Select>
+                <input type="password" id="userCreateRepassword" v-model="repsd" name="password_conf" minlength="4" maxlength="30" />
               </td>
             </tr>
           </table>
         </fieldset>
-        <a
-          name="submit"
-          type="submit"
-          id="submit"
-          @click="koushin"
-          style="margin-bottom: 3px"
-          value="Update"
-          class="btn btn-primary"
-        >&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;</a>
-        <span></span>
+        <a name="submit" type="submit" id="submit" @click="koushin" style="margin-bottom: 3px" value="Update" class="btn btn-primary">&nbsp;&nbsp;&nbsp;更新&nbsp;&nbsp;&nbsp;</a>
         <a href="/#/UserKanri" class="btn">キャンセル</a>
-        <a v-if="psdchkflg === '1'">パスワードとパスワード再入力が異なる！</a>
       </form>
     </div>
   </div>

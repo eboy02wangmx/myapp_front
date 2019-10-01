@@ -42,22 +42,31 @@ export const topViewModel = {
       }
     },
     userLogin () {
-      console.log('user login.ha ha ha')
-      let params = {userName: this.userName, password: this.password}
-      const unwatch = this.$store.watch(() => this.$store.state.myapp.sync[ACTIONS.MYAPP_USER_LOGIN].doing, (newValue, oldValue) => {
-        if (oldValue === true && newValue === false) {
-          if (this.$store.state.myapp.sync[ACTIONS.MYAPP_USER_LOGIN].status === 200) {
-            console.log('this.$store.state.myapp.userName is ' + this.loginUserName)
-            if (this.$store.state.myapp.userName !== '') {
-              this.routerPush('/album')
+      var params = {userName: this.userName, password: this.password};
+      $.ajax({
+        //url: 'http://localhost:8080/myapp-backend/api/login',
+        url: 'http://203.189.97.178:8080/myapp-backend/api/login',
+        type: 'POST',
+        context: this,
+        data: JSON.stringify(params),
+        processData: false,
+        contentType : 'application/json;charset=UTF-8',
+        success: function (data) {
+          if (data) {
+            if (data.success) {
+              this.$store.state.myapp.userName = data.userName;
+              this.$store.state.myapp.kengen = data.kengen;
+              this.$store.state.myapp.customId = data.customId;
+              this.$router.push('Album');
+            } else {
+              this.$store.state.myapp.userLoginStatus = 'fail';
+              this.$store.state.myapp.errorMsg = data.msg;
+              $("#errMsg").css('display','');
+              $('#errMsg').html(data.msg);
             }
-          } else {
-            this.$store.dispatch(ACTIONS.ERROR_OPEN_API_ERRORS)
           }
-          unwatch()
         }
       })
-      this.$store.dispatch(ACTIONS.MYAPP_USER_LOGIN, params)
     }
   }
 }

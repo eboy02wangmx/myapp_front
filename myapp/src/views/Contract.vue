@@ -40,6 +40,8 @@
     </div>
     <div class="page-header">
       <h1>契約情報管理</h1>
+      <br />
+      <a class="btn btn-primary" href="/#/ContractAdd">契約情報作成</a>
     </div>
     <table class="table table-striped table-bordered">
       <thead>
@@ -50,9 +52,7 @@
           <th width="120">月次利用金額（円）</th>
           <th width="100">月次PV数（枚）</th>
           <th width="80">有効 / 無効</th>
-          <th width="233">
-            <a class="btn btn-primary" href="/#/ContractAdd">契約情報作成</a>
-          </th>
+          <th width="240" style="text-align: center;">操作</th>
         </tr>
       </thead>
       <tbody>
@@ -64,7 +64,7 @@
           <td>{{contract.pv}}</td>
           <td><span v-if="contract.status === 1">有効</span><span v-if="contract.status === 2">無効</span></td>
           <td>
-            <div class="btn-group">
+            <div class="btn-group" style="width:233px; margin: 0 auto;">
               <a class="btn" href="/#/ContractEdit">編&nbsp;&nbsp;&nbsp;集</a>
               <a class="btn" @click="remove(contract.id)">削&nbsp;&nbsp;&nbsp;除</a>
               <a class="btn" :disabled="contract.status === 1" @click="enabled(contract.id)">有&nbsp;&nbsp;&nbsp;効</a>
