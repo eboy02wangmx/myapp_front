@@ -15,7 +15,7 @@ export const albumDomainViewModel = {
       var domain = $('#domain').val();
       let params = {id: id, domain: domain}
       this.$store.dispatch(ACTIONS.MYAPP_ALBUM_DOMAIN, params)
-      this.$router.push('AlbumDomainOk');
+      this.$router.push('Album');
     }
   }
 }

@@ -42,18 +42,21 @@
 </div>
 <div class="page-header">
   <h1>アルバム一覧</h1>
+  <br />
+  <a class="btn btn-primary" href="/#/AlbumCreate">新規作成</a>
 </div>
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th width="100">アルバム名</th>
+      <th width="105">アルバム名 <a id="albumOrdBukenme" class="btn" @click="order('bukenme')" style="font-size:6px; width:20px; height:15px; float:right; padding:0px;">▼</a></th>
       <th width="60">作成者</th>
-      <th width="130">作成日時</th>
-      <th width="130">更新日時</th>
+      <th width="80">作成日時</th>
+      <th width="80">更新日時<a id="albumOrdKoushinhi" class="btn" @click="order('koushinhi')" style="font-size:6px; width:20px; height:15px; float:right; padding:0px;">▼</a></th>
       <th width="40">画像数</th>
-      <th>物件リンク</th>
-      <th width="150">利用可能ドメイン</th>
-      <th width="200"><a class="btn btn-primary" href="/#/AlbumCreate">新規作成</a></th>
+      <th style="min-width:150px;">アルバムリンク</th>
+      <th style="min-width:150px;">埋め込みコード</th>
+      <th width="110">利用可能ドメイン</th>
+      <th width="280" style="text-align: center;">操作</th>
     </tr>
   </thead>
   <tbody>
@@ -64,10 +67,11 @@
       <td>{{i.koushinhi}}</td>
       <td>{{i.picnum}}</td>
       <td>{{i.panoPreviewUrl}}</td>
+      <td>{{i.iframeCode}}</td>
       <td>{{i.domain}}</td>
-      <td style="min-width:276px;">
-        <div class="btn-group">
-          <a class="btn" @click="edit(i.id)">編&nbsp;&nbsp;&nbsp;集</a>
+      <td style="min-width:280px;">
+        <div class="btn-group" style="width:276px; margin: 0 auto;">
+          <a class="btn" @click="edit(i)">編&nbsp;&nbsp;&nbsp;集</a>
           <a class="btn" @click="remove(i)">削&nbsp;&nbsp;&nbsp;除</a>
           <a class="btn" @click="panoPreview(i)" :disabled="!i.panoPreviewUrl">プレビュー</a>
           <a class="btn" @click="setDomain(i)">ドメイン</a>

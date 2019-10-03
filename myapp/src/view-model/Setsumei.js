@@ -11,6 +11,8 @@ export const setsumeiViewModel = {
     this.param = param
     var location = localStorage.getItem('location')
     this.location = location
+
+    this.setsumei = localStorage.getItem('setsumei');
   },
   computed: {
     // var text = document.getElementById("caption").value
@@ -24,7 +26,7 @@ export const setsumeiViewModel = {
       this.$store.dispatch(ACTIONS.MYAPP_USER_DELETE, params)
     },
   sakusei () {
-    this.setsumei = this.caption;
+    this.setsumei = this.setsumei;
     console.log(this.setsumei)
     let setsumeiparams = {setsumei: this.setsumei, location: this.location}
     this.$store.dispatch(ACTIONS.MYAPP_IMAGES_SETSUMEI, setsumeiparams)

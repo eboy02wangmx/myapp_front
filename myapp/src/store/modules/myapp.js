@@ -66,6 +66,7 @@ import {NHA_O_0605_API} from '@/api/NHA_O_0605_API'
 import {NHA_O_0606_API} from '@/api/NHA_O_0606_API'
 import {NHA_O_0607_API} from '@/api/NHA_O_0607_API'
 import {NHA_O_0608_API} from '@/api/NHA_O_0608_API'
+import {NHA_O_0609_API} from '@/api/NHA_O_0609_API'
 export default {
   state: {
     contracts: null,
@@ -197,7 +198,8 @@ export default {
       [ACTIONS.MYAPP_CONTRACT_REMOVE]: { doing: false },
       [ACTIONS.MYAPP_CONTRACT_DISABLED]: { doing: false },
       [ACTIONS.MYAPP_CONTRACT_ENABLED]: { doing: false },
-      [ACTIONS.MYAPP_GET_USERPLAN_INFO]: { doing: false }
+      [ACTIONS.MYAPP_GET_USERPLAN_INFO]: { doing: false },
+      [ACTIONS.MYAPP_IMAGES_REMOVE]: { doing: false }
     },
     // 銀行検索結果
     bankitems: [],
@@ -2822,7 +2824,7 @@ export default {
         return
       }
       // 実行
-      await NHA_O_0114_API.imagesinfo(request)
+      await NHA_O_0114_API.search(request)
         .then(function (response) {
           commit(MUTATIONS.MYAPP_ALBUM_IMAGES_OK, response.data)
         })
@@ -2987,6 +2989,21 @@ export default {
         })
         .catch(error => util.api.error(myAction, state.sync, error))
         .finally(() => util.api.end(myAction, state.sync))
+    },
+    async [ACTIONS.MYAPP_IMAGES_REMOVE] ({ state, commit }, request) {
+      const myAction = ACTIONS.MYAPP_IMAGES_REMOVE
+
+      // 開始
+      if (!util.api.start(myAction, state.sync)) {
+        return
+      }
+      // 実行
+      await NHA_O_0609_API.editDomain(request)
+        .then(function (response) {
+          commit(MUTATIONS.MYAPP_IMAGES_REMOVE_OK, response.data)
+        })
+        .catch(error => util.api.error(myAction, state.sync, error))
+        .finally(() => util.api.end(myAction, state.sync))
     }
   },
   mutations: {
@@ -3022,10 +3039,16 @@ export default {
       }
     },
     [MUTATIONS.MYAPP_USER_LOGIN_OK] (state, data) {
-      state.userName = cloneDeep(data.userName)
-      state.kengen = cloneDeep(data.kengen)
-      state.customId = cloneDeep(data.customId)
-      console.log('state.userName:' + state.userName)
+      if (data) {
+        if (data.success) {
+          state.userName = cloneDeep(data.userName)
+          state.kengen = cloneDeep(data.kengen)
+          state.customId = cloneDeep(data.customId)
+        } else {
+          state.userLoginStatus = 'fail';
+          state.errorMsg = data.msg;
+        }
+      }
     },
     [MUTATIONS.MYAPP_USER_ALBUM_OK] (state, data) {
       state.albums = cloneDeep(data)
@@ -3036,7 +3059,7 @@ export default {
       // console.log('state.userName:' + state.userName)
     },
     [MUTATIONS.MYAPP_GET_USERPLAN_INFO_OK] (state, data) {
-      state.userPlanInfo = cloneDeep(data)
+      state.plans = cloneDeep(data)
       // console.log('state.userName:' + state.userName)
     },
     [MUTATIONS.MYAPP_ALBUMCREATE_OK] (state, data) {
@@ -3384,6 +3407,9 @@ export default {
     },
     [MUTATIONS.MYAPP_ALBUM_DOMAIN_OK] (state, data) {
       state.albumDomain = cloneDeep(data)
+    },
+    [MUTATIONS.MYAPP_IMAGES_REMOVE_OK] (state, data) {
+      state.imagesItems = cloneDeep(data)
     }
   }
 }

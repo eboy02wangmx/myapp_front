@@ -30,7 +30,18 @@ export const albumCreateViewModel = {
   methods: {
     newCreate () {
       let params = {bukenme: this.albumName, userid: this.$store.state.myapp.userName}
-      this.$store.dispatch(ACTIONS.MYAPP_ALBUMCREATE, params)
+      $.ajax({
+        //url: 'http://localhost:8080/myapp-backend/api/albumCreaet',
+        url: 'http://203.189.97.178:8080/myapp-backend/api/albumCreaet',
+        type: 'POST',
+        context: this,
+        data: JSON.stringify(params),
+        processData: false,
+        contentType : 'application/json;charset=UTF-8',
+        success: function () {
+          this.$router.push('Album');
+        }
+      })
     }
   }
 }

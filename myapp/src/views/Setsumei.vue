@@ -4,9 +4,11 @@
       <div class="r-popup-contents" tabIndex="0">
         <h3></h3>
         <div>
-          <label for="caption">画像について説明を入力してください：</label><textarea name="caption" cols="40" rows="10" id="caption" maxlength="40" v-model="caption" />
+          <label for="caption">画像の説明をご入力ください（40文字以内）：</label>
+          <textarea name="caption" cols="40" rows="10" id="caption" maxlength="40" v-model="setsumei" />
         </div>
-        <r-button class="btn btn-primary btn-large" @click="sakusei" style="background: #c01700; color: white; padding: 10px 20px;">はい</r-button>
+        <a @click="sakusei" style="margin-bottom: 3px" class="btn btn-primary">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</a>
+        <a href="/#/Images" class="btn">キャンセル</a>
       </div>
     </div>
   </div>

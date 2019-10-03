@@ -44,15 +44,16 @@
     </div>
     <div class="page-header">
       <h1 style="display: inline;">利用状況一覧</h1>
-      <a @click="csvDownload" class="btn btn-primary" style="display: inline; float: right; margin: 10px 50px 0px 0px; ">CSV ダウンロード</a>
+      <br /><br />
+      <a @click="csvDownload" class="btn btn-primary" style="display: inline; margin: 10px 50px 0px 0px; ">CSV ダウンロード</a>
     </div>
     <div>
       <div v-for="(riyo, i) in this.$store.state.myapp.riyos" :key="riyo">
         <hr style="margin-top: 40px;" v-if="i!==0" />
         <div style="padding: 10px;">
           <font style="font-size: 14px; font-weight: bold;">組織ID：</font><span style="width: 180px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.customid}}</span>
-          <font style="font-size: 14px; font-weight: bold; margin-left: 10px;">組織名：</font><span style="width: 120px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.soshikime}}</span>
-          <font style="font-size: 14px; font-weight: bold; margin-left: 10px;">契約プラン：</font><span style="width: 120px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.contractName}}</span>
+          <font style="font-size: 14px; font-weight: bold; margin-left: 10px;">組織名：</font><span style="width: 200px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.soshikime}}</span>
+          <font style="font-size: 14px; font-weight: bold; margin-left: 10px;">契約プラン：</font><span style="width: 200px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.contractName}}</span>
           <font style="font-size: 14px; font-weight: bold; margin-left: 10px;">登録可能画像数：</font><span style="width: 60px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.contractUploadNum}}</span>
           <font style="font-size: 14px; font-weight: bold; margin-left: 10px;">登録済み画像数：</font><span style="width: 60px; display: inline-block; border-bottom:1px solid #ddd; padding-left: 5px;">&nbsp;{{riyo.head.contractUploadedNum}}</span>
         </div>

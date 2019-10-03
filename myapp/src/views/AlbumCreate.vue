@@ -60,9 +60,7 @@
           <br />
           <br />
         </fieldset>
-        <a
-          href="/#/Sakuseok"
-          name="submit"
+        <a name="submit"
           type="submit"
           id="submit"
           style="margin-bottom: 3px"

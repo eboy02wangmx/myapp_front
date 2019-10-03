@@ -51,7 +51,7 @@
           <legend>契約情報</legend>
           <table class="table table-bordered">
             <tr>
-              <td style="width: 200px">
+              <td style="width: 220px">
                 <label for="name">プラン名</label>
               </td>
               <td>
@@ -62,7 +62,7 @@
             </tr>
             <tr>
               <td>
-                <label for="uploadNum">アップロード可能画像数</label>
+                <label for="uploadNum">アップロード可能画像数（枚）</label>
               </td>
               <td>
                 <input id="uploadNum" type="text" v-model="uploadNum" name="uploadNum" style="float:left;" maxlength="5" onkeyup="this.value=this.value.replace(/\D/g,'')" />
@@ -71,7 +71,7 @@
             </tr>
             <tr>
               <td>
-                <label for="money">月次利用金額</label>
+                <label for="money">月次利用金額（円）</label>
               </td>
               <td>
                 <input id="money" type="text" v-model="money" name="money" style="float:left;" maxlength="15" onkeyup="this.value=this.value.replace(/[^\d\.]/g,'')" />
@@ -80,7 +80,7 @@
             </tr>
             <tr>
               <td>
-                <label for="pv">月次PV数</label>
+                <label for="pv">月次PV数（枚）</label>
               </td>
               <td>
                 <input id="pv" type="text" v-model="pv" name="pv" style="float:left;" maxlength="10" onkeyup="this.value=this.value.replace(/\D/g,'')" />

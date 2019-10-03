@@ -54,7 +54,7 @@
     </div>
     <div class="well" style="float: left; width: 240px ;height: 100px; margin-bottom: 15px;">
       <p><b>アルバム名：{{parambukenme}}</b></p>
-      <p>画&nbsp;&nbsp;&nbsp;像&nbsp;&nbsp;&nbsp;数&nbsp;：{{parampicnum}}<span id="img_num"></span>枚</p>
+      <p>画&nbsp;&nbsp;&nbsp;像&nbsp;&nbsp;&nbsp;数&nbsp;：<span id="img_num">{{picNum}}</span>枚</p>
     </div>
     <iframe name="iframeName1" id="iframeID1" src="" width="0" height="0" frameborder="0" style="display: none;" />
     <div class="well" style="margin: 0 0 0 290px; height: 100px;">
@@ -73,23 +73,24 @@
             <tr>
               <th width="50">No.&nbsp;&nbsp;&nbsp;&nbsp;</th>
               <th width="200">画像</th>
-              <th width="160">ファイル名</th>
+              <th width="260">ファイル名</th>
               <th>説明</th>
               <th width="140">作成日</th>
-              <th width="154" style="text-align:center; min-width:154px;">操作</th>
+              <th width="275" style="text-align:center; min-width:136px;">操作</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="height: 100px;" v-for="(item, index) in items" :key="item" @click="getDataId(item.location)">
+            <tr style="height: 100px;" v-for="(item, index) in this.$store.state.myapp.imagesItems" :key="item" @click="getDataId(item.location)">
               <td style="vertical-align:middle;">{{index+1}}</td>
               <td style="vertical-align:middle;"><img :src = item.location /></td>
               <td style="vertical-align:middle;">{{item.filename}}</td>
               <td style="vertical-align:middle;">{{item.setsumei}}</td>
-              <td style="vertical-align:middle;">{{item.create_time}}</td>
+              <td style="vertical-align:middle;">{{item.createTimeDisplay}}</td>
               <td style="vertical-align:middle;">
-                <div class="btn-group">
-                  <a href="#image-modal" class="btn image-delete-btn" title="削除" rel="tooltip" action="" data-toggle="modal" data-original-title="Delete"><i class="icon-remove"></i>&nbsp;&nbsp;削除&nbsp;&nbsp;&nbsp;</a>
-                  <a class="btn" href="/#/Setsumei">説明変更</a>
+                <div class="btn-group" style="width: 261px; margin: 0 auto;">
+                  <a class="btn" @click="remove(item, id)">&nbsp;&nbsp;削除&nbsp;&nbsp;</a>
+                  <a class="btn" @click="sumei(item)">説明変更</a>
+                  <a class="btn" @click="download(item)">画像ダウンロード</a>
                 </div>
               </td>
             </tr>

@@ -29,12 +29,24 @@ export const albumViewModel = {
     }
   },
   methods: {
-    edit (id) {
-      localStorage.setItem('vrInfoId', id);
+    edit (i) {
+      if (i.id) {
+        localStorage.setItem('vrInfoId', i.id);
+      }
+      var bukenme = '';
+      if (i.bukenme) {
+        bukenme = i.bukenme;
+      }
+      localStorage.setItem('vrInfoBukenme', bukenme);
+      var picnum = 0;
+      if (i.picnum) {
+        picnum = i.picnum;
+      }
+      localStorage.setItem('vrInfoPicnum', picnum);
       this.$router.push('Images');
     },
     remove (album) {
-      let params = {filename: album.filename, userid: album.userid}
+      let params = {id: album.id, userid: album.userid}
       this.$store.dispatch(ACTIONS.MYAPP_ALBUM_REMOVE, params)
     },
     getDataId (id, bukenme, picnum, userid) {
@@ -65,6 +77,49 @@ export const albumViewModel = {
         localStorage.setItem('vrInfoDomain', '');
       }
       this.$router.push('AlbumDomain');
+    },
+    order (type) {
+      var albumOrdBukenme = $('#albumOrdBukenme');
+      var albumOrdBukenmeValue = albumOrdBukenme.text();
+      var albumOrdKoushinhi = $('#albumOrdKoushinhi');
+      var albumOrdKoushinhiValue = albumOrdKoushinhi.text();
+      if (type === 'bukenme') {
+        if (albumOrdBukenmeValue === '▼') {
+          albumOrdBukenme.text('▲');
+          let params = {
+            userid: this.$store.state.myapp.userName,
+            orderName: 'bukenme',
+            orderDirect: 'ASC'
+          }
+          this.$store.dispatch(ACTIONS.MYAPP_USER_ALBUM, params)
+        } else if (albumOrdBukenmeValue === '▲') {
+          albumOrdBukenme.text('▼');
+          let params = {
+            userid: this.$store.state.myapp.userName,
+            orderName: 'bukenme',
+            orderDirect: 'DESC'
+          }
+          this.$store.dispatch(ACTIONS.MYAPP_USER_ALBUM, params)
+        }
+      } else if (type === 'koushinhi') {
+        if (albumOrdKoushinhiValue === '▼') {
+          albumOrdKoushinhi.text('▲');
+          let params = {
+            userid: this.$store.state.myapp.userName,
+            orderName: 'koushinhi',
+            orderDirect: 'ASC'
+          }
+          this.$store.dispatch(ACTIONS.MYAPP_USER_ALBUM, params)
+        } else if (albumOrdKoushinhiValue === '▲') {
+          albumOrdKoushinhi.text('▼');
+          let params = {
+            userid: this.$store.state.myapp.userName,
+            orderName: 'koushinhi',
+            orderDirect: 'DESC'
+          }
+          this.$store.dispatch(ACTIONS.MYAPP_USER_ALBUM, params)
+        }
+      }
     }
   }
 }

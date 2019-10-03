@@ -46,8 +46,18 @@ export const contractEditViewModel = {
       }
       if ($('#msgName').text() === '' && $('#msgUploadNum').text() === '' && $('#msgMoney').text() === '' && $('#msgPv').text() === '') {
         let params = {id: this.id, name: this.name, uploadNum: this.uploadNum, money: this.money, pv: this.pv}
-        this.$store.dispatch(ACTIONS.MYAPP_CONTRACT_EDIT, params)
-        this.$router.push('Contract');
+        $.ajax({
+          //url: 'http://localhost:8080/myapp-backend/api/contract/edit',
+          url: 'http://203.189.97.178:8080/myapp-backend/api/contract/edit',
+          type: 'POST',
+          context: this,
+          data: JSON.stringify(params),
+          processData: false,
+          contentType : 'application/json;charset=UTF-8',
+          success: function () {
+            this.$router.push('Contract');
+          }
+        })
       }
     }
   }

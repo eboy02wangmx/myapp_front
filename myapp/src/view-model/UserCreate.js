@@ -10,14 +10,13 @@ export const userCreateViewModel = {
       kanjime: null,
       password: null,
       repsd: null,
-      psdchkflg:null,
-      mailchkflg:null,
+      mailChkFlg: null,
+      psdChkFlg: null,
       planname: null,
       planList: this.$store.state.myapp.userInfo.userplans
     }
   },
   created () {
-    console.log('888888888888888888888888888888888')
     let loginid = this.$store.state.myapp.userName
     this.loginid = loginid
     var param = localStorage.getItem('userid')
@@ -28,7 +27,8 @@ export const userCreateViewModel = {
     this.$store.dispatch(ACTIONS.MYAPP_GET_USER_INFO, userInfo)
   },
   mounted () {
-    this.psdchkflg = '0'
+    this.mailChkFlg = '0'
+    this.psdChkFlg = '0'
   },
   computed: {
     planList (){
@@ -44,7 +44,6 @@ export const userCreateViewModel = {
       return false
     },
     account () {
-      // return this.$store.state.myapp.userName
       return this.param
     },
     createItems: function () {
@@ -53,22 +52,52 @@ export const userCreateViewModel = {
   },
   methods: {
     koushin () {
-      this.psdchkflg = '0'
-      this.mailchkflg = '0'
-      console.log('updateupdateupdateupdateupdateupdateupdateupdateupdate')
-      if(this.remail !== this.mail){
-        this.mailchkflg = '1'
-        console.log(this.mailchkflg)}
-      if(this.repsd !== this.password){
-        this.psdchkflg = '1'
-        console.log(this.psdchkflg)
-        return}
-      if(this.mailchkflg === '0' && this.psdchkflg === '0'){
-      let userplanname = document.getElementById('planname1').value
-      let params = {userid: this.account, furiganase: this.createItems.furiganase, furiganame: this.createItems.furiganame, kanjise: this.createItems.kanjise, kanjime: this.createItems.kanjime, password: this.password, planname: userplanname, 
-        soshikime: this.soshikime, address: this.address, tel: this.tel, tantobusho: this.tantobusho ,tantosha: this.tantosha, mail: this.mail, keiyakuhi: this.keiyakuhi, keiyakushiki: this.keiyakushiki, keiyakushuki: this.keiyakushuki}
-      this.$store.dispatch(ACTIONS.MYAPP_USER_CREATE, params)
-      this.routerPush('/Success')}
+      var checkFlag = true;
+      var mail = this.mail === '' ? null : this.mail;
+      var remail = this.remail === '' ? null : this.remail;
+      if(mail !== remail){
+        $('#userInsertMailErr').text('※入力されたメールアドレスとメールアドレス（確認）が不一致です！');
+        checkFlag = false;
+      } else {
+        $('#userInsertMailErr').text('');
+      }
+      var password = this.password === '' ? null : this.password;
+      var repsd = this.repsd === '' ? null : this.repsd;
+      if(password !== repsd){
+        $('#userInsertPasswordErr').text('※パスワードとパスワード再入力が不一致です！');
+        checkFlag = false;
+      } else {
+        $('#userInsertPasswordErr').text('');
+      }
+      if(checkFlag){
+        let params = {
+          userid: $('#userCreateUserId').val(), 
+          name: $('#userCreateName').val(), 
+          password: $('#userCreatePassword').val(), 
+          planname: $('#userCreatePlanname').val(), 
+          soshikime: $('#userCreateSoshikime').val(), 
+          address: $('#userCreateAddress').val(), 
+          tel: $('#userCreateTel').val(), 
+          tantobusho: $('#userCreateTantobusho').val(), 
+          tantosha: $('#userCreateTantosha').val(), 
+          mail: $('#userCreateMail').val(), 
+          keiyakuhi: $('#userCreateKeiyakuhi').val(), 
+          keiyakushiki: $('#userCreateKeiyakushiki').val(), 
+          keiyakushuki: $('#userCreateKeiyakushuki').val(),
+        }
+        $.ajax({
+          //url: 'http://localhost:8080/myapp-backend/api/userCreate',
+          url: 'http://203.189.97.178:8080/myapp-backend/api/userCreate',
+          type: 'POST',
+          context: this,
+          data: JSON.stringify(params),
+          processData: false,
+          contentType : 'application/json;charset=UTF-8',
+          success: function () {
+            this.routerPush('/UserKanri')
+          }
+        });
+      }
     }
   }
 }
